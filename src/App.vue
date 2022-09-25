@@ -1,5 +1,12 @@
-<script setup></script>
+<!-- <script setup>
+import router from './router'
+
+function back() {
+  router.go(-1)
+}
+</script> -->
 
 <template>
-  <a></a>
+  <!-- <button @click="back">Back</button> -->
+  <router-view />
 </template>
