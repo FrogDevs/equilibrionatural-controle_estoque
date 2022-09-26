@@ -3,13 +3,12 @@ import Singin from '../views/Singin.vue'
 import Stores from '../views/Stores.vue'
 import Home from '../views/Home.vue'
 import Registration from '../views/Registration.vue'
-import Search from '../views/products/Search.vue'
 import Details from '../views/products/Details.vue'
 import NotFound from '../views/404.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/singin', // mudar dps
     name: 'Singin',
     component: Singin
   },
@@ -19,7 +18,7 @@ const routes = [
     component: Stores
   },
   {
-    path: '/home',
+    path: '/', // mudar dps
     name: 'Home',
     component: Home
   },
@@ -27,11 +26,6 @@ const routes = [
     path: '/registration',
     name: 'Registration',
     component: Registration
-  },
-  {
-    path: '/search',
-    name: 'Search',
-    component: Search
   },
   {
     path: '/products/:id',
