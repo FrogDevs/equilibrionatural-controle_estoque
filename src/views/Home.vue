@@ -20,6 +20,12 @@
     <section>
       <!-- list -->
       <div class="flex py-3.5 px-4 gap-2">
+        <p class="font-medium">Alimentícios</p>
+      </div>
+      <div class="flex py-3.5 px-4 gap-2">
+        <p class="font-medium">Beleza</p>
+      </div>
+      <div class="flex py-3.5 px-4 gap-2">
         <p class="font-medium">Óleos essenciais</p>
       </div>
       <div class="flex py-3.5 px-4 gap-2">
@@ -27,12 +33,6 @@
       </div>
       <div class="flex py-3.5 px-4 gap-2">
         <p class="font-medium">Vida & Saúde</p>
-      </div>
-      <div class="flex py-3.5 px-4 gap-2">
-        <p class="font-medium">Beleza</p>
-      </div>
-      <div class="flex py-3.5 px-4 gap-2">
-        <p class="font-medium">Alimentícios</p>
       </div>
     </section>
     <!-- divider -->

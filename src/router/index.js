@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Singin from '../views/Singin.vue'
 import Stores from '../views/Stores.vue'
 import Home from '../views/Home.vue'
 import Registration from '../views/Registration.vue'
@@ -8,17 +7,12 @@ import NotFound from '../views/404.vue'
 
 const routes = [
   {
-    path: '/singin', // mudar dps
-    name: 'Singin',
-    component: Singin
-  },
-  {
-    path: '/stores',
+    path: '/',
     name: 'Stores',
     component: Stores
   },
   {
-    path: '/', // mudar dps
+    path: '/home',
     name: 'Home',
     component: Home
   },
