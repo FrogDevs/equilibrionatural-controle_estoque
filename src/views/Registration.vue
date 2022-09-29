@@ -33,18 +33,13 @@
       </div>
       <div class="flex flex-col w-full">
         <div
-          class="flex flex-row items-center justify-between h-14 py-2 px-4 rounded-t border-b border-solid border-zinc-900 bg-slate-200"
+          class="flex flex-row items-center justify-between py-2 px-4 rounded-t border-b border-solid border-zinc-900 bg-slate-200"
         >
-          <div class="flex flex-col w-full">
-            <p class="font-normal text-xs border-zinc-900">Peso</p>
-            <select class="font-normal bg-transparent">
-              <option value="" selected disabled hidden></option>
-              <option value="kg">Kg</option>
-              <option value="kg">mG</option>
-              <option value="ml">mL</option>
-              <option value="null">Não pesável</option>
-            </select>
+          <div class="flex flex-col">
+            <p class="font-normal text-xs border-zinc-900">Quantidade</p>
+            <p class="font-normal">Input</p>
           </div>
+          <i class="material-symbols-rounded">cancel</i>
         </div>
       </div>
       <div class="flex flex-col w-full">
@@ -105,7 +100,9 @@
   </main>
   <footer class="fixed w-full bottom-0">
     <!-- navigation bar -->
-    <nav class="flex flex-col bg-slate-100">
+    <nav
+      class="flex flex-col bg-slate-100 shadow-sm md:px-48 lg:px-80 xl:px-96"
+    >
       <div class="flex w-full">
         <div class="flex flex-col items-center w-2/4 pt-4 pb-3 gap-2">
           <i class="material-symbols-rounded">home</i>
