@@ -1,11 +1,12 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 // Ver detalhes e editar
-const props = defineProps({
-  id: {
-    type: Number,
-    default: 0
-  }
-})
+// const props = defineProps({
+//   id: {
+//     type: Number,
+//     default: 0
+//   }
+// })
 </script>
 
 <template>
