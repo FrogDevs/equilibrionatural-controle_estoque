@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 // Ver detalhes e editar
 // const props = defineProps({
