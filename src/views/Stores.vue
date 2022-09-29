@@ -1,7 +1,7 @@
 <!-- escolher lojas -->
 <template>
   <main class="flex flex-col items-center p-6">
-    <h1 class="text-xl">Selecione a unidade:</h1>
+    <h1 class="text-xl">Selecione a unidade</h1>
     <div
       class="flex flex-col w-full mt-6 rounded-xl border border-solid border-slate-700"
     >

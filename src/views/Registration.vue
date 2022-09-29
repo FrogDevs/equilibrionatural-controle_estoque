@@ -39,6 +39,7 @@
             <select class="font-normal bg-transparent">
               <option value="" selected disabled hidden></option>
               <option value="kg">Kg</option>
+              <option value="kg">mG</option>
               <option value="ml">mL</option>
               <option value="null">Não pesável</option>
             </select>
