@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <!-- cadastrar produto -->
 <template>
   <header class="fixed w-full top-0">
