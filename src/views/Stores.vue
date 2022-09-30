@@ -1,29 +1,17 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <!-- escolher lojas -->
+<script setup>
+import TheCard from '../components/TheCard.vue'
+</script>
+
 <template>
   <main class="flex flex-col items-center h-full p-6">
     <h1 class="text-xl">Selecione a unidade</h1>
     <div
       class="flex flex-col pb-6 md:flex-row md:h-full md:gap-6 md:items-center"
     >
-      <div
-        class="flex flex-col w-full sm:w-80 md:h-80 mt-6 rounded-xl border border-solid border-slate-700"
-      >
-        <div class="w-full h-44 rounded-t-xl bg-blue-400"></div>
-        <div class="flex flex-col w-full p-5 rounded-b-xl gap-5">
-          <h1 class="text-2xl">Rua imberé, 373</h1>
-          <p class="text-sm">Unidade 1</p>
-        </div>
-      </div>
-      <div
-        class="flex flex-col w-full sm:w-80 md:h-80 mt-6 rounded-xl border border-solid border-slate-700"
-      >
-        <div class="w-full h-44 rounded-t-xl bg-blue-400"></div>
-        <div class="flex flex-col w-full p-5 rounded-b-xl gap-5">
-          <h1 class="text-2xl">Av. Taquandava, 1203</h1>
-          <p class="text-sm">Unidade 2</p>
-        </div>
-      </div>
+      <TheCard />
+      <TheCard />
     </div>
   </main>
 </template>

@@ -1,11 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<!-- cadastrar produto -->
+<script setup>
+import NavigationBar from '../components/NavigationBar.vue'
+import ToolBar from '../components/ToolBar.vue'
+import TheButton from '../components/TheButton.vue'
+</script>
 <template>
   <header class="fixed w-full top-0">
-    <!-- toolbar -->
-    <nav class="flex justify-between py-5 px-4 bg-slate-100">
-      <i class="material-symbols-rounded">arrow_back</i>
-    </nav>
+    <ToolBar />
   </header>
   <main class="flex flex-col w-full h-full overflow-y-scroll my-20">
     <form class="flex flex-col items-center px-4 gap-4">
@@ -93,27 +94,10 @@
         </div>
       </div>
       <!-- prevent default -->
-      <button class="flex justify-center w-28 py-2 rounded-full bg-indigo-600">
-        <p class="text-normal text-sm text-white">Salvar</p>
-      </button>
+      <TheButton />
     </form>
   </main>
   <footer class="fixed w-full bottom-0">
-    <!-- navigation bar -->
-    <nav
-      class="flex flex-col bg-slate-100 shadow-sm md:px-48 lg:px-80 xl:px-96"
-    >
-      <div class="flex w-full">
-        <div class="flex flex-col items-center w-2/4 pt-4 pb-3 gap-2">
-          <i class="material-symbols-rounded">home</i>
-          <p class="font-medium text-sm">Home</p>
-        </div>
-        <div class="flex flex-col items-center w-2/4 pt-4 pb-3 gap-2">
-          <i class="material-symbols-rounded">add</i>
-          <p class="font-medium text-sm">Cadastrar</p>
-        </div>
-      </div>
-      <div class="w-full h-4"></div>
-    </nav>
+    <NavigationBar />
   </footer>
 </template>

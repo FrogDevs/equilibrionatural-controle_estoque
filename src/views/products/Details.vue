@@ -1,5 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import TheButton from '../../components/TheButton.vue'
+import TheDivider from '../../components/TheDivider.vue'
 // Ver detalhes e editar
 // const props = defineProps({
 //   id: {
@@ -17,9 +19,7 @@
     </div>
     <section class="flex flex-col w-full p-5 gap-5">
       <h1 class="text-2xl">Nome</h1>
-      <div class="flex flex-col">
-        <hr class="my-2" />
-      </div>
+      <TheDivider />
       <div class="flex flex-col gap-3.5">
         <div class="flex flex-col gap-2">
           <p class="font-medium">Quantidade:</p>
@@ -44,12 +44,8 @@
       </div>
     </section>
     <div class="flex gap-2 my-2">
-      <button class="flex justify-center w-28 py-2 rounded-full bg-indigo-600">
-        <p class="text-normal text-sm text-white">Editar</p>
-      </button>
-      <button class="flex justify-center w-28 py-2 rounded-full bg-indigo-600">
-        <p class="text-normal text-sm text-white">Excluir</p>
-      </button>
+      <TheButton />
+      <TheButton />
     </div>
   </main>
 </template>
