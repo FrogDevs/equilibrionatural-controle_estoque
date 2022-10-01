@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex flex-col w-full sm:w-80 md:h-80 mt-6 rounded-xl border border-solid border-neutral-300"
+    class="mt-6 flex w-full flex-col rounded-xl border border-solid border-neutral-300 sm:w-80 md:h-80"
   >
-    <div class="w-full h-44 rounded-t-xl bg-blue-400"></div>
-    <div class="flex flex-col w-full p-5 rounded-b-xl gap-5">
+    <div class="h-44 w-full rounded-t-xl bg-blue-400"></div>
+    <div class="flex w-full flex-col gap-5 rounded-b-xl p-5">
       <h1 class="text-2xl">Av. Taquandava, 1203</h1>
       <p class="text-sm">Unidade 2</p>
     </div>

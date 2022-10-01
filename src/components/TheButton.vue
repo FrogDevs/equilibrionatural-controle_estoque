@@ -1,5 +1,5 @@
 <template>
-  <button class="flex justify-center w-28 py-2 rounded-full bg-green-900">
+  <button class="flex w-28 justify-center rounded-full bg-green-900 py-2">
     <p class="text-normal text-sm text-white">Excluir</p>
   </button>
 </template>

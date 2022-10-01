@@ -7,11 +7,11 @@ import TextField from '../components/TextField.vue'
 import TheDropdown from '../components/TheDropdown.vue'
 </script>
 <template>
-  <header class="fixed w-full top-0">
+  <header class="fixed top-0 w-full">
     <ToolBar />
   </header>
-  <main class="flex flex-col w-full pt-20 pb-28">
-    <form class="flex flex-col items-center px-4 gap-4">
+  <main class="flex w-full flex-col pt-20 pb-28">
+    <form class="flex flex-col items-center gap-4 px-4">
       <TextField />
       <TextField />
       <TextField />
@@ -22,7 +22,7 @@ import TheDropdown from '../components/TheDropdown.vue'
       <TheButton />
     </form>
   </main>
-  <footer class="fixed w-full bottom-0">
+  <footer class="fixed bottom-0 w-full">
     <NavigationBar />
   </footer>
 </template>

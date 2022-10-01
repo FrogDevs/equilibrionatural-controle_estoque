@@ -15,7 +15,7 @@ import TheDivider from '../components/TheDivider.vue'
   </header>
   <main>
     <TheDivider />
-    <section class="flex flex-col px-2 gap-2">
+    <section class="flex flex-col gap-2 px-2">
       <TheList />
       <!-- <div class="flex py-3.5 px-4 gap-2 shadow-sm rounded-xl">
         <p class="font-medium">Beleza</p>
@@ -32,7 +32,7 @@ import TheDivider from '../components/TheDivider.vue'
     </section>
     <TheDivider />
   </main>
-  <footer class="fixed w-full bottom-0">
+  <footer class="fixed bottom-0 w-full">
     <NavigationBar />
   </footer>
 </template>
