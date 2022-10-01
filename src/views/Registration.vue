@@ -10,7 +10,7 @@ import TheDropdown from '../components/TheDropdown.vue'
   <header class="fixed w-full top-0">
     <ToolBar />
   </header>
-  <main class="flex flex-col w-full h-full overflow-y-scroll my-20">
+  <main class="flex flex-col w-full pt-20 pb-28">
     <form class="flex flex-col items-center px-4 gap-4">
       <TextField />
       <TextField />
