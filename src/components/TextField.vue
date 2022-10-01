@@ -1,7 +1,7 @@
 <template>
   <label class="flex flex-col w-full">
     <div
-      class="flex flex-row items-center justify-between py-2 px-4 rounded-t border-b border-solid border-amber-800 bg-stone-100"
+      class="flex flex-row items-center justify-between py-2 px-4 rounded-t border-b border-solid border-amber-800 bg-neutral-100"
     >
       <div class="flex flex-col w-full">
         <p class="font-normal text-xs text-amber-700">Nome do produto</p>
