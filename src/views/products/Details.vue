@@ -14,7 +14,7 @@ import TheDivider from '../../components/TheDivider.vue'
   <!-- <p>O id é {{ props.id }}</p> -->
   <main class="flex flex-col items-center pb-5">
     <div class="relative flex flex-col w-full h-48">
-      <i class="material-symbols-rounded mt-5 ml-4 z-10 text-white">close</i>
+      <i class="material-symbols-rounded mt-5 ml-4 z-10">close</i>
       <div class="absolute w-full h-full bg-blue-400"></div>
     </div>
     <section class="flex flex-col w-full p-5 gap-5">
