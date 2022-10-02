@@ -1,15 +1,46 @@
+<script setup>
+const props = defineProps({
+  home: {
+    type: Boolean,
+    default: false
+  },
+  registration: {
+    type: Boolean,
+    default: false
+  }
+})
+</script>
 <template>
-  <nav class="flex flex-col bg-green-100 shadow-sm md:px-48 lg:px-80 xl:px-96">
-    <div class="flex w-full">
-      <div class="flex w-2/4 flex-col items-center gap-2 pt-4 pb-3">
-        <i class="material-symbols-rounded text-neutral-700">home</i>
-        <p class="text-sm font-medium text-neutral-700">Home</p>
-      </div>
-      <div class="flex w-2/4 flex-col items-center gap-2 pt-4 pb-3">
-        <i class="material-symbols-rounded text-neutral-700">add</i>
-        <p class="text-sm font-medium text-neutral-700">Cadastrar</p>
-      </div>
+  <nav class="relative flex flex-col bg-green-100 shadow-sm">
+    <div class="flex w-full justify-center">
+      <router-link
+        class="flex flex-col items-center justify-end gap-1 px-5 pt-3 pb-4 focus:outline-none"
+        to="/home"
+      >
+        <div
+          class="absolute top-0 h-full w-24 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
+        ></div>
+        <i
+          :class="props.home ? 'bg-green-300' : ''"
+          class="material-symbols-rounded z-10 rounded-full py-1 px-4 text-neutral-700 hover:cursor-pointer"
+          >home
+        </i>
+        <p class="z-10 text-sm font-medium text-neutral-700">Home</p>
+      </router-link>
+      <router-link
+        class="flex flex-col items-center justify-end gap-1 px-5 pt-3 pb-4 focus:outline-none"
+        to="/registration"
+      >
+        <div
+          class="absolute top-0 h-full w-24 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
+        ></div>
+        <i
+          :class="props.registration ? 'bg-green-300' : ''"
+          class="material-symbols-rounded z-10 rounded-full py-1 px-4 text-neutral-700 hover:cursor-pointer"
+          >add
+        </i>
+        <p class="z-10 text-sm font-medium text-neutral-700">Cadastrar</p>
+      </router-link>
     </div>
-    <div class="h-4 w-full"></div>
   </nav>
 </template>

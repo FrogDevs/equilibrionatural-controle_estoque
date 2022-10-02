@@ -1,11 +1,17 @@
 <template>
-  <label class="flex w-full flex-col">
+  <label class="relative flex w-full flex-col">
     <div
-      class="flex h-14 flex-row items-center justify-between rounded-t border-b border-solid border-amber-800 bg-stone-100 py-2 px-4"
+      class="flex h-14 flex-row items-center justify-between rounded border border-solid border-amber-700 py-2 px-4"
     >
       <div class="flex w-full flex-col">
-        <p class="text-xs font-normal text-amber-700">Categoria</p>
-        <select class="bg-transparent font-normal">
+        <div
+          class="absolute top-[-0.5rem] flex items-center justify-center bg-white px-1"
+        >
+          <p class="text-xs font-normal text-amber-700">Categoria</p>
+        </div>
+        <select
+          class="bg-transparent font-normal text-amber-900 focus:outline-none"
+        >
           <option value="" selected disabled hidden></option>
           <option value="alimenticio">Alimentícios</option>
           <option value="beleza">Beleza</option>

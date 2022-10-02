@@ -7,22 +7,23 @@ import TextField from '../components/TextField.vue'
 import TheDropdown from '../components/TheDropdown.vue'
 </script>
 <template>
-  <header class="fixed top-0 w-full">
+  <header class="fixed top-0 z-10 w-full">
     <ToolBar />
   </header>
-  <main class="flex w-full flex-col pt-20 pb-28">
+  <main class="flex w-full flex-col pt-20 pb-24">
     <form class="flex flex-col items-center gap-4 px-4">
-      <TextField />
-      <TextField />
-      <TextField />
-      <TextField />
+      <TextField title="Nome" input-type="text" />
+      <TextField title="Quantidade" input-type="number" />
       <TheDropdown />
-      <TextField />
+      <TextField title="Preço" input-type="number" />
+      <TextField title="Peso" input-type="text" />
+      <TextField title="Validade" />
+      <TextField title="Imagem" input-type="file" />
       <!-- prevent default -->
-      <TheButton />
+      <TheButton title="Salvar" />
     </form>
   </main>
   <footer class="fixed bottom-0 w-full">
-    <NavigationBar />
+    <NavigationBar registration="true" />
   </footer>
 </template>

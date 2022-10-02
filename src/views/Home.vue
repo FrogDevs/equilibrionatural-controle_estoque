@@ -14,25 +14,17 @@ import TheDivider from '../components/TheDivider.vue'
     <ToolBar />
   </header>
   <main>
-    <TheDivider />
+    <TheDivider subtitle="Categorias" />
     <section class="flex flex-col gap-2 px-2">
-      <TheList />
-      <!-- <div class="flex py-3.5 px-4 gap-2 shadow-sm rounded-xl">
-        <p class="font-medium">Beleza</p>
-      </div>
-      <div class="flex py-3.5 px-4 gap-2 shadow-sm rounded-xl">
-        <p class="font-medium">Óleos essenciais</p>
-      </div>
-      <div class="flex py-3.5 px-4 gap-2 shadow-sm rounded-xl">
-        <p class="font-medium">Suplementos</p>
-      </div>
-      <div class="flex py-3.5 px-4 gap-2 shadow-sm rounded-xl">
-        <p class="font-medium">Vida & Saúde</p>
-      </div> -->
+      <TheList title="Alimentícios" />
+      <TheList title="Beleza" />
+      <TheList title="Óleos essenciais" />
+      <TheList title="Suplementos" />
+      <TheList title="Vida & Saúde" />
     </section>
     <TheDivider />
   </main>
   <footer class="fixed bottom-0 w-full">
-    <NavigationBar />
+    <NavigationBar home="true" />
   </footer>
 </template>

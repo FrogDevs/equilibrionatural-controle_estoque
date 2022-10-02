@@ -1,5 +1,4 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<!-- escolher lojas -->
 <script setup>
 import TheCard from '../components/TheCard.vue'
 </script>
@@ -10,8 +9,18 @@ import TheCard from '../components/TheCard.vue'
     <div
       class="flex flex-col pb-6 md:h-full md:flex-row md:items-center md:gap-6"
     >
-      <TheCard />
-      <TheCard />
+      <TheCard
+        link="/home"
+        bg="bg-store1 bg-cover bg-center bg-no-repeat"
+        title="Rua imberé, 373"
+        subtitle="Unidade 1"
+      />
+      <TheCard
+        link="/home"
+        bg="bg-store2 bg-cover bg-center bg-no-repeat"
+        title="Av. Taquandava, 1203"
+        subtitle="Unidade 2"
+      />
     </div>
   </main>
 </template>

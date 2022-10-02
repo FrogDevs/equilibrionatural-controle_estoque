@@ -13,16 +13,21 @@ import TheCard from '../../components/TheCard.vue'
 
 <template>
   <!-- <p>O id é {{ props.id }}</p> -->
-  <header class="fixed w-full top-0 shadow-sm">
+  <header class="fixed top-0 w-full shadow-sm">
     <ToolBar />
   </header>
-  <main class="flex flex-col w-full overflow-y-scroll mt-20 my-6 gap-6">
+  <main class="my-6 mt-20 flex w-full flex-col gap-6 overflow-y-scroll">
     <section class="flex flex-col">
-      <h1 class="font-extrabold text-4xl ml-6 text-neutral-800">A</h1>
+      <h1 class="ml-6 text-4xl font-extrabold text-neutral-800">A</h1>
       <div
-        class="flex flex-col items-center pt-3 px-6 gap-6 md:grid md:gap-0 auto-grid"
+        class="auto-grid flex flex-col items-center gap-6 px-6 pt-3 md:grid md:gap-0"
       >
-        <TheCard />
+        <TheCard
+          link="/"
+          bg="bg-blue-400"
+          title="Produto"
+          subtitle="Quantidade: 20"
+        />
       </div>
     </section>
   </main>
