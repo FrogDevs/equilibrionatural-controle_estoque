@@ -32,3 +32,10 @@ import TheCard from '../../components/TheCard.vue'
     </section>
   </main>
 </template>
+
+<style>
+.auto-grid {
+  grid-template-columns: repeat(auto-fill, minmax(16.875rem, 1fr));
+  grid-auto-rows: max-content;
+}
+</style>
