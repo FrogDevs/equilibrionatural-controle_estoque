@@ -15,7 +15,7 @@ import TheDivider from '../../components/TheDivider.vue'
   <main class="flex flex-col items-center pb-5">
     <div class="relative flex h-48 w-full flex-col">
       <i
-        class="material-symbols-rounded z-10 m-4 max-w-fit rounded-full p-1 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
+        class="material-symbols-rounded z-10 m-4 max-w-fit rounded-full p-2 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
         >close</i
       >
       <div class="absolute h-full w-full bg-blue-400"></div>

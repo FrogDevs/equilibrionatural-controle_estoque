@@ -15,17 +15,30 @@ const props = defineProps({
     <div class="flex w-full justify-center">
       <router-link
         class="flex flex-col items-center justify-end gap-1 px-5 pt-3 pb-4 focus:outline-none"
+        to="/"
+      >
+        <div
+          class="absolute top-0 h-full w-24 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
+        ></div>
+        <i
+          class="material-symbols-rounded z-10 rounded-full py-1 px-4 text-neutral-700 hover:cursor-pointer"
+          >storefront
+        </i>
+        <p class="z-10 text-sm font-medium text-neutral-700">Lojas</p>
+      </router-link>
+      <router-link
+        class="flex flex-col items-center justify-end gap-1 px-5 pt-3 pb-4 focus:outline-none"
         to="/home"
       >
         <div
           class="absolute top-0 h-full w-24 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
         ></div>
         <i
-          :class="props.home ? 'bg-green-300' : ''"
+          :class="props.home ? 'bg-green-300 text-amber-800' : ''"
           class="material-symbols-rounded z-10 rounded-full py-1 px-4 text-neutral-700 hover:cursor-pointer"
           >home
         </i>
-        <p class="z-10 text-sm font-medium text-neutral-700">Home</p>
+        <p class="z-10 text-sm font-medium text-neutral-700">Início</p>
       </router-link>
       <router-link
         class="flex flex-col items-center justify-end gap-1 px-5 pt-3 pb-4 focus:outline-none"
@@ -35,7 +48,7 @@ const props = defineProps({
           class="absolute top-0 h-full w-24 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
         ></div>
         <i
-          :class="props.registration ? 'bg-green-300' : ''"
+          :class="props.registration ? 'bg-green-300 text-amber-800' : ''"
           class="material-symbols-rounded z-10 rounded-full py-1 px-4 text-neutral-700 hover:cursor-pointer"
           >add
         </i>

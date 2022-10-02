@@ -26,8 +26,8 @@ const props = defineProps({
   >
     <div :class="props.bg" class="h-44 w-full rounded-t-xl"></div>
     <div class="flex w-full flex-col gap-5 rounded-b-xl p-5">
-      <h1 class="text-2xl">{{ props.title }}</h1>
-      <p class="text-sm">{{ props.subtitle }}</p>
+      <h1 class="text-2xl text-amber-900">{{ props.title }}</h1>
+      <p class="text-sm text-amber-800">{{ props.subtitle }}</p>
     </div>
   </router-link>
 </template>

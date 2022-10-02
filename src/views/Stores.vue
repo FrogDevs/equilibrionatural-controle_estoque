@@ -4,10 +4,10 @@ import TheCard from '../components/TheCard.vue'
 </script>
 
 <template>
-  <main class="flex h-full flex-col items-center p-6">
+  <main class="flex flex-col items-center p-6 md:h-full">
     <h1 class="text-xl">Selecione a unidade</h1>
     <div
-      class="flex flex-col pb-6 md:h-full md:flex-row md:items-center md:gap-6"
+      class="flex h-full flex-col justify-center pb-6 md:flex-row md:items-center md:gap-6"
     >
       <TheCard
         link="/home"

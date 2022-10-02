@@ -18,7 +18,7 @@ import TheCard from '../../components/TheCard.vue'
   </header>
   <main class="my-6 mt-20 flex w-full flex-col gap-6 overflow-y-scroll">
     <section class="flex flex-col">
-      <h1 class="ml-6 text-4xl font-extrabold text-neutral-800">A</h1>
+      <h1 class="ml-6 text-4xl font-extrabold text-amber-800">A</h1>
       <div
         class="auto-grid flex flex-col items-center gap-6 px-6 pt-3 md:grid md:gap-0"
       >

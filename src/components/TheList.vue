@@ -10,6 +10,6 @@ const props = defineProps({
   <div
     class="flex gap-2 rounded-xl py-3.5 px-4 shadow-sm transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 active:bg-neutral-200"
   >
-    <p class="font-medium text-neutral-800">{{ props.title }}</p>
+    <p class="font-medium text-amber-800">{{ props.title }}</p>
   </div>
 </template>
