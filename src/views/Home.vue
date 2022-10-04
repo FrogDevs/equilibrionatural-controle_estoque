@@ -25,6 +25,6 @@ import TheDivider from '../components/TheDivider.vue'
     <TheDivider />
   </main>
   <footer class="fixed bottom-0 w-full">
-    <NavigationBar home="true" />
+    <NavigationBar :home="true" />
   </footer>
 </template>

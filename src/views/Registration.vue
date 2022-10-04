@@ -24,6 +24,6 @@ import TheDropdown from '../components/TheDropdown.vue'
     </form>
   </main>
   <footer class="fixed bottom-0 w-full">
-    <NavigationBar registration="true" />
+    <NavigationBar :registration="true" />
   </footer>
 </template>
