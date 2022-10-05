@@ -1,6 +1,5 @@
 <script setup>
-import { ref } from 'vue'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
   title: {
@@ -13,15 +12,14 @@ const props = defineProps({
   }
 })
 
+const input = ref(null)
 const inputFocus = ref(false)
 const inputError = ref(false)
 const titleClass = ref('text-neutral-400')
 
 // Setters
 function clear() {
-  const input = document.querySelector('input')
-  input.value = ''
-  inputError.value = true
+  input.value.value = ''
 }
 
 function setFocus() {
@@ -36,8 +34,7 @@ function setFocus() {
 }
 
 function setError() {
-  const input = document.querySelector('input')
-  if (!input.value) {
+  if (!input.value.value) {
     inputError.value = true
     titleClass.value = 'text-red-800'
   } else {
@@ -73,6 +70,7 @@ const watchInput = computed(() => {
           </p>
         </div>
         <input
+          ref="input"
           class="w-full bg-transparent text-amber-700 focus:outline-none"
           :type="props.inputError"
           required
