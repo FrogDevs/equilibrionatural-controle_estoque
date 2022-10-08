@@ -5,7 +5,7 @@ import TheCard from '../components/TheCard.vue'
 
 <template>
   <main class="flex flex-col items-center p-6 md:h-full">
-    <h1 class="text-xl">Selecione a unidade</h1>
+    <h1 class="text-xl text-amber-800">Selecione a unidade</h1>
     <div
       class="flex h-full flex-col justify-center pb-6 md:flex-row md:items-center md:gap-6"
     >

@@ -9,6 +9,10 @@ const props = defineProps({
   inputError: {
     type: String,
     default: 'text'
+  },
+  inputType: {
+    type: String,
+    default: 'text'
   }
 })
 
@@ -65,28 +69,30 @@ const watchInput = computed(() => {
         <div
           class="absolute top-[-0.5rem] flex items-center justify-center bg-white px-1"
         >
-          <p :class="titleClass" class="text-xs font-normal">
+          <p :class="titleClass" class="text-xs">
             {{ props.title }}
           </p>
         </div>
         <input
           ref="input"
           class="w-full bg-transparent text-amber-700 focus:outline-none"
-          :type="props.inputError"
+          :type="props.inputType"
           required
           @focusin="setFocus"
           @focusout="setFocus"
           @input="setError"
         />
       </div>
-      <i
-        v-if="!inputError"
-        class="material-symbols-rounded text-amber-700 hover:cursor-pointer"
-        @click="clear"
-      >
-        cancel
-      </i>
-      <i v-else class="material-symbols-rounded text-red-800">error</i>
+      <div v-if="props.inputType === 'text'">
+        <i
+          v-if="!inputError"
+          class="material-symbols-rounded text-amber-700 hover:cursor-pointer"
+          @click="clear"
+        >
+          cancel
+        </i>
+        <i v-else class="material-symbols-rounded text-red-800">error</i>
+      </div>
     </div>
   </label>
 </template>

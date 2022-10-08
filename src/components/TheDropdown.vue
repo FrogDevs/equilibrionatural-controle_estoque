@@ -22,17 +22,16 @@ function setFocus() {
         >
           <p
             :class="inputFocus ? 'text-amber-700' : 'text-neutral-400'"
-            class="text-xs font-normal"
+            class="text-xs"
           >
             Categoria
           </p>
         </div>
         <select
-          class="bg-transparent font-normal text-amber-700 focus:outline-none"
+          class="bg-transparent text-amber-700 focus:outline-none"
           @focusin="setFocus"
           @focusout="setFocus"
         >
-          <option value="" selected disabled hidden></option>
           <option value="alimenticio">Alimentícios</option>
           <option value="beleza">Beleza</option>
           <option value="oleos">Óleos essenciais & Saúde</option>
