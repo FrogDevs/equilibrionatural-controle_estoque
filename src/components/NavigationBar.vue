@@ -18,7 +18,7 @@ const props = defineProps({
         to="/"
       >
         <div
-          class="absolute top-0 h-full w-2/5 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
+          class="absolute top-0 h-full w-[9rem] rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
         ></div>
         <i
           class="material-symbols-rounded z-10 rounded-full py-1 px-5 text-neutral-700 hover:cursor-pointer"
@@ -31,7 +31,7 @@ const props = defineProps({
         to="/home"
       >
         <div
-          class="absolute top-0 h-full w-2/5 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
+          class="absolute top-0 h-full w-[9rem] rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
         ></div>
         <i
           :class="props.home ? 'bg-green-300 text-amber-800' : ''"
@@ -45,7 +45,7 @@ const props = defineProps({
         to="/registration"
       >
         <div
-          class="absolute top-0 h-full w-2/5 rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
+          class="absolute top-0 h-full w-[9rem] rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
         ></div>
         <i
           :class="props.registration ? 'bg-green-300 text-amber-800' : ''"
