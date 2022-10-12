@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import Stores from '../views/Stores.vue'
 import Home from '../views/Home.vue'
 import Registration from '../views/Registration.vue'
@@ -23,7 +24,7 @@ const routes = [
     component: Registration
   },
   {
-    path: '/search/:id',
+    path: '/search/:category',
     name: 'Search',
     component: Search,
     props: true
@@ -32,7 +33,7 @@ const routes = [
     path: '/details/:id',
     name: 'Details',
     component: Details,
-    props: true
+    props: { id: String, product: Object }
   },
   // 404
   {

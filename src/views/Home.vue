@@ -6,10 +6,6 @@ import TheList from '../components/TheList.vue'
 import TheDivider from '../components/TheDivider.vue'
 </script>
 <template>
-  <!-- v-for -->
-  <!-- <router-link :to="{ name: 'Details', params: { id: 2 } }">
-    <p>Detalhes</p>
-  </router-link> -->
   <header>
     <ToolBar />
   </header>

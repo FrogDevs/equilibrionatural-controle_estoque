@@ -11,10 +11,10 @@ const props = defineProps({
 })
 </script>
 <template>
-  <nav class="relative flex flex-col bg-green-100 shadow-sm">
+  <nav class="relative flex flex-col bg-green-100 pt-3 pb-4">
     <div class="flex w-full justify-center">
       <router-link
-        class="flex w-[7.5rem] flex-col items-center justify-end gap-2 pt-4 pb-7 focus:outline-none"
+        class="flex w-[7.5rem] flex-col items-center justify-end gap-2 focus:outline-none"
         to="/"
       >
         <div
@@ -27,7 +27,7 @@ const props = defineProps({
         <p class="z-10 text-sm font-medium text-neutral-700">Lojas</p>
       </router-link>
       <router-link
-        class="flex w-[7.5rem] flex-col items-center justify-end gap-2 pt-4 pb-7 focus:outline-none"
+        class="flex w-[7.5rem] flex-col items-center justify-end gap-2 focus:outline-none"
         to="/home"
       >
         <div
@@ -41,7 +41,7 @@ const props = defineProps({
         <p class="z-10 text-sm font-medium text-neutral-700">Início</p>
       </router-link>
       <router-link
-        class="flex w-[7.5rem] flex-col items-center justify-end gap-2 pt-4 pb-7 focus:outline-none"
+        class="flex w-[7.5rem] flex-col items-center justify-end gap-2 focus:outline-none"
         to="/registration"
       >
         <div

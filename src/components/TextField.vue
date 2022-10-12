@@ -37,13 +37,16 @@ function setFocus() {
   }
 }
 
-function setError() {
+const emit = defineEmits(['input-value'])
+
+function emitOnTrue() {
   if (!input.value.value) {
     inputError.value = true
     titleClass.value = 'text-red-800'
   } else {
     inputError.value = false
     titleClass.value = 'text-amber-700'
+    emit('input-value', { value: input.value.value })
   }
 }
 
@@ -77,10 +80,9 @@ const watchInput = computed(() => {
           ref="input"
           class="w-full bg-transparent text-amber-700 focus:outline-none"
           :type="props.inputType"
-          required
           @focusin="setFocus"
           @focusout="setFocus"
-          @input="setError"
+          @input="emitOnTrue"
         />
       </div>
       <div v-if="props.inputType === 'text'">

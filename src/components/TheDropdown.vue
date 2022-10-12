@@ -7,6 +7,13 @@ const inputFocus = ref(false)
 function setFocus() {
   inputFocus.value = !inputFocus.value
 }
+
+const input = ref(null)
+
+const emit = defineEmits(['input-value'])
+function emitData() {
+  emit('input-value', { value: input.value.value })
+}
 </script>
 <template>
   <label class="relative flex w-full flex-col">
@@ -28,9 +35,11 @@ function setFocus() {
           </p>
         </div>
         <select
+          ref="input"
           class="bg-transparent text-amber-700 focus:outline-none"
           @focusin="setFocus"
           @focusout="setFocus"
+          @select="emitData"
         >
           <option value="alimenticio">Alimentícios</option>
           <option value="beleza">Beleza</option>
