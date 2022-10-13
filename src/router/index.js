@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import Stores from '../views/Stores.vue'
 import Home from '../views/Home.vue'
 import Registration from '../views/Registration.vue'
@@ -30,10 +29,10 @@ const routes = [
     props: true
   },
   {
-    path: '/details/:id',
+    path: '/details/:category/:id',
     name: 'Details',
     component: Details,
-    props: { id: String, product: Object }
+    props: true
   },
   // 404
   {

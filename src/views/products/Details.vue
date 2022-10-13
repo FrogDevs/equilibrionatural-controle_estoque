@@ -1,5 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { useProductStore } from '../../stores/ProductStore'
+import { computed } from 'vue'
 import TheButton from '../../components/TheButton.vue'
 import TheDivider from '../../components/TheDivider.vue'
 import router from '../../router'
@@ -8,32 +10,26 @@ function back() {
   router.go(-1)
 }
 
-// const props = defineProps({
-//   name: {
-//     type: String,
-//     default: ''
-//   },
-//   amount: {
-//     type: Number,
-//     default: 0
-//   },
-//   category: {
-//     type: String,
-//     default: null
-//   },
-//   price: {
-//     type: String,
-//     default: 'R$00,00'
-//   },
-//   weight: {
-//     type: String,
-//     default: ''
-//   },
-//   date: {
-//     type: String,
-//     default: ''
-//   }
-// })
+const props = defineProps({
+  category: {
+    type: String,
+    default: ''
+  },
+  id: {
+    type: String,
+    default: ''
+  }
+})
+
+const product = useProductStore()
+
+const piniaData = computed(() => {
+  if (props.category === 'Alimentícios') {
+    return product.alimenticios[props.id]
+  } else {
+    return null
+  }
+})
 </script>
 <template>
   <main class="flex flex-col items-center pb-5">
@@ -47,24 +43,34 @@ function back() {
       <div class="absolute h-full w-full bg-blue-400"></div>
     </div>
     <section class="flex w-full flex-col gap-5 p-5">
-      <h1 class="text-2xl text-neutral-800">props.name</h1>
+      <h1 class="text-2xl text-amber-800">
+        {{ piniaData.name }}
+      </h1>
       <TheDivider />
       <div class="flex flex-col gap-3.5">
         <div class="flex flex-col gap-2">
-          <p class="font-medium text-neutral-800">Quantidade:</p>
-          <p class="text-sm font-medium text-neutral-800">props.amount</p>
+          <p class="font-medium text-green-800">Quantidade:</p>
+          <p class="text-sm font-medium text-green-800">
+            {{ piniaData.amount }}
+          </p>
         </div>
         <div class="flex flex-col gap-2">
-          <p class="font-medium text-neutral-800">Peso:</p>
-          <p class="text-sm font-medium text-neutral-800">props.price</p>
+          <p class="font-medium text-green-800">Peso:</p>
+          <p class="text-sm font-medium text-green-800">
+            {{ piniaData.weight }}
+          </p>
         </div>
         <div class="flex flex-col gap-2">
-          <p class="font-medium text-neutral-800">Validade:</p>
-          <p class="text-sm font-medium text-neutral-800">props.weight</p>
+          <p class="font-medium text-green-800">Validade:</p>
+          <p class="text-sm font-medium text-green-800">
+            {{ piniaData.date }}
+          </p>
         </div>
         <div class="flex flex-col gap-2">
-          <p class="font-medium text-neutral-800">Preço:</p>
-          <p class="text-sm font-medium text-neutral-800">props.date</p>
+          <p class="font-medium text-green-800">Preço:</p>
+          <p class="text-sm font-medium text-green-800">
+            {{ piniaData.price }}
+          </p>
         </div>
       </div>
     </section>

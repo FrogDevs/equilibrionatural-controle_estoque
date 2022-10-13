@@ -14,7 +14,7 @@ const props = defineProps({
 
 const product = useProductStore()
 
-const postsOrder = computed(() => {
+const piniaData = computed(() => {
   if (props.category === 'Alimentícios') {
     return product.alimenticios
   } else {
@@ -33,9 +33,9 @@ const postsOrder = computed(() => {
         class="auto-grid flex flex-col items-center gap-6 px-6 pt-3 md:grid md:gap-0"
       >
         <TheCard
-          v-for="items in postsOrder"
+          v-for="items in piniaData"
           :key="items.id"
-          :link="`/details/${items.id}`"
+          :link="`/details/${props.category}/${items.id}`"
           bg="bg-blue-400"
           :title="items.name"
           :subtitle="`Quantidade: ${items.amount}`"
