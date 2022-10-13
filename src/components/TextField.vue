@@ -17,6 +17,8 @@ const props = defineProps({
 })
 
 const input = ref(null)
+const title = ref(null)
+const placeholder = ref(props.title)
 const inputFocus = ref(false)
 const inputError = ref(false)
 const titleClass = ref('text-neutral-400')
@@ -30,10 +32,14 @@ function setFocus() {
   inputFocus.value = !inputFocus.value
   if (inputFocus.value && !inputError.value) {
     titleClass.value = 'text-amber-700'
+    placeholder.value = ''
+    title.value = true
   } else if (inputError.value) {
     titleClass.value = 'text-red-700'
   } else {
     titleClass.value = 'text-neutral-400'
+    placeholder.value = props.title
+    title.value = false
   }
 }
 
@@ -72,29 +78,28 @@ const watchInput = computed(() => {
         <div
           class="absolute top-[-0.5rem] flex items-center justify-center bg-white px-1"
         >
-          <p :class="titleClass" class="text-xs">
+          <p v-if="title" ref="title" :class="titleClass" class="text-xs">
             {{ props.title }}
           </p>
         </div>
         <input
           ref="input"
-          class="w-full bg-transparent text-amber-700 focus:outline-none"
+          class="w-full bg-transparent text-amber-700 placeholder:text-neutral-400 focus:outline-none"
+          :placeholder="placeholder"
           :type="props.inputType"
           @focusin="setFocus"
           @focusout="setFocus"
           @input="emitOnTrue"
         />
       </div>
-      <div v-if="props.inputType === 'text'">
-        <i
-          v-if="!inputError"
-          class="material-symbols-rounded text-amber-700 hover:cursor-pointer"
-          @click="clear"
-        >
-          cancel
-        </i>
-        <i v-else class="material-symbols-rounded text-red-800">error</i>
-      </div>
+      <i
+        v-if="!inputError"
+        class="material-symbols-rounded text-amber-700 hover:cursor-pointer"
+        @click="clear"
+      >
+        cancel
+      </i>
+      <i v-else class="material-symbols-rounded text-red-800">error</i>
     </div>
   </label>
 </template>
