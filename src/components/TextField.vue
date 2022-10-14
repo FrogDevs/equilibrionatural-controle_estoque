@@ -34,6 +34,8 @@ function setFocus() {
     titleClass.value = 'text-amber-700'
     placeholder.value = ''
     title.value = true
+  } else if (input.value.value) {
+    title.value = true
   } else if (inputError.value) {
     titleClass.value = 'text-red-700'
   } else {
@@ -52,7 +54,7 @@ function emitOnTrue() {
   } else {
     inputError.value = false
     titleClass.value = 'text-amber-700'
-    emit('input-value', { value: input.value.value })
+    emit('input-value', input.value.value)
   }
 }
 
@@ -93,13 +95,15 @@ const watchInput = computed(() => {
         />
       </div>
       <i
-        v-if="!inputError"
+        v-if="inputFocus && !inputError"
         class="material-symbols-rounded text-amber-700 hover:cursor-pointer"
         @click="clear"
       >
         cancel
       </i>
-      <i v-else class="material-symbols-rounded text-red-800">error</i>
+      <i v-else-if="inputError" class="material-symbols-rounded text-red-800">
+        error
+      </i>
     </div>
   </label>
 </template>
