@@ -38,7 +38,7 @@ const piniaData = computed(() => {
           :link="`/details/${props.category}/${items.id}`"
           bg="bg-blue-400"
           :title="items.name"
-          :subtitle="`Quantidade: ${items.amount}`"
+          :subtitle="`${items.amount} item(s) em estoque`"
         />
       </div>
     </section>
