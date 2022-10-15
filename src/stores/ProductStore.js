@@ -12,5 +12,10 @@ export const useProductStore = defineStore('productStore', {
         date: '04/04/2023'
       }
     ]
-  })
+  }),
+  actions: {
+    addToAlimenticios(product) {
+      this.alimenticios.push(product)
+    }
+  }
 })

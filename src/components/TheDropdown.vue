@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-
 const inputFocus = ref(false)
 
 // Setter
@@ -12,7 +11,7 @@ const input = ref(null)
 
 const emit = defineEmits(['input-value'])
 function emitData() {
-  emit('input-value', { value: input.value.value })
+  emit('input-value', input.value.value)
 }
 </script>
 <template>
@@ -39,9 +38,12 @@ function emitData() {
           class="bg-transparent text-amber-700 focus:outline-none"
           @focusin="setFocus"
           @focusout="setFocus"
-          @select="emitData"
+          @change="emitData"
         >
-          <option value="alimenticio">Alimentícios</option>
+          <option value="" selected disabled hidden>
+            Clique para escolher
+          </option>
+          <option value="alimenticios">Alimentícios</option>
           <option value="beleza">Beleza</option>
           <option value="oleos">Óleos essenciais & Saúde</option>
           <option value="suplementos">Suplementos</option>

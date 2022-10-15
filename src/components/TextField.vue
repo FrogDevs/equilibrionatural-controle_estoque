@@ -35,6 +35,7 @@ function setFocus() {
     placeholder.value = ''
     title.value = true
   } else if (input.value.value) {
+    titleClass.value = 'text-neutral-400'
     title.value = true
   } else if (inputError.value) {
     titleClass.value = 'text-red-700'

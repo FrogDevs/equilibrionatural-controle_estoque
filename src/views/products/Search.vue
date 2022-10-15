@@ -12,11 +12,11 @@ const props = defineProps({
   }
 })
 
-const product = useProductStore()
+const productStore = useProductStore()
 
 const piniaData = computed(() => {
   if (props.category === 'Alimentícios') {
-    return product.alimenticios
+    return productStore.alimenticios
   } else {
     return null
   }
