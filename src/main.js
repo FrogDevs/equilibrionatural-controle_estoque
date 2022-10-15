@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import './style.css'
 import App from './App.vue'
 
@@ -9,6 +10,7 @@ app.use(pinia)
 
 import router from './router'
 app.use(router)
+app.use(autoAnimatePlugin)
 app.mount('#app')
 
 // import { StatusBar } from '@capacitor/status-bar'
