@@ -7,10 +7,14 @@ import ToolBar from '../components/ToolBar.vue'
 import TheButton from '../components/TheButton.vue'
 import TextField from '../components/TextField.vue'
 import TheDropdown from '../components/TheDropdown.vue'
+import TheSnackBar from '../components/TheSnackBar.vue'
 
-// usar getter para pegar os id's
+const category = ref(null)
+const productStore = useProductStore()
+const itemSaved = ref(false)
+
 const datasForPinia = {
-  id: ref(1),
+  id: ref(null),
   name: ref(null),
   amount: ref(null),
   price: ref(null),
@@ -18,9 +22,6 @@ const datasForPinia = {
   date: ref(null),
   image: ref(null)
 }
-
-const category = ref(null)
-const productStore = useProductStore()
 
 function addName(value) {
   datasForPinia.name.value = value
@@ -50,11 +51,16 @@ function addimage(value) {
   datasForPinia.image.value = value
 }
 
-// limpar dados ao enviar
-const addItem = () => {
+function hideSnackBar() {
+  itemSaved.value = false
+}
+
+function addItem() {
   if (category.value === 'alimenticios') {
+    datasForPinia.id.value = productStore.alimenticios.length
     productStore.addToAlimenticios(datasForPinia)
-    console.log(productStore.alimenticios)
+    itemSaved.value = true
+    setTimeout(hideSnackBar, 3000)
   } else {
     return
   }
@@ -86,4 +92,5 @@ const addItem = () => {
   <footer class="fixed bottom-0 w-full">
     <NavigationBar :registration="true" />
   </footer>
+  <TheSnackBar v-if="itemSaved" v-auto-animate />
 </template>
