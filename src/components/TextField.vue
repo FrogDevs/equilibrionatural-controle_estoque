@@ -87,7 +87,7 @@ const watchInput = computed(() => {
         </div>
         <input
           ref="input"
-          class="w-full bg-transparent text-amber-700 placeholder:text-neutral-400 focus:outline-none"
+          class="w-full bg-transparent text-amber-700 file:hidden placeholder:text-neutral-400 focus:outline-none"
           :placeholder="placeholder"
           :type="props.inputType"
           @focusin="setFocus"

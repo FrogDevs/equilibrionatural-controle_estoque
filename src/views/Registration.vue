@@ -55,6 +55,7 @@ function hideSnackBar() {
   itemSaved.value = false
 }
 
+// clear data após enviar
 function addItem() {
   if (category.value === 'alimenticios') {
     datasForPinia.id.value = productStore.alimenticios.length

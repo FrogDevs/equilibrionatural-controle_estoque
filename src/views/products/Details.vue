@@ -1,9 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { computed, ref } from 'vue'
 import { useProductStore } from '../../stores/ProductStore'
-import { computed } from 'vue'
+import EditModal from '../../components/EditModal.vue'
 import TheButton from '../../components/TheButton.vue'
 import TheDivider from '../../components/TheDivider.vue'
+import TheDialogue from '../../components/TheDialogue.vue'
 import router from '../../router'
 
 function back() {
@@ -21,15 +23,26 @@ const props = defineProps({
   }
 })
 
-const product = useProductStore()
+const productStore = useProductStore()
 
 const piniaData = computed(() => {
   if (props.category === 'Alimentícios') {
-    return product.alimenticios[props.id]
+    return productStore.alimenticios[props.id]
   } else {
     return null
   }
 })
+
+const editModal = ref(false)
+const showDialogue = ref(false)
+
+function activeEdit() {
+  editModal.value = true
+}
+
+function activeDialogue() {
+  showDialogue.value = !showDialogue.value
+}
 </script>
 <template>
   <main class="flex flex-col items-center pb-5">
@@ -42,41 +55,47 @@ const piniaData = computed(() => {
       </i>
       <div class="absolute h-full w-full bg-blue-400"></div>
     </div>
-    <section class="flex w-full flex-col gap-5 p-5">
+    <section class="relative flex w-full flex-col gap-5 p-5">
+      <EditModal
+        v-if="editModal"
+        :id="Number(props.id)"
+        :key="0"
+        :category="props.category"
+        @close-edit="editModal = false"
+      />
+      <TheDialogue
+        v-if="showDialogue"
+        :id="Number(props.id)"
+        :key="0"
+        :category="props.category"
+        @cancel-delete="showDialogue = false"
+      />
       <h1 class="text-2xl text-amber-800">
         {{ piniaData.name }}
       </h1>
       <TheDivider />
       <div class="flex flex-col gap-3.5">
-        <div class="flex flex-col gap-2">
-          <p class="font-medium text-green-800">Quantidade:</p>
-          <p class="text-sm font-medium text-green-800">
-            {{ piniaData.amount }}
-          </p>
+        <div class="flex flex-col gap-1">
+          <p class="font-medium text-neutral-800">Quantidade:</p>
+          <p class="font-medium text-neutral-800">{{ piniaData.amount }}</p>
         </div>
-        <div class="flex flex-col gap-2">
-          <p class="font-medium text-green-800">Peso:</p>
-          <p class="text-sm font-medium text-green-800">
-            {{ piniaData.weight }}
-          </p>
+        <div class="flex flex-col gap-1">
+          <p class="font-medium text-neutral-800">Peso:</p>
+          <p class="font-medium text-neutral-800">{{ piniaData.weight }}</p>
         </div>
-        <div class="flex flex-col gap-2">
-          <p class="font-medium text-green-800">Validade:</p>
-          <p class="text-sm font-medium text-green-800">
-            {{ piniaData.date }}
-          </p>
+        <div class="flex flex-col gap-1">
+          <p class="font-medium text-neutral-800">Validade:</p>
+          <p class="font-medium text-neutral-800">{{ piniaData.date }}</p>
         </div>
-        <div class="flex flex-col gap-2">
-          <p class="font-medium text-green-800">Preço:</p>
-          <p class="text-sm font-medium text-green-800">
-            {{ piniaData.price }}
-          </p>
+        <div class="flex flex-col gap-1">
+          <p class="font-medium text-neutral-800">Preço:</p>
+          <p class="font-medium text-neutral-800">{{ piniaData.price }}</p>
         </div>
       </div>
     </section>
     <div class="my-2 flex gap-2">
-      <TheButton title="Editar" />
-      <TheButton title="Excluir" />
+      <TheButton title="Editar" @click="activeEdit" />
+      <TheButton title="Excluir" @click="activeDialogue" />
     </div>
   </main>
 </template>

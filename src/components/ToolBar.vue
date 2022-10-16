@@ -1,3 +1,5 @@
+<!-- indicar nome da rota -->
+
 <script setup>
 import router from '../router'
 
