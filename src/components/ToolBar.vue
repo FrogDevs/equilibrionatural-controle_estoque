@@ -1,5 +1,3 @@
-<!-- indicar nome da rota -->
-
 <script setup>
 import router from '../router'
 
@@ -8,12 +6,13 @@ function back() {
 }
 </script>
 <template>
-  <nav class="flex h-16 items-center justify-between bg-green-100 p-2">
+  <nav class="relative flex h-16 items-center bg-green-100">
     <i
-      class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
+      class="material-symbols-rounded absolute z-20 ml-2 rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
       @click="back"
     >
       arrow_back
     </i>
+    <p class="absolute flex w-full justify-center text-amber-800">Unidade 1</p>
   </nav>
 </template>

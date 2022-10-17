@@ -15,14 +15,14 @@ import TheCard from '../components/TheCard.vue'
         <TheCard
           link="/home"
           bg="bg-store1 bg-cover bg-center bg-no-repeat"
-          title="Rua imberé, 373"
-          subtitle="Unidade 1"
+          title="Unidade 1"
+          subtitle="Rua imberé, 373"
         />
         <TheCard
           link="/home"
           bg="bg-store2 bg-cover bg-center bg-no-repeat"
-          title="Av. Taquandava, 1203"
-          subtitle="Unidade 2"
+          title="Unidade 2"
+          subtitle="Av. Taquandava, 1203"
         />
       </div>
     </div>

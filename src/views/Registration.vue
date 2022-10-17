@@ -92,10 +92,7 @@ function addItem() {
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
       <TextField title="Validade" input-type="date" @input-value="addDate" />
       <TextField title="Imagem" input-type="file" @input-value="addimage" />
-      <div class="flex gap-4">
-        <!-- <TheButton title="Limpar" @click.prevent="clearItens" /> -->
-        <TheButton title="Salvar" />
-      </div>
+      <TheButton title="Salvar" />
     </form>
   </main>
   <footer class="fixed bottom-0 w-full">
