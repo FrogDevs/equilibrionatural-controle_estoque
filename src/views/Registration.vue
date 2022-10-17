@@ -26,31 +26,24 @@ const datasForPinia = {
 function addName(value) {
   datasForPinia.name.value = value
 }
-
 function addAmount(value) {
   datasForPinia.amount.value = value
 }
-
 function addCategory(value) {
   category.value = value
 }
-
 function addPrice(value) {
   datasForPinia.price.value = value
 }
-
 function addWeight(value) {
   datasForPinia.weight.value = value
 }
-
 function addDate(value) {
   datasForPinia.date.value = value
 }
-
 function addimage(value) {
   datasForPinia.image.value = value
 }
-
 function hideSnackBar() {
   itemSaved.value = false
 }

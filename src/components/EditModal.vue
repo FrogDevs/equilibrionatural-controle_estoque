@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useProductStore } from '../stores/ProductStore'
 import TextField from './TextField.vue'
-// import TheSnackBar from './TheSnackBar.vue'
 
 const productStore = useProductStore()
 
@@ -18,35 +17,40 @@ const props = defineProps({
 })
 
 const datasForPinia = {
-  id: ref(productStore.alimenticios[props.id].id),
-  name: ref(productStore.alimenticios[props.id].name),
-  amount: ref(productStore.alimenticios[props.id].amount),
-  price: ref(productStore.alimenticios[props.id].price),
-  weight: ref(productStore.alimenticios[props.id].weight),
-  date: ref(productStore.alimenticios[props.id].date),
-  image: ref(productStore.alimenticios[props.id].image)
+  id: ref(null),
+  name: ref(null),
+  amount: ref(null),
+  price: ref(null),
+  weight: ref(null),
+  date: ref(null),
+  image: ref(null)
+}
+
+if (props.category === 'Alimentícios') {
+  datasForPinia.id.value = productStore.alimenticios[props.id].id
+  datasForPinia.name.value = productStore.alimenticios[props.id].name
+  datasForPinia.amount.value = productStore.alimenticios[props.id].amount
+  datasForPinia.price.value = productStore.alimenticios[props.id].price
+  datasForPinia.weight.value = productStore.alimenticios[props.id].weight
+  datasForPinia.date.value = productStore.alimenticios[props.id].date
+  datasForPinia.image.value = productStore.alimenticios[props.id].image
 }
 
 function addName(value) {
   datasForPinia.name.value = value
 }
-
 function addAmount(value) {
   datasForPinia.amount.value = value
 }
-
 function addPrice(value) {
   datasForPinia.price.value = value
 }
-
 function addWeight(value) {
   datasForPinia.weight.value = value
 }
-
 function addDate(value) {
   datasForPinia.date.value = value
 }
-
 function addimage(value) {
   datasForPinia.image.value = value
 }
@@ -95,5 +99,4 @@ function editSave() {
       </p>
     </div>
   </div>
-  <!-- <TheSnackBar v-auto-animate /> -->
 </template>

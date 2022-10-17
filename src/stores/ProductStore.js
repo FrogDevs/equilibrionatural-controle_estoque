@@ -19,7 +19,7 @@ export const useProductStore = defineStore('productStore', {
       this.alimenticios.push(product)
     },
     editFromAlimenticios(id, newValue) {
-      this.alimenticios.splice(id, 0, newValue)
+      this.alimenticios.splice(id, 1, newValue)
     },
     deleteFromAlimenticios(id) {
       this.alimenticios = this.alimenticios.filter((p) => {

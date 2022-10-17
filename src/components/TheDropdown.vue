@@ -44,10 +44,10 @@ function emitData() {
             Clique para escolher
           </option>
           <option value="alimenticios">Alimentícios</option>
-          <option value="beleza">Beleza</option>
+          <!-- <option value="beleza">Beleza</option>
           <option value="oleos">Óleos essenciais & Saúde</option>
           <option value="suplementos">Suplementos</option>
-          <option value="vida">Vida & Saúde</option>
+          <option value="vida">Vida & Saúde</option> -->
         </select>
       </div>
     </div>
