@@ -12,6 +12,10 @@ function back() {
 }
 
 const props = defineProps({
+  market: {
+    type: String,
+    default: ''
+  },
   category: {
     type: String,
     default: ''

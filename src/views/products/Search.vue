@@ -6,6 +6,10 @@ import ToolBar from '../../components/ToolBar.vue'
 import TheCard from '../../components/TheCard.vue'
 
 const props = defineProps({
+  market: {
+    type: String,
+    default: ''
+  },
   category: {
     type: String,
     default: null
@@ -35,7 +39,7 @@ const piniaData = computed(() => {
         <TheCard
           v-for="items in piniaData"
           :key="items.id"
-          :link="`/details/${props.category}/${items.id}`"
+          :link="`/${props.market}/details/${props.category}/${items.id}`"
           bg="bg-blue-400"
           :title="items.name"
           :subtitle="`${items.amount} item(s) em estoque`"

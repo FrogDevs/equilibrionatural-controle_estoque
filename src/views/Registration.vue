@@ -10,6 +10,13 @@ import TheDropdown from '../components/TheDropdown.vue'
 import TheSnackBar from '../components/TheSnackBar.vue'
 import TheDivider from '../components/TheDivider.vue'
 
+const props = defineProps({
+  market: {
+    type: String,
+    default: ''
+  }
+})
+
 const category = ref(null)
 const productStore = useProductStore()
 const itemSaved = ref(false)
@@ -73,7 +80,7 @@ function addItem() {
 </script>
 <template>
   <header class="fixed top-0 z-10 w-full">
-    <ToolBar />
+    <ToolBar :market="props.market" />
   </header>
   <main class="flex w-full flex-col pb-[6.5rem] pt-[4rem]">
     <TheDivider subtitle="Cadastrar produtos" />
@@ -96,7 +103,7 @@ function addItem() {
     </form>
   </main>
   <footer class="fixed bottom-0 w-full">
-    <NavigationBar :registration="true" />
+    <NavigationBar :registration="true" :market="props.market" />
   </footer>
   <TheSnackBar v-if="itemSaved" v-auto-animate />
 </template>

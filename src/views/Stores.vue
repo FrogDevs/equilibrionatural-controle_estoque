@@ -13,13 +13,13 @@ import TheCard from '../components/TheCard.vue'
         class="flex w-full flex-col items-center justify-center md:flex-row md:gap-6"
       >
         <TheCard
-          link="/home"
+          link="/unidade1/home"
           bg="bg-store1 bg-cover bg-center bg-no-repeat"
           title="Unidade 1"
           subtitle="Rua imberé, 373"
         />
         <TheCard
-          link="/home"
+          link="/unidade2/home"
           bg="bg-store2 bg-cover bg-center bg-no-repeat"
           title="Unidade 2"
           subtitle="Av. Taquandava, 1203"

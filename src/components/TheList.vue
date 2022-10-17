@@ -1,5 +1,9 @@
 <script setup>
 const props = defineProps({
+  market: {
+    type: String,
+    default: ''
+  },
   title: {
     type: String,
     default: undefined
@@ -10,7 +14,7 @@ const props = defineProps({
   <router-link
     :to="{
       name: 'Search',
-      params: { category: props.title }
+      params: { market: props.market, category: props.title }
     }"
     class="flex gap-2 p-3 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 active:bg-neutral-200"
   >

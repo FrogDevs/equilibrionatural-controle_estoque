@@ -1,9 +1,25 @@
 <script setup>
+import { computed } from 'vue'
 import router from '../router'
 
 function back() {
   router.go(-1)
 }
+
+const props = defineProps({
+  market: {
+    type: String,
+    default: ''
+  }
+})
+
+const title = computed(() => {
+  if (props.market === 'unidade1') {
+    return 'Unidade 1'
+  } else {
+    return 'Unidade 2'
+  }
+})
 </script>
 <template>
   <nav class="relative flex h-16 items-center bg-green-100">
@@ -13,6 +29,8 @@ function back() {
     >
       arrow_back
     </i>
-    <p class="absolute flex w-full justify-center text-amber-800">Unidade 1</p>
+    <p class="absolute flex w-full justify-center text-amber-800">
+      {{ title }}
+    </p>
   </nav>
 </template>

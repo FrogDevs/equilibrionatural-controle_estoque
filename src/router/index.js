@@ -13,23 +13,25 @@ const routes = [
     component: Stores
   },
   {
-    path: '/home',
+    path: '/:market/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    props: true
   },
   {
-    path: '/registration',
+    path: '/:market/registration',
     name: 'Registration',
-    component: Registration
+    component: Registration,
+    props: true
   },
   {
-    path: '/search/:category',
+    path: '/:market/search/:category',
     name: 'Search',
     component: Search,
     props: true
   },
   {
-    path: '/details/:category/:id',
+    path: '/:market/details/:category/:id',
     name: 'Details',
     component: Details,
     props: true

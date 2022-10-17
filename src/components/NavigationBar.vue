@@ -7,6 +7,10 @@ const props = defineProps({
   registration: {
     type: Boolean,
     default: false
+  },
+  market: {
+    type: String,
+    default: ''
   }
 })
 </script>
@@ -28,7 +32,7 @@ const props = defineProps({
       </router-link>
       <router-link
         class="flex w-[7.5rem] flex-col items-center justify-end gap-2 focus:outline-none"
-        to="/home"
+        :to="`/${props.market}/home`"
       >
         <div
           class="absolute top-0 h-full w-[9rem] rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
@@ -44,7 +48,7 @@ const props = defineProps({
       </router-link>
       <router-link
         class="flex w-[7.5rem] flex-col items-center justify-end gap-2 focus:outline-none"
-        to="/registration"
+        :to="`/${props.market}/registration`"
       >
         <div
           class="absolute top-0 h-full w-[9rem] rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
