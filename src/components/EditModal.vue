@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useProductStore } from '../stores/ProductStore'
+import TheDivider from './TheDivider.vue'
 import TextField from './TextField.vue'
 
 const productStore = useProductStore()
@@ -70,9 +71,10 @@ function editSave() {
 </script>
 <template>
   <div
-    class="absolute inset-0 z-20 my-auto flex h-fit w-full flex-col bg-white px-6 pt-6"
+    class="absolute inset-0 z-20 my-auto flex h-fit w-full flex-col bg-white pt-6"
   >
-    <form class="flex flex-col gap-4">
+    <TheDivider subtitle="Editar produto" />
+    <form class="flex flex-col gap-4 px-4">
       <TextField title="Nome" input-type="text" @input-value="addName" />
       <TextField
         title="Quantidade"
@@ -84,15 +86,15 @@ function editSave() {
       <TextField title="Validade" input-type="date" @input-value="addDate" />
       <TextField title="Imagem" input-type="file" @input-value="addimage" />
     </form>
-    <div class="flex items-end justify-end gap-8 py-6">
+    <div class="flex items-end justify-end gap-8 py-6 px-4">
       <p
-        class="font-semibold text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+        class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
         @click="closeEdit"
       >
         Cancelar
       </p>
       <p
-        class="font-semibold text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+        class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
         @click="editSave"
       >
         Salvar

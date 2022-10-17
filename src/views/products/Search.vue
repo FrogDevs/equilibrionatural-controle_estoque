@@ -27,10 +27,10 @@ const piniaData = computed(() => {
   <header class="fixed top-0 w-full shadow-sm">
     <ToolBar />
   </header>
-  <main class="my-6 mt-20 flex w-full flex-col gap-6 overflow-y-scroll">
+  <main class="flex w-full flex-col gap-4 overflow-y-scroll">
     <section class="flex flex-col">
       <div
-        class="auto-grid flex flex-col items-center gap-6 px-6 pt-3 md:grid md:gap-0"
+        class="auto-grid flex flex-col items-center gap-4 px-4 pt-[4rem] md:grid md:gap-0"
       >
         <TheCard
           v-for="items in piniaData"

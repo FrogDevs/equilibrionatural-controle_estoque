@@ -18,7 +18,6 @@ import TheDivider from '../components/TheDivider.vue'
       <TheList title="Suplementos" />
       <TheList title="Vida & Saúde" />
     </section>
-    <TheDivider />
   </main>
   <footer class="fixed bottom-0 w-full">
     <NavigationBar :home="true" />

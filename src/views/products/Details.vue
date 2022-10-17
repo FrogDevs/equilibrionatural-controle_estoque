@@ -4,7 +4,6 @@ import { computed, ref } from 'vue'
 import { useProductStore } from '../../stores/ProductStore'
 import EditModal from '../../components/EditModal.vue'
 import TheButton from '../../components/TheButton.vue'
-import TheDivider from '../../components/TheDivider.vue'
 import TheDialogue from '../../components/TheDialogue.vue'
 import router from '../../router'
 
@@ -45,17 +44,19 @@ function activeDialogue() {
 }
 </script>
 <template>
-  <main class="flex flex-col items-center pb-5">
-    <div class="relative flex h-48 w-full flex-col">
+  <header>
+    <div class="relative flex h-60 w-full flex-col">
       <i
-        class="material-symbols-rounded z-10 m-2 max-w-fit rounded-full p-2 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
+        class="material-symbols-rounded absolute z-10 m-2 max-w-fit rounded-full p-2 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
         @click="back"
       >
         close
       </i>
-      <div class="absolute h-full w-full bg-blue-400"></div>
+      <div class="h-full w-full bg-blue-400"></div>
     </div>
-    <section class="relative flex w-full flex-col gap-5 p-5">
+  </header>
+  <main class="flex flex-col items-center pb-5">
+    <section class="relative flex w-full flex-col gap-4 p-4">
       <EditModal
         v-if="editModal"
         :id="Number(props.id)"
@@ -70,32 +71,31 @@ function activeDialogue() {
         :category="props.category"
         @cancel-delete="showDialogue = false"
       />
-      <h1 class="text-2xl text-amber-800">
+      <h1 class="text-2xl text-green-800">
         {{ piniaData.name }}
       </h1>
-      <TheDivider />
-      <div class="flex flex-col gap-3.5">
+      <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-neutral-800">Quantidade:</p>
-          <p class="font-medium text-neutral-800">{{ piniaData.amount }}</p>
+          <p class="font-medium text-amber-800">
+            Quantidade: {{ piniaData.amount }}
+          </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-neutral-800">Peso:</p>
-          <p class="font-medium text-neutral-800">{{ piniaData.weight }}</p>
+          <p class="font-medium text-amber-800">Peso: {{ piniaData.weight }}</p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-neutral-800">Validade:</p>
-          <p class="font-medium text-neutral-800">{{ piniaData.date }}</p>
+          <p class="font-medium text-amber-800">
+            Validade: {{ piniaData.date }}
+          </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-neutral-800">Preço:</p>
-          <p class="font-medium text-neutral-800">{{ piniaData.price }}</p>
+          <p class="font-medium text-amber-800">Preço: {{ piniaData.price }}</p>
         </div>
       </div>
     </section>
-    <div class="my-2 flex gap-2">
-      <TheButton title="Editar" @click="activeEdit" />
-      <TheButton title="Excluir" @click="activeDialogue" />
-    </div>
   </main>
+  <footer class="absolute bottom-0 mb-4 flex w-full justify-center gap-4">
+    <TheButton title="Editar" @click="activeEdit" />
+    <TheButton title="Excluir" @click="activeDialogue" />
+  </footer>
 </template>

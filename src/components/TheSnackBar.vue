@@ -15,9 +15,9 @@ function close() {
     <div
       class="flex w-[21.5rem] justify-between rounded bg-green-800 px-4 py-3.5"
     >
-      <p class="text-sm font-normal text-white">Produto salvo!</p>
+      <p class="text-sm text-white">Produto salvo!</p>
       <p
-        class="text-sm font-bold text-green-200 hover:cursor-pointer"
+        class="text-sm font-medium text-green-200 hover:cursor-pointer"
         @click="close"
       >
         Fechar

@@ -22,8 +22,8 @@ export const useProductStore = defineStore('productStore', {
       this.alimenticios.splice(id, 1, newValue)
     },
     deleteFromAlimenticios(id) {
-      this.alimenticios = this.alimenticios.filter((p) => {
-        return p.id !== id
+      this.alimenticios = this.alimenticios.filter((product) => {
+        return product.id !== id
       })
     }
   }

@@ -23,11 +23,11 @@ const inputFocus = ref(false)
 const inputError = ref(false)
 const titleClass = ref('text-neutral-400')
 
-// Setters
-function clear() {
-  input.value.value = ''
-}
+// function clear() {
+//   input.value.value = ''
+// }
 
+// Setters
 function setFocus() {
   inputFocus.value = !inputFocus.value
   if (inputFocus.value && !inputError.value) {
@@ -98,7 +98,6 @@ const watchInput = computed(() => {
       <i
         v-if="inputFocus && !inputError"
         class="material-symbols-rounded text-amber-700 hover:cursor-pointer"
-        @click="clear"
       >
         cancel
       </i>

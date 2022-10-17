@@ -8,6 +8,7 @@ import TheButton from '../components/TheButton.vue'
 import TextField from '../components/TextField.vue'
 import TheDropdown from '../components/TheDropdown.vue'
 import TheSnackBar from '../components/TheSnackBar.vue'
+import TheDivider from '../components/TheDivider.vue'
 
 const category = ref(null)
 const productStore = useProductStore()
@@ -48,7 +49,17 @@ function hideSnackBar() {
   itemSaved.value = false
 }
 
-// clear data após enviar
+// function clearItens() {
+//   category.value = null
+//   datasForPinia.id.value = null
+//   datasForPinia.name.value = null
+//   datasForPinia.amount.value = null
+//   datasForPinia.price.value = null
+//   datasForPinia.weight.value = null
+//   datasForPinia.date.value = null
+//   datasForPinia.image.value = null
+// }
+
 function addItem() {
   if (category.value === 'alimenticios') {
     datasForPinia.id.value = productStore.alimenticios.length
@@ -64,7 +75,8 @@ function addItem() {
   <header class="fixed top-0 z-10 w-full">
     <ToolBar />
   </header>
-  <main class="flex w-full flex-col pb-[6.5rem] pt-20">
+  <main class="flex w-full flex-col pb-[6.5rem] pt-[4rem]">
+    <TheDivider subtitle="Cadastrar produtos" />
     <form
       class="flex flex-col items-center gap-4 px-4"
       @submit.prevent="addItem"
@@ -80,7 +92,10 @@ function addItem() {
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
       <TextField title="Validade" input-type="date" @input-value="addDate" />
       <TextField title="Imagem" input-type="file" @input-value="addimage" />
-      <TheButton title="Salvar" />
+      <div class="flex gap-4">
+        <!-- <TheButton title="Limpar" @click.prevent="clearItens" /> -->
+        <TheButton title="Salvar" />
+      </div>
     </form>
   </main>
   <footer class="fixed bottom-0 w-full">
