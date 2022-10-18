@@ -4,6 +4,7 @@ import { useProductStore } from '../../stores/ProductStore'
 import { computed } from 'vue'
 import ToolBar from '../../components/ToolBar.vue'
 import TheCard from '../../components/TheCard.vue'
+import TheFab from '../../components/TheFab.vue'
 
 const props = defineProps({
   market: {
@@ -20,7 +21,7 @@ const productStore = useProductStore()
 
 const piniaData = computed(() => {
   if (props.category === 'Alimentícios') {
-    return productStore.alimenticios
+    return productStore.alimenticios.reverse
   } else {
     return null
   }
@@ -29,7 +30,7 @@ const piniaData = computed(() => {
 
 <template>
   <header class="fixed top-0 w-full shadow-sm">
-    <ToolBar />
+    <ToolBar :market="props.market" />
   </header>
   <main class="flex w-full flex-col gap-4 overflow-y-scroll">
     <section class="flex flex-col">
@@ -47,6 +48,11 @@ const piniaData = computed(() => {
       </div>
     </section>
   </main>
+
+  <!-- FAB -->
+  <footer class="absolute bottom-0 flex w-full justify-end p-4">
+    <TheFab />
+  </footer>
 </template>
 
 <style scoped>
