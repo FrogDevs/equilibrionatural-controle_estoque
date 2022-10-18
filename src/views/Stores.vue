@@ -16,7 +16,7 @@ import TheCard from '../components/TheCard.vue'
           link="/unidade1/home"
           bg="bg-store1 bg-cover bg-center bg-no-repeat"
           title="Unidade 1"
-          subtitle="Rua imberé, 373"
+          subtitle="Rua Imberé, 373"
         />
         <TheCard
           link="/unidade2/home"

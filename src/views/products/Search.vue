@@ -21,7 +21,7 @@ const productStore = useProductStore()
 
 const piniaData = computed(() => {
   if (props.category === 'Alimentícios') {
-    return productStore.alimenticios.reverse
+    return productStore.unity(props.market)
   } else {
     return null
   }
@@ -51,7 +51,7 @@ const piniaData = computed(() => {
 
   <!-- FAB -->
   <footer class="absolute bottom-0 flex w-full justify-end p-4">
-    <TheFab />
+    <TheFab :market="props.market" :category="props.category" />
   </footer>
 </template>
 
