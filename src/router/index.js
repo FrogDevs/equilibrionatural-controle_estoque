@@ -19,7 +19,7 @@ const routes = [
     props: true
   },
   {
-    path: '/:market/registration',
+    path: '/:market/:category/registration',
     name: 'Registration',
     component: Registration,
     props: true
