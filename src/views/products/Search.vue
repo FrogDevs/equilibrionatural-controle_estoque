@@ -20,11 +20,7 @@ const props = defineProps({
 const productStore = useProductStore()
 
 const piniaData = computed(() => {
-  if (props.category === 'Alimentícios') {
-    return productStore.unity(props.market)
-  } else {
-    return null
-  }
+  return productStore.unity(props.market, props.category)
 })
 </script>
 
@@ -49,7 +45,6 @@ const piniaData = computed(() => {
     </section>
   </main>
 
-  <!-- FAB -->
   <footer class="absolute bottom-0 flex w-full justify-end p-4">
     <TheFab :market="props.market" :category="props.category" />
   </footer>

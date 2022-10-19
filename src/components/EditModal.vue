@@ -7,9 +7,13 @@ import TextField from './TextField.vue'
 const productStore = useProductStore()
 
 const props = defineProps({
-  id: {
+  productId: {
     type: Number,
     default: null
+  },
+  market: {
+    type: String,
+    default: ''
   },
   category: {
     type: String,
@@ -18,23 +22,15 @@ const props = defineProps({
 })
 
 const datasForPinia = {
-  id: ref(null),
-  name: ref(null),
-  amount: ref(null),
-  price: ref(null),
-  weight: ref(null),
-  date: ref(null),
-  image: ref(null)
-}
-
-if (props.category === 'Alimentícios') {
-  datasForPinia.id.value = productStore.alimenticios[props.id].id
-  datasForPinia.name.value = productStore.alimenticios[props.id].name
-  datasForPinia.amount.value = productStore.alimenticios[props.id].amount
-  datasForPinia.price.value = productStore.alimenticios[props.id].price
-  datasForPinia.weight.value = productStore.alimenticios[props.id].weight
-  datasForPinia.date.value = productStore.alimenticios[props.id].date
-  datasForPinia.image.value = productStore.alimenticios[props.id].image
+  id: ref(productStore.products[props.id].id),
+  market: ref(productStore.products[props.id].market),
+  category: ref(productStore.products[props.id].category),
+  name: ref(productStore.products[props.id].name),
+  amount: ref(productStore.products[props.id].amount),
+  price: ref(productStore.products[props.id].price),
+  weight: ref(productStore.products[props.id].weight),
+  date: ref(productStore.products[props.id].date),
+  image: ref(productStore.products[props.id].image)
 }
 
 function addName(value) {
@@ -63,10 +59,8 @@ function closeEdit() {
 }
 
 function editSave() {
-  if (props.category === 'Alimentícios') {
-    productStore.editFromAlimenticios(props.id, datasForPinia)
-    emit('closeEdit')
-  }
+  productStore.editFromAlimenticios(props.id, datasForPinia)
+  emit('closeEdit')
 }
 </script>
 <template>

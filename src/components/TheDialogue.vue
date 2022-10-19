@@ -6,7 +6,7 @@ const productStore = useProductStore()
 const emit = defineEmits(['cancelDelete', 'deleteProduct'])
 
 const props = defineProps({
-  id: {
+  productId: {
     type: Number,
     default: null
   },
@@ -21,10 +21,8 @@ function cancelDelete() {
 }
 
 function deleteProduct() {
-  if (props.category === 'Alimentícios') {
-    productStore.deleteFromAlimenticios(props.id)
-    router.go(-1)
-  }
+  productStore.deleteFromAlimenticios(props.productId)
+  router.go(-1)
 }
 </script>
 <template>

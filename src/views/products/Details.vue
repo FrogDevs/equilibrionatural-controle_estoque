@@ -29,11 +29,7 @@ const props = defineProps({
 const productStore = useProductStore()
 
 const piniaData = computed(() => {
-  if (props.category === 'Alimentícios') {
-    return productStore.alimenticios[props.id]
-  } else {
-    return null
-  }
+  return productStore.products[props.id]
 })
 
 const editModal = ref(false)
@@ -63,15 +59,16 @@ function activeDialogue() {
     <section class="relative flex w-full flex-col gap-4 p-4">
       <EditModal
         v-if="editModal"
-        :id="Number(props.id)"
-        :key="0"
+        :key="props.id"
+        :product-id="Number(props.id)"
+        :market="props.market"
         :category="props.category"
         @close-edit="editModal = false"
       />
       <TheDialogue
         v-if="showDialogue"
-        :id="Number(props.id)"
-        :key="0"
+        :key="props.id"
+        :product-id="Number(props.id)"
         :category="props.category"
         @cancel-delete="showDialogue = false"
       />

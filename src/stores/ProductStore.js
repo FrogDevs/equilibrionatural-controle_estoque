@@ -2,10 +2,11 @@ import { defineStore } from 'pinia'
 
 export const useProductStore = defineStore('productStore', {
   state: () => ({
-    alimenticios: [
+    products: [
       {
         id: 0,
         market: 'unidade1',
+        category: 'Alimentícios',
         name: 'Oi',
         amount: 1,
         price: 2.0,
@@ -16,6 +17,7 @@ export const useProductStore = defineStore('productStore', {
       {
         id: 1,
         market: 'unidade2',
+        category: 'Alimentícios',
         name: 'Eae',
         amount: 1,
         price: 2.0,
@@ -27,23 +29,24 @@ export const useProductStore = defineStore('productStore', {
   }),
   getters: {
     unity: (state) => {
-      return (market) =>
-        state.alimenticios.filter((product) => product.market === market)
+      return (market, category) =>
+        state.products.filter(
+          (product) =>
+            product.market === market && product.category === category
+        )
     }
   },
   actions: {
-    addProduct(product, place) {
-      if (place === 'Alimentícios') {
-        this.alimenticios.push(product)
-      }
+    addProduct(product) {
+      this.products.push(product)
+    },
+    editFromAlimenticios(id, newValue) {
+      this.products.splice(id, 1, newValue)
+    },
+    deleteFromAlimenticios(id) {
+      this.products = this.products.filter((product) => {
+        return product.id !== id
+      })
     }
-    // editFromAlimenticios(id, newValue) {
-    //   this.alimenticios.splice(id, 1, newValue)
-    // },
-    // deleteFromAlimenticios(id) {
-    //   this.alimenticios = this.alimenticios.filter((product) => {
-    //     return product.id !== id
-    //   })
-    // }
   }
 })

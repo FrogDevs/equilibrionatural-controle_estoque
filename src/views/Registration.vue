@@ -24,7 +24,9 @@ const productStore = useProductStore()
 const itemSaved = ref(false)
 
 const piniaDatas = {
+  id: productStore.products.length,
   market: props.market,
+  category: props.category,
   name: ref(null),
   amount: ref(null),
   price: ref(null),
@@ -56,7 +58,7 @@ function hideSnackBar() {
 }
 
 function addItem() {
-  productStore.addProduct(piniaDatas, props.category)
+  productStore.addProduct(piniaDatas)
   itemSaved.value = true
   setTimeout(hideSnackBar, 3000)
   router.go(-1)
