@@ -22,15 +22,15 @@ const props = defineProps({
 })
 
 const datasForPinia = {
-  id: ref(productStore.products[props.id].id),
-  market: ref(productStore.products[props.id].market),
-  category: ref(productStore.products[props.id].category),
-  name: ref(productStore.products[props.id].name),
-  amount: ref(productStore.products[props.id].amount),
-  price: ref(productStore.products[props.id].price),
-  weight: ref(productStore.products[props.id].weight),
-  date: ref(productStore.products[props.id].date),
-  image: ref(productStore.products[props.id].image)
+  id: ref(productStore.products[props.productId].id),
+  market: ref(productStore.products[props.productId].market),
+  category: ref(productStore.products[props.productId].category),
+  name: ref(productStore.products[props.productId].name),
+  amount: ref(productStore.products[props.productId].amount),
+  price: ref(productStore.products[props.productId].price),
+  weight: ref(productStore.products[props.productId].weight),
+  date: ref(productStore.products[props.productId].date),
+  image: ref(productStore.products[props.productId].image)
 }
 
 function addName(value) {
@@ -59,7 +59,7 @@ function closeEdit() {
 }
 
 function editSave() {
-  productStore.editFromAlimenticios(props.id, datasForPinia)
+  productStore.editProduct(props.productId, datasForPinia)
   emit('closeEdit')
 }
 </script>

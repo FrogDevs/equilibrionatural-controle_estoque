@@ -21,7 +21,7 @@ function cancelDelete() {
 }
 
 function deleteProduct() {
-  productStore.deleteFromAlimenticios(props.productId)
+  productStore.deleteProduct(props.productId)
   router.go(-1)
 }
 </script>
