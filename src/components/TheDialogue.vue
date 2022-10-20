@@ -1,11 +1,27 @@
 <script setup>
-import router from '../router'
-import { useProductStore } from '../stores/ProductStore'
-
-const productStore = useProductStore()
-const emit = defineEmits(['cancelDelete', 'deleteProduct'])
+const emit = defineEmits(['closeDialogue', 'primaryAction'])
 
 const props = defineProps({
+  dialogueIcon: {
+    type: Boolean,
+    default: false
+  },
+  title: {
+    type: String,
+    default: ''
+  },
+  message: {
+    type: String,
+    default: ''
+  },
+  buttonOneTitle: {
+    type: String,
+    default: ''
+  },
+  buttonTwoTitle: {
+    type: String,
+    default: ''
+  },
   productId: {
     type: Number,
     default: null
@@ -16,36 +32,43 @@ const props = defineProps({
   }
 })
 
-function cancelDelete() {
-  emit('cancelDelete')
+function closeDialogue() {
+  emit('closeDialogue')
 }
 
-function deleteProduct() {
-  productStore.deleteProduct(props.productId)
-  router.go(-1)
+function primaryAction() {
+  emit('primaryAction')
 }
 </script>
 <template>
   <div
     class="fixed inset-0 z-10 flex h-full w-full items-center justify-center bg-neutral-900 bg-opacity-20 p-6"
   >
-    <div class="flex h-fit flex-col rounded-[1.75rem] bg-green-50 shadow-lg">
-      <div class="flex w-full flex-col gap-4 px-6 pt-6">
-        <h2 class="text-2xl text-neutral-800">Deseja excluir este item?</h2>
-        <p class="">Saiba que não será possível recuperar quaisquer dados.</p>
+    <div
+      class="flex h-fit w-[19.5rem] max-w-[19.5rem] flex-col rounded-[1.75rem] bg-green-50 shadow-lg"
+    >
+      <div
+        :class="props.dialogueIcon ? 'items-center' : 'itens-start'"
+        class="flex w-full flex-col gap-4 px-6 pt-6"
+      >
+        <i v-if="props.dialogueIcon" class="material-symbols-rounded">
+          signal_wifi_off
+        </i>
+        <h2 class="text-center text-2xl text-neutral-800">{{ props.title }}</h2>
+        <p class="text-sm">{{ props.message }}</p>
       </div>
-      <div class="flex w-full justify-end gap-8 py-6 px-9">
+      <div class="flex w-full justify-end gap-8 py-[2.125rem] px-9">
         <p
           class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
-          @click="cancelDelete"
+          @click="closeDialogue"
         >
-          Cancelar
+          {{ props.buttonOneTitle }}
         </p>
         <p
           class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
-          @click="deleteProduct"
+          @click="primaryAction"
         >
-          Excluir
+          {{ props.buttonTwoTitle }}
         </p>
       </div>
     </div>

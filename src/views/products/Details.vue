@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import router from '../../router'
 import { computed, ref } from 'vue'
 import { useProductStore } from '../../stores/ProductStore'
 import EditModal from '../../components/EditModal.vue'
 import TheButton from '../../components/TheButton.vue'
 import TheDialogue from '../../components/TheDialogue.vue'
-import router from '../../router'
 
 function back() {
   router.go(-1)
@@ -42,6 +42,11 @@ function activeEdit() {
 function activeDialogue() {
   showDialogue.value = !showDialogue.value
 }
+
+function deleteProduct() {
+  productStore.deleteProduct(props.productId)
+  router.go(-1)
+}
 </script>
 <template>
   <header>
@@ -68,9 +73,14 @@ function activeDialogue() {
       <TheDialogue
         v-if="showDialogue"
         :key="props.id"
+        title="Deseja excluir este item?"
+        message="Saiba que não será possível recuperar quaisquer dados."
+        button-one-title="Cancelar"
+        button-two-title="Excluir"
         :product-id="Number(props.id)"
         :category="props.category"
-        @cancel-delete="showDialogue = false"
+        @close-dialogue="showDialogue = false"
+        @primary-action="deleteProduct"
       />
       <h1 class="text-2xl text-green-800">
         {{ piniaData.name }}
