@@ -7,6 +7,10 @@ import TheCard from '../../components/TheCard.vue'
 import TheFab from '../../components/TheFab.vue'
 
 const props = defineProps({
+  user: {
+    type: String,
+    default: ''
+  },
   market: {
     type: String,
     default: ''
@@ -38,15 +42,19 @@ const piniaData = computed(() => {
           :key="items.id"
           :link="`/${props.market}/details/${props.category}/${items.id}`"
           bg="bg-blue-400"
-          :title="items.name"
-          :subtitle="`${items.amount} item(s) em estoque`"
+          :title="`${items.name} lote #${items.batch}`"
+          :subtitle="`Vence em: ${items.date}`"
         />
       </div>
     </section>
   </main>
 
   <footer class="absolute bottom-0 flex w-full justify-end p-4">
-    <TheFab :market="props.market" :category="props.category" />
+    <TheFab
+      v-if="props.user !== 'visitante'"
+      :market="props.market"
+      :category="props.category"
+    />
   </footer>
 </template>
 

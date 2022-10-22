@@ -26,6 +26,7 @@ const datasForPinia = {
   market: ref(productStore.products[props.productId].market),
   category: ref(productStore.products[props.productId].category),
   name: ref(productStore.products[props.productId].name),
+  batch: ref(productStore.products[props.productId].batch),
   amount: ref(productStore.products[props.productId].amount),
   price: ref(productStore.products[props.productId].price),
   weight: ref(productStore.products[props.productId].weight),
@@ -35,6 +36,9 @@ const datasForPinia = {
 
 function addName(value) {
   datasForPinia.name.value = value
+}
+function addBatch(value) {
+  datasForPinia.batch.value = value
 }
 function addAmount(value) {
   datasForPinia.amount.value = value
@@ -75,7 +79,8 @@ function editSave() {
         input-type="number"
         @input-value="addAmount"
       />
-      <TextField title="Preço" input-type="number" @input-value="addPrice" />
+      <TextField title="Lote" input-type="text" @input-value="addBatch" />
+      <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
       <TextField title="Validade" input-type="date" @input-value="addDate" />
       <TextField title="Imagem" input-type="file" @input-value="addimage" />

@@ -12,6 +12,10 @@ function back() {
 }
 
 const props = defineProps({
+  user: {
+    type: String,
+    default: ''
+  },
   market: {
     type: String,
     default: ''
@@ -100,13 +104,23 @@ function deleteProduct() {
           </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">Preço: {{ piniaData.price }}</p>
+          <p class="font-medium text-amber-800">
+            Preço: R${{ piniaData.price }}
+          </p>
         </div>
       </div>
     </section>
   </main>
   <footer class="absolute bottom-0 mb-4 flex w-full justify-center gap-4">
-    <TheButton title="Editar" @click="activeEdit" />
-    <TheButton title="Excluir" @click="activeDialogue" />
+    <TheButton
+      v-if="props.user !== 'visitante'"
+      title="Editar"
+      @click="activeEdit"
+    />
+    <TheButton
+      v-if="props.user !== 'visitante'"
+      title="Excluir"
+      @click="activeDialogue"
+    />
   </footer>
 </template>

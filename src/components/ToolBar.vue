@@ -7,6 +7,10 @@ function back() {
 }
 
 const props = defineProps({
+  user: {
+    type: String,
+    default: ''
+  },
   market: {
     type: String,
     default: ''
@@ -14,11 +18,7 @@ const props = defineProps({
 })
 
 const title = computed(() => {
-  if (props.market === 'unidade1') {
-    return 'Unidade 1'
-  } else {
-    return 'Unidade 2'
-  }
+  return `${props.market} / ${props.user}`
 })
 </script>
 <template>

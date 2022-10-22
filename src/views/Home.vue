@@ -6,6 +6,10 @@ import TheList from '../components/TheList.vue'
 import TheDivider from '../components/TheDivider.vue'
 
 const props = defineProps({
+  user: {
+    type: String,
+    default: ''
+  },
   market: {
     type: String,
     default: ''
@@ -19,11 +23,23 @@ const props = defineProps({
   <main>
     <TheDivider subtitle="Categorias" />
     <section class="flex flex-col gap-2 px-2">
-      <TheList title="Alimentícios" :market="props.market" />
-      <TheList title="Beleza" :market="props.market" />
-      <TheList title="Óleos essenciais" :market="props.market" />
-      <TheList title="Suplementos" :market="props.market" />
-      <TheList title="Vida & Saúde" :market="props.market" />
+      <TheList
+        title="Alimentícios"
+        :link="`${props.user}/${props.market}/search`"
+      />
+      <TheList title="Beleza" :link="`${props.user}/${props.market}/search`" />
+      <TheList
+        title="Óleos essenciais"
+        :link="`${props.user}/${props.market}/search`"
+      />
+      <TheList
+        title="Suplementos"
+        :link="`${props.user}/${props.market}/search`"
+      />
+      <TheList
+        title="Vida & Saúde"
+        :link="`${props.user}/${props.market}/search`"
+      />
     </section>
   </main>
   <footer class="fixed bottom-0 w-full">

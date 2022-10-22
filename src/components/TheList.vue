@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  market: {
+  link: {
     type: String,
     default: ''
   },
@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 <template>
   <router-link
-    :to="`/${props.market}/search/${props.title}`"
+    :to="`${props.link}/${props.title}`"
     class="flex gap-2 p-3 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 active:bg-neutral-200"
   >
     <p class="font-medium text-amber-800">{{ props.title }}</p>

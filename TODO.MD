@@ -5,6 +5,6 @@
 5. Filtrar dinâmicamente as categorias. [ X ]
 6. Avisar quando o usuário não tiver conexão com internet. [ X ]
 7. Listas de categorias com fotos.
-8. Rotas de histórico, mostrando ultímos itens editados.
+8. Rotas de histórico, mostrando ultimos itens editados. -> Histórico mostrar quanto foi recebido em dinherio ao vender
 9. Logar como Admin para editar, acessar como visitante para visualizar.
 10. API Firebase.

@@ -1,11 +1,11 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import TheDialogue from './components/TheDialogue.vue'
 
-const wifiState = computed(() => {
-  const online = window.navigator.onLine
+const online = ref(window.navigator.onLine)
 
-  if (online) {
+const wifiState = computed(() => {
+  if (online.value) {
     return false
   } else {
     return true
@@ -17,13 +17,13 @@ function reloadPage() {
 }
 </script>
 <template>
-  <the-dialogue
+  <!-- <the-dialogue
     v-if="wifiState"
     :dialogue-icon="true"
     title="Sem conexão Wifi"
     message="Parece que você está sem conexão com uma rede Wifi. Dados importantes podem não aparecer e funções do sistema não funcionarem da maneira esperada. Certifique-se de estabelecer uma conexão válida."
     button-two-title="Reconectar"
     @primary-action="reloadPage"
-  />
+  /> -->
   <router-view />
 </template>

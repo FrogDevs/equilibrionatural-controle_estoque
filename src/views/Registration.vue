@@ -28,6 +28,7 @@ const piniaDatas = {
   market: props.market,
   category: props.category,
   name: ref(null),
+  batch: ref(null),
   amount: ref(null),
   price: ref(null),
   weight: ref(null),
@@ -40,6 +41,9 @@ function addName(value) {
 }
 function addAmount(value) {
   piniaDatas.amount.value = value
+}
+function addBatch(value) {
+  piniaDatas.batch.value = value
 }
 function addPrice(value) {
   piniaDatas.price.value = value
@@ -75,12 +79,13 @@ function addItem() {
       @submit.prevent="addItem"
     >
       <TextField title="Nome" input-type="text" @input-value="addName" />
+      <TextField title="Lote" input-type="text" @input-value="addBatch" />
       <TextField
         title="Quantidade"
         input-type="number"
         @input-value="addAmount"
       />
-      <TextField title="Preço" input-type="number" @input-value="addPrice" />
+      <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
       <TextField title="Validade" input-type="date" @input-value="addDate" />
       <TextField title="Imagem" input-type="file" @input-value="addimage" />

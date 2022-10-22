@@ -1,6 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import TheCard from '../components/TheCard.vue'
+
+const props = defineProps({
+  user: {
+    type: String,
+    default: ''
+  }
+})
 </script>
 
 <template>
@@ -13,13 +20,13 @@ import TheCard from '../components/TheCard.vue'
         class="flex w-full flex-col items-center justify-center md:flex-row md:gap-6"
       >
         <TheCard
-          link="/unidade1/home"
+          :link="`${props.user}/unidade1/home`"
           bg="bg-store1 bg-cover bg-center bg-no-repeat"
           title="Unidade 1"
           subtitle="Rua Imberé, 373"
         />
         <TheCard
-          link="/unidade2/home"
+          :link="`${props.user}/unidade2/home`"
           bg="bg-store2 bg-cover bg-center bg-no-repeat"
           title="Unidade 2"
           subtitle="Av. Taquandava, 1203"
