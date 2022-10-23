@@ -1,11 +1,16 @@
 <script setup>
 import TextField from '../components/TextField.vue'
 import TheButton from '../components/TheButton.vue'
+import router from '../router'
+
+function singIn() {
+  router.push('/admin/stores')
+}
 </script>
 <template>
   <!-- img -->
   <div
-    class="absolute top-0 hidden h-screen w-2/4 bg-store2 bg-cover lg:block"
+    class="absolute top-0 hidden h-screen w-2/4 bg-store1 bg-cover lg:block"
   ></div>
 
   <div class="absolute top-0 right-0 flex h-screen w-full flex-col lg:w-2/4">
@@ -32,16 +37,17 @@ import TheButton from '../components/TheButton.vue'
         </div>
         <form
           class="mt-12 flex w-full flex-col items-center gap-6 lg:w-2/4"
-          @submit.prevent
+          @submit.prevent="singIn"
         >
           <TextField title="Chave de acesso" input-type="text" />
           <TheButton title="Entrar" />
         </form>
-        <p
+        <router-link
+          :to="`/visitante/stores`"
           class="mt-12 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-60"
         >
           Entrar como visitante
-        </p>
+        </router-link>
       </div>
     </main>
   </div>

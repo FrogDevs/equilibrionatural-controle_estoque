@@ -45,9 +45,10 @@ const routes = [
     props: true
   },
   {
-    path: '/history',
+    path: '/:user/:market/history',
     name: 'ProductHistory',
-    component: ProductHistory
+    component: ProductHistory,
+    props: true
   },
   // 404
   {

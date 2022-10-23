@@ -30,7 +30,7 @@ const piniaData = computed(() => {
 
 <template>
   <header class="fixed top-0 w-full shadow-sm">
-    <ToolBar :market="props.market" />
+    <ToolBar :user="props.user" :market="props.market" />
   </header>
   <main class="flex w-full flex-col gap-4 overflow-y-scroll">
     <section class="flex flex-col">
@@ -40,9 +40,9 @@ const piniaData = computed(() => {
         <TheCard
           v-for="items in piniaData"
           :key="items.id"
-          :link="`/${props.market}/details/${props.category}/${items.id}`"
+          :link="`/${props.user}/${props.market}/details/${props.category}/${items.id}`"
           bg="bg-blue-400"
-          :title="`${items.name} lote #${items.batch}`"
+          :title="`${items.name}, Lote#${items.batch}`"
           :subtitle="`Vence em: ${items.date}`"
         />
       </div>
@@ -51,7 +51,7 @@ const piniaData = computed(() => {
 
   <footer class="absolute bottom-0 flex w-full justify-end p-4">
     <TheFab
-      v-if="props.user !== 'visitante'"
+      v-if="props.user === 'admin'"
       :market="props.market"
       :category="props.category"
     />
