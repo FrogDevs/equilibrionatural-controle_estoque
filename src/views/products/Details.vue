@@ -56,7 +56,7 @@ function deleteProduct() {
   <header>
     <div class="relative flex h-60 w-full flex-col">
       <i
-        class="material-symbols-rounded absolute z-10 m-2 max-w-fit rounded-full p-2 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
+        class="material-symbols-rounded absolute z-10 m-4 max-w-fit rounded-full p-2 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
         @click="close"
       >
         close
