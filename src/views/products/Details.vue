@@ -7,10 +7,6 @@ import EditModal from '../../components/EditModal.vue'
 import TheButton from '../../components/TheButton.vue'
 import TheDialogue from '../../components/TheDialogue.vue'
 
-function back() {
-  router.go(-1)
-}
-
 const props = defineProps({
   user: {
     type: String,
@@ -29,6 +25,10 @@ const props = defineProps({
     default: ''
   }
 })
+
+function close() {
+  router.go(-1)
+}
 
 const productStore = useProductStore()
 
@@ -57,7 +57,7 @@ function deleteProduct() {
     <div class="relative flex h-60 w-full flex-col">
       <i
         class="material-symbols-rounded absolute z-10 m-2 max-w-fit rounded-full p-2 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
-        @click="back"
+        @click="close"
       >
         close
       </i>
@@ -87,7 +87,7 @@ function deleteProduct() {
         @primary-action="deleteProduct"
       />
       <h1 class="text-2xl text-green-800">
-        {{ piniaData.name }}
+        {{ piniaData.name }}, Lote#{{ piniaData.batch }}
       </h1>
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-1">
@@ -113,12 +113,12 @@ function deleteProduct() {
   </main>
   <footer class="absolute bottom-0 mb-4 flex w-full justify-center gap-4">
     <TheButton
-      v-if="props.user !== 'visitante'"
+      v-if="props.user === 'admin'"
       title="Editar"
       @click="activeEdit"
     />
     <TheButton
-      v-if="props.user !== 'visitante'"
+      v-if="props.user === 'admin'"
       title="Excluir"
       @click="activeDialogue"
     />
