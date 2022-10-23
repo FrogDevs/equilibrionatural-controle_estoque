@@ -1,4 +1,8 @@
 <script setup>
+import { ref } from 'vue'
+
+const roundedValue = ref('rounded-xl')
+
 const props = defineProps({
   link: {
     type: String,
@@ -21,11 +25,16 @@ const props = defineProps({
 
 <template>
   <router-link
-    class="mt-6 flex w-full flex-col rounded-xl border border-solid border-neutral-300 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 active:bg-neutral-200 sm:w-80 md:h-80"
+    class="mt-6 flex h-80 w-80 flex-col justify-end rounded-2xl border border-solid border-neutral-300 transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 focus:rounded-3xl active:rounded-3xl active:bg-neutral-200"
     :to="props.link"
+    @focusin="roundedValue = 'rounded-t-3xl'"
+    @focusout="roundedValue = 'rounded-xl'"
   >
-    <div :class="props.bg" class="h-40 w-full rounded-t-xl"></div>
-    <div class="flex h-40 w-full flex-col gap-5 rounded-b-xl p-5">
+    <div
+      :class="`${props.bg} ${roundedValue}`"
+      class="h-48 w-full rounded-2xl transition-all duration-200 ease-in-out lg:h-96"
+    ></div>
+    <div class="flex h-32 w-full flex-col gap-2 p-5 lg:h-40">
       <h1 class="text-2xl text-amber-900">{{ props.title }}</h1>
       <p class="text-sm text-amber-800">{{ props.subtitle }}</p>
     </div>
