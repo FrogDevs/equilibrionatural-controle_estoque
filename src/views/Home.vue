@@ -17,24 +17,24 @@ const props = defineProps({
   }
 })
 
-// const hideBar = ref(true)
-// let lastScrollTop = 0
+const hideBar = ref(true)
+let lastScrollTop = 0
 
-// window.addEventListener(
-//   'scroll',
-//   () => {
-//     var st = window.pageYOffset || document.documentElement.scrollTop
+window.addEventListener(
+  'scroll',
+  () => {
+    var st = window.pageYOffset || document.documentElement.scrollTop
 
-//     if (st > lastScrollTop) {
-//       hideBar.value = false
-//     } else {
-//       hideBar.value = true
-//     }
+    if (st > lastScrollTop) {
+      hideBar.value = false
+    } else {
+      hideBar.value = true
+    }
 
-//     lastScrollTop = st <= 0 ? 0 : st
-//   },
-//   false
-// )
+    lastScrollTop = st <= 0 ? 0 : st
+  },
+  false
+)
 </script>
 <template>
   <header class="fixed top-0 z-10 w-full">
