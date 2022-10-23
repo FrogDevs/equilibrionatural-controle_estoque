@@ -18,31 +18,44 @@ const props = defineProps({
 </script>
 <template>
   <header>
-    <ToolBar :market="props.market" />
+    <ToolBar :user="props.user" :market="props.market" />
   </header>
   <main>
     <TheDivider subtitle="Categorias" />
     <section class="flex flex-col gap-2 px-2">
       <TheList
         title="Alimentícios"
-        :link="`${props.user}/${props.market}/search`"
+        :user="props.user"
+        :market="props.market"
+        bg-picture="bg-store1"
       />
-      <TheList title="Beleza" :link="`${props.user}/${props.market}/search`" />
+      <TheList
+        title="Beleza"
+        :user="props.user"
+        :market="props.market"
+        bg-picture="bg-store1"
+      />
       <TheList
         title="Óleos essenciais"
-        :link="`${props.user}/${props.market}/search`"
+        :user="props.user"
+        :market="props.market"
+        bg-picture="bg-store1"
       />
       <TheList
         title="Suplementos"
-        :link="`${props.user}/${props.market}/search`"
+        :user="props.user"
+        :market="props.market"
+        bg-picture="bg-store1"
       />
       <TheList
         title="Vida & Saúde"
-        :link="`${props.user}/${props.market}/search`"
+        :user="props.user"
+        :market="props.market"
+        bg-picture="bg-store1"
       />
     </section>
   </main>
   <footer class="fixed bottom-0 w-full">
-    <NavigationBar :home="true" :market="props.market" />
+    <NavigationBar :home="true" :user="props.user" :market="props.market" />
   </footer>
 </template>

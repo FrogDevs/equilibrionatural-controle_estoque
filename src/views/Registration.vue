@@ -6,7 +6,6 @@ import { useProductStore } from '../stores/ProductStore'
 import ToolBar from '../components/ToolBar.vue'
 import TheButton from '../components/TheButton.vue'
 import TextField from '../components/TextField.vue'
-import TheSnackBar from '../components/TheSnackBar.vue'
 import TheDivider from '../components/TheDivider.vue'
 
 const props = defineProps({
@@ -57,20 +56,16 @@ function addDate(value) {
 function addimage(value) {
   piniaDatas.image.value = value
 }
-function hideSnackBar() {
-  itemSaved.value = false
-}
 
 function addItem() {
   productStore.addProduct(piniaDatas)
   itemSaved.value = true
-  setTimeout(hideSnackBar, 3000)
   router.go(-1)
 }
 </script>
 <template>
   <header class="fixed top-0 z-10 w-full">
-    <ToolBar :market="props.market" />
+    <ToolBar />
   </header>
   <main class="flex w-full flex-col pb-2 pt-[4rem]">
     <TheDivider subtitle="Cadastrar produtos" />
@@ -92,5 +87,4 @@ function addItem() {
       <TheButton title="Salvar" />
     </form>
   </main>
-  <TheSnackBar v-if="itemSaved" v-auto-animate />
 </template>
