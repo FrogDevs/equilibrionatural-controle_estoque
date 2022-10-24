@@ -23,10 +23,6 @@ const inputFocus = ref(false)
 const inputError = ref(false)
 const titleClass = ref('text-neutral-400')
 
-// function clear() {
-//   input.value.value = ''
-// }
-
 // Setters
 function setFocus() {
   inputFocus.value = !inputFocus.value
