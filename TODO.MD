@@ -3,7 +3,7 @@
 3. route transitions
 4. vue image library
 5. salvar em cache
-2. API Firebase.
+6. API Firebase.
 
 
 <!-- category 1: https://unsplash.com/photos/CY-OkOICA9o -->
