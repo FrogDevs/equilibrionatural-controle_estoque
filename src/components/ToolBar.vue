@@ -6,6 +6,16 @@ function back() {
   router.go(-1)
 }
 
+function logout() {
+  router.push('/')
+}
+
+const emit = defineEmits(['openSearch'])
+
+function openSearch() {
+  emit('openSearch')
+}
+
 const props = defineProps({
   user: {
     type: String,
@@ -34,12 +44,20 @@ const title = computed(() => {
       >
         arrow_back
       </i>
-      <router-link
-        to="/"
-        class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
-      >
-        logout
-      </router-link>
+      <div class="flex gap-7">
+        <i
+          class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
+          @click="openSearch"
+        >
+          search
+        </i>
+        <i
+          class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
+          @click="logout"
+        >
+          logout
+        </i>
+      </div>
     </div>
     <p class="absolute flex w-full justify-center text-amber-800">
       {{ title }}
