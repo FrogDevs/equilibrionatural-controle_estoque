@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import router from '../router'
 
 function back() {
@@ -34,9 +34,28 @@ const title = computed(() => {
     return null
   }
 })
+
+const hideBar = ref(true)
+let lastScrollTop = 0
+
+window.addEventListener(
+  'scroll',
+  () => {
+    var st = window.pageYOffset || document.documentElement.scrollTop
+
+    if (st > lastScrollTop) {
+      hideBar.value = false
+    } else {
+      hideBar.value = true
+    }
+
+    lastScrollTop = st <= 0 ? 0 : st
+  },
+  false
+)
 </script>
 <template>
-  <nav class="relative flex h-16 items-center bg-green-100">
+  <nav v-if="hideBar" class="relative flex h-16 items-center bg-green-100">
     <div class="absolute z-10 flex w-full justify-between px-4">
       <i
         class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"

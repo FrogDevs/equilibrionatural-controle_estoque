@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 const props = defineProps({
   user: {
     type: String,
@@ -17,9 +19,28 @@ const props = defineProps({
     default: false
   }
 })
+
+const hideBar = ref(true)
+let lastScrollTop = 0
+
+window.addEventListener(
+  'scroll',
+  () => {
+    var st = window.pageYOffset || document.documentElement.scrollTop
+
+    if (st > lastScrollTop) {
+      hideBar.value = false
+    } else {
+      hideBar.value = true
+    }
+
+    lastScrollTop = st <= 0 ? 0 : st
+  },
+  false
+)
 </script>
 <template>
-  <nav class="relative flex flex-col bg-green-100 pt-3 pb-4">
+  <nav v-if="hideBar" class="relative flex flex-col bg-green-100 pt-3 pb-4">
     <div class="flex w-full justify-center">
       <router-link
         class="flex w-[7.5rem] flex-col items-center justify-end gap-2 focus:outline-none"

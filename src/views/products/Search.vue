@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import { ref } from 'vue'
-import { useProductStore } from '../../stores/ProductStore'
 import { computed } from 'vue'
+import { useProductStore } from '../../stores/ProductStore'
 import ToolBar from '../../components/ToolBar.vue'
 import TheCard from '../../components/TheCard.vue'
 import TheFab from '../../components/TheFab.vue'
+import TheDivider from '../../components/TheDivider.vue'
 
 const props = defineProps({
   user: {
@@ -27,33 +27,15 @@ const productStore = useProductStore()
 const piniaData = computed(() => {
   return productStore.unity(props.market, props.category)
 })
-
-const hideBar = ref(true)
-let lastScrollTop = 0
-
-window.addEventListener(
-  'scroll',
-  () => {
-    var st = window.pageYOffset || document.documentElement.scrollTop
-
-    if (st > lastScrollTop) {
-      hideBar.value = false
-    } else {
-      hideBar.value = true
-    }
-
-    lastScrollTop = st <= 0 ? 0 : st
-  },
-  false
-)
 </script>
 
 <template>
   <header class="fixed top-0 w-full shadow-sm">
-    <ToolBar v-if="hideBar" :user="props.user" :market="props.market" />
+    <ToolBar :user="props.user" :market="props.market" />
   </header>
   <main class="mt-14 mb-24 flex h-full w-full overflow-y-scroll">
     <section class="flex w-full flex-col">
+      <TheDivider :subtitle="props.category" />
       <div
         class="auto-grid flex flex-col items-center gap-4 px-4 md:grid md:gap-0"
       >
