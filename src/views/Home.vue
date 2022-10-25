@@ -5,6 +5,7 @@ import NavigationBar from '../components/NavigationBar.vue'
 import ToolBar from '../components/ToolBar.vue'
 import TheList from '../components/TheList.vue'
 import TheDivider from '../components/TheDivider.vue'
+import TheModal from '../components/TheModal.vue'
 
 const props = defineProps({
   user: {
@@ -88,4 +89,5 @@ window.addEventListener(
       :market="props.market"
     />
   </footer>
+  <TheModal />
 </template>

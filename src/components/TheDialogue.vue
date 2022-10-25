@@ -49,7 +49,7 @@ function primaryAction() {
     >
       <div
         :class="props.dialogueIcon ? 'items-center' : 'itens-start'"
-        class="flex w-full flex-col gap-4 px-6 pt-6"
+        class="flex w-full flex-col gap-4 p-6"
       >
         <i v-if="props.dialogueIcon" class="material-symbols-rounded">
           signal_wifi_off
