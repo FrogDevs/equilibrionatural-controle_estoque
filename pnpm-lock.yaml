@@ -4,7 +4,7 @@ specifiers:
   '@capacitor/android': ^4.3.0
   '@capacitor/cli': ^4.3.0
   '@capacitor/core': ^4.3.0
-  '@capacitor/ios': ^4.3.0
+  '@capacitor/network': ^4.0.1
   '@capacitor/status-bar': ^4.0.1
   '@pnpm/eslint-config': ^1.0.1
   '@vitejs/plugin-vue': ^3.1.0
@@ -28,7 +28,7 @@ dependencies:
   '@capacitor/android': 4.3.0_@capacitor+core@4.3.0
   '@capacitor/cli': 4.3.0
   '@capacitor/core': 4.3.0
-  '@capacitor/ios': 4.3.0_@capacitor+core@4.3.0
+  '@capacitor/network': 4.0.1_@capacitor+core@4.3.0
   '@capacitor/status-bar': 4.0.1_@capacitor+core@4.3.0
   pinia: 2.0.23_vue@3.2.39
   vue: 3.2.39
@@ -131,10 +131,10 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@capacitor/ios/4.3.0_@capacitor+core@4.3.0:
-    resolution: {integrity: sha512-l9vuFzGkopHEWTsbdCwcJF/TLPspuhWSSq5cfB61YO4HAG5o3y/M6TiftL3JTyw/OOJ6cgWtLI/2QMp1TPIU4w==}
+  /@capacitor/network/4.0.1_@capacitor+core@4.3.0:
+    resolution: {integrity: sha512-04xR3DtxxyibaQQGNLUGYxgLzlZtsucaUUikCFLijuxSKSM/tW8frDKpWdwx7yG/dOYLMYmAqaSFcelz5GRGpw==}
     peerDependencies:
-      '@capacitor/core': ^4.2.0
+      '@capacitor/core': ^4.0.0
     dependencies:
       '@capacitor/core': 4.3.0
     dev: false

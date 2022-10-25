@@ -9,7 +9,9 @@ app.use(pinia)
 
 import router from './router'
 app.use(router)
-app.mount('#app')
+router.isReady().then(() => {
+  app.mount('#app')
+})
 
 // import { StatusBar } from '@capacitor/status-bar'
 // StatusBar.setOverlaysWebView({ overlay: true })

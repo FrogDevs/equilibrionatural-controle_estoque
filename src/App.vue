@@ -1,14 +1,16 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import TheDialogue from './components/TheDialogue.vue'
 
-const wifiState = computed(() => {
-  const online = ref(window.navigator.onLine)
+import { Network } from '@capacitor/network'
 
-  if (online.value) {
-    return false
+const showWifiWarn = ref(!window.navigator.onLine)
+
+Network.addListener('networkStatusChange', (status) => {
+  if (status.connected) {
+    showWifiWarn.value = false
   } else {
-    return true
+    showWifiWarn.value = true
   }
 })
 
@@ -18,7 +20,7 @@ function reloadPage() {
 </script>
 <template>
   <the-dialogue
-    v-if="wifiState"
+    v-if="showWifiWarn"
     :dialogue-icon="true"
     title="Sem conexão Wifi"
     message="Parece que você está sem conexão com uma rede Wifi. Dados importantes podem não aparecer e funções do sistema não funcionarem da maneira esperada. Certifique-se de estabelecer uma conexão válida."
