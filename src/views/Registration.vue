@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import router from '../router'
 import { useProductStore } from '../stores/ProductStore'
 import { useHistoryStore } from '../stores/HistoryStore'
@@ -37,27 +37,42 @@ const piniaProduct = {
   image: ref(null)
 }
 
+function historyDate() {
+  const d = new Date()
+  const day = d.getDate()
+  const month = d.getMonth()
+  const year = d.getFullYear()
+  const hours = d.getHours()
+  const minutes = d.getMinutes()
+  return `${day}/${month + 1}/${year} às ${hours}:${minutes}`
+}
+
+const totalPrice = computed(() => {
+  return piniaProduct.amount.value * piniaProduct.price.value
+})
+
 const piniaHistory = {
   id: ref(piniaProduct.id),
-  date: '10/10/2022',
+  date: historyDate(),
   state: 'Registrado',
   market: ref(piniaProduct.market),
   batch: ref(piniaProduct.batch),
   category: ref(piniaProduct.category),
-  name: ref(piniaProduct.name)
+  name: ref(piniaProduct.name),
+  totalPrice: totalPrice
 }
 
 function addName(value) {
   piniaProduct.name.value = value
 }
 function addAmount(value) {
-  piniaProduct.amount.value = value
+  piniaProduct.amount.value = Number(value)
 }
 function addBatch(value) {
   piniaProduct.batch.value = value
 }
 function addPrice(value) {
-  piniaProduct.price.value = value
+  piniaProduct.price.value = Number(value)
 }
 function addWeight(value) {
   piniaProduct.weight.value = value
@@ -70,6 +85,7 @@ function addimage(value) {
 }
 
 function addItem() {
+  console.log(piniaHistory.totalPrice.value)
   productStore.addProduct(piniaProduct)
   historyStore.addToHistory(piniaHistory)
   itemSaved.value = true

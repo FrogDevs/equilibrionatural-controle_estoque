@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useProductStore } from '../stores/ProductStore'
 import { useHistoryStore } from '../stores/HistoryStore'
 import TheDivider from './TheDivider.vue'
@@ -36,14 +36,29 @@ const piniaEditProduct = {
   image: ref(productStore.products[props.productId].image)
 }
 
+function historyDate() {
+  const d = new Date()
+  const day = d.getDate()
+  const month = d.getMonth()
+  const year = d.getFullYear()
+  const hours = d.getHours()
+  const minutes = d.getMinutes()
+  return `${day}/${month + 1}/${year} às ${hours}:${minutes}`
+}
+
+const totalPrice = computed(() => {
+  return piniaEditProduct.amount.value * piniaEditProduct.price.value
+})
+
 const piniaHistory = {
   id: ref(piniaEditProduct.id),
-  date: '10/10/2022',
+  date: historyDate(),
   state: 'Editado',
   market: ref(piniaEditProduct.market),
   batch: ref(piniaEditProduct.batch),
   category: ref(piniaEditProduct.category),
-  name: ref(piniaEditProduct.name)
+  name: ref(piniaEditProduct.name),
+  totalPrice: totalPrice
 }
 
 function addName(value) {

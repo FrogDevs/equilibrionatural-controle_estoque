@@ -3,6 +3,7 @@
 import router from '../../router'
 import { computed, ref } from 'vue'
 import { useProductStore } from '../../stores/ProductStore'
+import { useHistoryStore } from '../../stores/HistoryStore'
 import EditModal from '../../components/EditModal.vue'
 import TheButton from '../../components/TheButton.vue'
 import TheDialogue from '../../components/TheDialogue.vue'
@@ -31,10 +32,36 @@ function close() {
 }
 
 const productStore = useProductStore()
+const historyStore = useHistoryStore()
 
 const piniaData = computed(() => {
   return productStore.products[props.id]
 })
+
+function historyDate() {
+  const d = new Date()
+  const day = d.getDate()
+  const month = d.getMonth()
+  const year = d.getFullYear()
+  const hours = d.getHours()
+  const minutes = d.getMinutes()
+  return `${day}/${month + 1}/${year} às ${hours}:${minutes}`
+}
+
+const totalPrice = computed(() => {
+  return piniaData.value.amount * piniaData.value.price
+})
+
+const piniaHistory = {
+  id: ref(props.id),
+  date: historyDate(),
+  state: 'Excluido',
+  market: ref(props.market),
+  batch: ref(piniaData.value.batch),
+  category: ref(props.category),
+  name: ref(piniaData.value.name),
+  totalPrice: totalPrice
+}
 
 const editModal = ref(false)
 const showDialogue = ref(false)
@@ -49,6 +76,7 @@ function activeDialogue() {
 
 function deleteProduct() {
   productStore.deleteProduct(props.productId)
+  historyStore.addToHistory(piniaHistory)
   router.go(-1)
 }
 </script>
