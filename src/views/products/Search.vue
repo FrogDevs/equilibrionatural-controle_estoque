@@ -25,7 +25,7 @@ const props = defineProps({
 const productStore = useProductStore()
 
 const piniaData = computed(() => {
-  return productStore.unity(props.market, props.category)
+  return productStore.unity(props.market, props.category).slice(0).reverse()
 })
 </script>
 

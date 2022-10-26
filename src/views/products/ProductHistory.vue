@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import router from '../../router'
 import { useHistoryStore } from '../../stores/HistoryStore'
 import ToolBar from '../../components/ToolBar.vue'
@@ -17,6 +18,10 @@ const props = defineProps({
 })
 
 const historyStore = useHistoryStore()
+
+const piniaData = computed(() => {
+  return historyStore.history.slice(0).reverse()
+})
 
 function linkDetails(category, id) {
   router.push(`/${props.user}/${props.market}/details/${category}/${id}`)
@@ -42,7 +47,7 @@ function linkDetails(category, id) {
         </thead>
         <tbody>
           <tr
-            v-for="item in historyStore.history"
+            v-for="item in piniaData"
             :key="item.id"
             class="border-b bg-white transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 active:bg-neutral-200"
             @click="linkDetails(item.category, item.id)"

@@ -1,10 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useProductStore } from '../stores/ProductStore'
+import { useHistoryStore } from '../stores/HistoryStore'
 import TheDivider from './TheDivider.vue'
 import TextField from './TextField.vue'
 
 const productStore = useProductStore()
+const historyStore = useHistoryStore()
 
 const props = defineProps({
   productId: {
@@ -21,7 +23,7 @@ const props = defineProps({
   }
 })
 
-const datasForPinia = {
+const piniaEditProduct = {
   id: ref(productStore.products[props.productId].id),
   market: ref(productStore.products[props.productId].market),
   category: ref(productStore.products[props.productId].category),
@@ -34,26 +36,36 @@ const datasForPinia = {
   image: ref(productStore.products[props.productId].image)
 }
 
+const piniaHistory = {
+  id: ref(piniaEditProduct.id),
+  date: '10/10/2022',
+  state: 'Editado',
+  market: ref(piniaEditProduct.market),
+  batch: ref(piniaEditProduct.batch),
+  category: ref(piniaEditProduct.category),
+  name: ref(piniaEditProduct.name)
+}
+
 function addName(value) {
-  datasForPinia.name.value = value
+  piniaEditProduct.name.value = value
 }
 function addBatch(value) {
-  datasForPinia.batch.value = value
+  piniaEditProduct.batch.value = value
 }
 function addAmount(value) {
-  datasForPinia.amount.value = value
+  piniaEditProduct.amount.value = value
 }
 function addPrice(value) {
-  datasForPinia.price.value = value
+  piniaEditProduct.price.value = value
 }
 function addWeight(value) {
-  datasForPinia.weight.value = value
+  piniaEditProduct.weight.value = value
 }
 function addDate(value) {
-  datasForPinia.date.value = value
+  piniaEditProduct.date.value = value
 }
 function addimage(value) {
-  datasForPinia.image.value = value
+  piniaEditProduct.image.value = value
 }
 
 const emit = defineEmits(['closeEdit'])
@@ -63,7 +75,8 @@ function closeEdit() {
 }
 
 function editSave() {
-  productStore.editProduct(props.productId, datasForPinia)
+  productStore.editProduct(props.productId, piniaEditProduct)
+  historyStore.addToHistory(piniaHistory)
   emit('closeEdit')
 }
 </script>
