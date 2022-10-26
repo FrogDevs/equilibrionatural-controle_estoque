@@ -54,7 +54,12 @@ function primaryAction() {
         <i v-if="props.dialogueIcon" class="material-symbols-rounded">
           signal_wifi_off
         </i>
-        <h2 class="text-center text-2xl text-neutral-800">{{ props.title }}</h2>
+        <h2
+          :class="props.dialogueIcon ? 'text-center' : 'text-start'"
+          class="text-2xl text-neutral-800"
+        >
+          {{ props.title }}
+        </h2>
         <p class="text-sm">{{ props.message }}</p>
       </div>
       <div class="flex w-full justify-end gap-8 py-[2.125rem] px-9">

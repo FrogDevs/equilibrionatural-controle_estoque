@@ -66,7 +66,6 @@ const watchInput = computed(() => {
   }
 })
 </script>
-
 <template>
   <label class="relative flex w-full flex-col">
     <div

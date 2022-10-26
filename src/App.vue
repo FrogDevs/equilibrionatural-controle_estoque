@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import TheDialogue from './components/TheDialogue.vue'
-
 import { Network } from '@capacitor/network'
 
 const showWifiWarn = ref(!window.navigator.onLine)
