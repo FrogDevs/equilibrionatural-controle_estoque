@@ -3,6 +3,7 @@
 import { ref } from 'vue'
 import router from '../router'
 import { useProductStore } from '../stores/ProductStore'
+import { useHistoryStore } from '../stores/HistoryStore'
 import ToolBar from '../components/ToolBar.vue'
 import TheButton from '../components/TheButton.vue'
 import TextField from '../components/TextField.vue'
@@ -20,9 +21,10 @@ const props = defineProps({
 })
 
 const productStore = useProductStore()
+const historyStore = useHistoryStore()
 const itemSaved = ref(false)
 
-const piniaDatas = {
+const piniaProduct = {
   id: productStore.products.length,
   market: props.market,
   category: props.category,
@@ -35,30 +37,41 @@ const piniaDatas = {
   image: ref(null)
 }
 
+const piniaHistory = {
+  id: ref(piniaProduct.id),
+  date: '10/10/2022',
+  state: 'Registrado',
+  market: ref(piniaProduct.market),
+  batch: ref(piniaProduct.batch),
+  category: ref(piniaProduct.category),
+  name: ref(piniaProduct.name)
+}
+
 function addName(value) {
-  piniaDatas.name.value = value
+  piniaProduct.name.value = value
 }
 function addAmount(value) {
-  piniaDatas.amount.value = value
+  piniaProduct.amount.value = value
 }
 function addBatch(value) {
-  piniaDatas.batch.value = value
+  piniaProduct.batch.value = value
 }
 function addPrice(value) {
-  piniaDatas.price.value = value
+  piniaProduct.price.value = value
 }
 function addWeight(value) {
-  piniaDatas.weight.value = value
+  piniaProduct.weight.value = value
 }
 function addDate(value) {
-  piniaDatas.date.value = value
+  piniaProduct.date.value = value
 }
 function addimage(value) {
-  piniaDatas.image.value = value
+  piniaProduct.image.value = value
 }
 
 function addItem() {
-  productStore.addProduct(piniaDatas)
+  productStore.addProduct(piniaProduct)
+  historyStore.addToHistory(piniaHistory)
   itemSaved.value = true
   router.go(-1)
 }
