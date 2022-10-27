@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import { ref, computed } from 'vue'
 import router from '../router'
+import { ref, computed } from 'vue'
 import { useProductStore } from '../stores/ProductStore'
 import { useHistoryStore } from '../stores/HistoryStore'
 import ToolBar from '../components/ToolBar.vue'
@@ -22,7 +22,6 @@ const props = defineProps({
 
 const productStore = useProductStore()
 const historyStore = useHistoryStore()
-const itemSaved = ref(false)
 
 const piniaProduct = {
   id: productStore.products.length,
@@ -34,7 +33,8 @@ const piniaProduct = {
   price: ref(null),
   weight: ref(null),
   date: ref(null),
-  image: ref(null)
+  image: ref(null),
+  totalPrice: ref(null)
 }
 
 function historyDate() {
@@ -47,10 +47,6 @@ function historyDate() {
   return `${day}/${month + 1}/${year} às ${hours}:${minutes}`
 }
 
-const totalPrice = computed(() => {
-  return piniaProduct.amount.value * piniaProduct.price.value
-})
-
 const piniaHistory = {
   id: ref(piniaProduct.id),
   date: historyDate(),
@@ -59,17 +55,18 @@ const piniaHistory = {
   batch: ref(piniaProduct.batch),
   category: ref(piniaProduct.category),
   name: ref(piniaProduct.name),
-  totalPrice: totalPrice
+  totalPrice: ref(piniaProduct.totalPrice),
+  totalInStock: ref(null)
 }
 
 function addName(value) {
   piniaProduct.name.value = value
 }
-function addAmount(value) {
-  piniaProduct.amount.value = Number(value)
-}
 function addBatch(value) {
   piniaProduct.batch.value = value
+}
+function addAmount(value) {
+  piniaProduct.amount.value = Number(value)
 }
 function addPrice(value) {
   piniaProduct.price.value = Number(value)
@@ -84,11 +81,15 @@ function addimage(value) {
   piniaProduct.image.value = value
 }
 
+const totalPrice = computed(() => {
+  return piniaProduct.amount.value * piniaProduct.price.value
+})
+
 function addItem() {
-  console.log(piniaHistory.totalPrice.value)
+  piniaProduct.totalPrice.value = totalPrice.value
   productStore.addProduct(piniaProduct)
+  piniaHistory.totalInStock.value = productStore.getTotalPrice
   historyStore.addToHistory(piniaHistory)
-  itemSaved.value = true
   router.go(-1)
 }
 </script>

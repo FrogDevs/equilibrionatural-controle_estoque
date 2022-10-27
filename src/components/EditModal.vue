@@ -33,7 +33,8 @@ const piniaEditProduct = {
   price: ref(productStore.products[props.productId].price),
   weight: ref(productStore.products[props.productId].weight),
   date: ref(productStore.products[props.productId].date),
-  image: ref(productStore.products[props.productId].image)
+  image: ref(productStore.products[props.productId].image),
+  totalPrice: ref(productStore.products[props.productId].totalPrice)
 }
 
 function historyDate() {
@@ -46,10 +47,6 @@ function historyDate() {
   return `${day}/${month + 1}/${year} às ${hours}:${minutes}`
 }
 
-const totalPrice = computed(() => {
-  return piniaEditProduct.amount.value * piniaEditProduct.price.value
-})
-
 const piniaHistory = {
   id: ref(piniaEditProduct.id),
   date: historyDate(),
@@ -58,7 +55,7 @@ const piniaHistory = {
   batch: ref(piniaEditProduct.batch),
   category: ref(piniaEditProduct.category),
   name: ref(piniaEditProduct.name),
-  totalPrice: totalPrice
+  totalInStock: ref(productStore.getTotalPrice)
 }
 
 function addName(value) {
@@ -68,10 +65,10 @@ function addBatch(value) {
   piniaEditProduct.batch.value = value
 }
 function addAmount(value) {
-  piniaEditProduct.amount.value = value
+  piniaEditProduct.amount.value = Number(value)
 }
 function addPrice(value) {
-  piniaEditProduct.price.value = value
+  piniaEditProduct.price.value = Number(value)
 }
 function addWeight(value) {
   piniaEditProduct.weight.value = value
@@ -83,6 +80,10 @@ function addimage(value) {
   piniaEditProduct.image.value = value
 }
 
+const totalPrice = computed(() => {
+  return piniaEditProduct.amount.value * piniaEditProduct.price.value
+})
+
 const emit = defineEmits(['closeEdit'])
 
 function closeEdit() {
@@ -90,7 +91,9 @@ function closeEdit() {
 }
 
 function editSave() {
+  piniaEditProduct.totalPrice.value = totalPrice.value
   productStore.editProduct(props.productId, piniaEditProduct)
+  piniaHistory.totalInStock.value = productStore.getTotalPrice
   historyStore.addToHistory(piniaHistory)
   emit('closeEdit')
 }
@@ -102,12 +105,12 @@ function editSave() {
     <TheDivider subtitle="Editar produto" />
     <form class="flex flex-col gap-4 px-4">
       <TextField title="Nome" input-type="text" @input-value="addName" />
+      <TextField title="Lote" input-type="text" @input-value="addBatch" />
       <TextField
         title="Quantidade"
         input-type="number"
         @input-value="addAmount"
       />
-      <TextField title="Lote" input-type="text" @input-value="addBatch" />
       <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
       <TextField title="Validade" input-type="date" @input-value="addDate" />

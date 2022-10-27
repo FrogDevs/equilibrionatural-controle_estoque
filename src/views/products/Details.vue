@@ -133,7 +133,12 @@ function deleteProduct() {
         </div>
         <div class="flex flex-col gap-1">
           <p class="font-medium text-amber-800">
-            Preço: R${{ piniaData.price }}
+            Preço por produto: R${{ piniaData.price }}
+          </p>
+        </div>
+        <div class="flex flex-col gap-1">
+          <p class="font-medium text-amber-800">
+            Preço total: R${{ piniaData.totalPrice }}
           </p>
         </div>
       </div>

@@ -5,12 +5,18 @@ export const useProductStore = defineStore('productStore', {
     products: []
   }),
   getters: {
-    unity: (state) => {
+    getUnity: (state) => {
       return (market, category) =>
         state.products.filter(
           (product) =>
             product.market === market && product.category === category
         )
+    },
+    getTotalPrice() {
+      return this.products.reduce(
+        (accumulator, curValue) => accumulator + curValue.totalPrice,
+        0
+      )
     }
   },
   actions: {
@@ -21,9 +27,7 @@ export const useProductStore = defineStore('productStore', {
       this.products.splice(id, 1, newValue)
     },
     deleteProduct(id) {
-      this.products = this.products.filter((product) => {
-        return product.id !== id
-      })
+      this.products.splice(id, 1)
     }
   }
 })
