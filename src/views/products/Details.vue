@@ -48,10 +48,6 @@ function historyDate() {
   return `${day}/${month + 1}/${year} às ${hours}:${minutes}`
 }
 
-const totalPrice = computed(() => {
-  return piniaData.value.amount * piniaData.value.price
-})
-
 const piniaHistory = {
   id: ref(props.id),
   date: historyDate(),
@@ -60,7 +56,8 @@ const piniaHistory = {
   batch: ref(piniaData.value.batch),
   category: ref(props.category),
   name: ref(piniaData.value.name),
-  totalPrice: totalPrice
+  totalPrice: ref(piniaData.value.totalPrice),
+  totalInStock: ref(null)
 }
 
 const editModal = ref(false)
@@ -76,6 +73,7 @@ function activeDialogue() {
 
 function deleteProduct() {
   productStore.deleteProduct(props.productId)
+  piniaHistory.totalInStock.value = productStore.getTotalPrice
   historyStore.addToHistory(piniaHistory)
   router.go(-1)
 }
