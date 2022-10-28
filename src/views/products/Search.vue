@@ -43,7 +43,7 @@ const piniaData = computed(() => {
           v-for="items in piniaData"
           :key="items.id"
           :link="`/${props.user}/${props.market}/details/${props.category}/${items.id}`"
-          bg="bg-blue-400"
+          :bg="items.image"
           :title="`${items.name}, Lote#${items.batch}`"
           :subtitle="`Vence em: ${items.date}`"
         />

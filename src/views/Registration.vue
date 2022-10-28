@@ -97,7 +97,7 @@ function addItem() {
   <header class="fixed top-0 z-10 w-full">
     <ToolBar />
   </header>
-  <main class="flex w-full flex-col pb-2 pt-[4rem]">
+  <main class="flex w-full flex-col pb-8 pt-16">
     <TheDivider subtitle="Cadastrar produtos" />
     <form
       class="flex flex-col items-center gap-4 px-4"
@@ -113,7 +113,7 @@ function addItem() {
       <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
       <TextField title="Validade" input-type="date" @input-value="addDate" />
-      <TextField title="Imagem" input-type="file" @input-value="addimage" />
+      <TextField title="Imagem" input-type="file" @input-img="addimage" />
       <TheButton title="Salvar" />
     </form>
   </main>

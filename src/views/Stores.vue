@@ -21,13 +21,13 @@ const props = defineProps({
       >
         <TheCard
           :link="`/${props.user}/unidade1/home`"
-          bg="bg-store1 bg-cover bg-center bg-no-repeat"
+          bg="/store1.avif"
           title="Unidade 1"
           subtitle="Rua Imberé, 373"
         />
         <TheCard
           :link="`/${props.user}/unidade2/home`"
-          bg="bg-store2 bg-cover bg-center bg-no-repeat"
+          bg="/store2.avif"
           title="Unidade 2"
           subtitle="Av. Taquandava, 1203"
         />

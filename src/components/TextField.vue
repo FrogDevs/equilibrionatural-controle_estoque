@@ -42,7 +42,7 @@ function setFocus() {
   }
 }
 
-const emit = defineEmits(['input-value'])
+const emit = defineEmits(['input-value', 'input-img'])
 
 function emitOnTrue() {
   if (!input.value.value) {
@@ -52,6 +52,23 @@ function emitOnTrue() {
     inputError.value = false
     titleClass.value = 'text-amber-700'
     emit('input-value', input.value.value)
+  }
+}
+
+function fileSelected(e) {
+  if (props.inputType === 'file') {
+    const imgSelected = e.target.files[0]
+    const fileReader = new FileReader()
+
+    fileReader.onloadend = function () {
+      emit('input-img', fileReader.result)
+    }
+    fileReader.readAsDataURL(imgSelected)
+    fileReader.onerror = () => {
+      alert(fileReader.error)
+    }
+  } else {
+    return
   }
 }
 
@@ -89,6 +106,7 @@ const watchInput = computed(() => {
           @focusin="setFocus"
           @focusout="setFocus"
           @input="emitOnTrue"
+          @change="fileSelected"
         />
       </div>
       <i

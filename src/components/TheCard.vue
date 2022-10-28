@@ -31,8 +31,10 @@ const props = defineProps({
     @focusout="roundedValue = 'rounded-xl'"
   >
     <div
-      :class="`${props.bg} ${roundedValue}`"
-      class="h-48 w-full rounded-2xl transition-all duration-200 ease-in-out lg:h-96"
+      ref="img"
+      :class="`${roundedValue}`"
+      class="imagem h-48 w-full rounded-2xl bg-cover bg-center transition-all duration-200 ease-in-out lg:h-96"
+      :style="{ backgroundImage: 'url(' + props.bg + ')' }"
     ></div>
     <div class="flex h-32 w-full flex-col gap-2 p-5 lg:h-40">
       <h1 class="text-2xl text-amber-900">{{ props.title }}</h1>

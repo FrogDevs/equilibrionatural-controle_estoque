@@ -87,7 +87,10 @@ function deleteProduct() {
       >
         close
       </i>
-      <div class="h-full w-full bg-blue-400"></div>
+      <div
+        class="h-full w-full bg-cover bg-center"
+        :style="{ backgroundImage: 'url(' + piniaData.image + ')' }"
+      ></div>
     </div>
   </header>
   <main class="flex flex-col items-center pb-5">
@@ -126,17 +129,17 @@ function deleteProduct() {
         </div>
         <div class="flex flex-col gap-1">
           <p class="font-medium text-amber-800">
-            Validade: {{ piniaData.date }}
-          </p>
-        </div>
-        <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">
             Preço por produto: R${{ piniaData.price }}
           </p>
         </div>
         <div class="flex flex-col gap-1">
           <p class="font-medium text-amber-800">
             Preço total: R${{ piniaData.totalPrice }}
+          </p>
+        </div>
+        <div class="flex flex-col gap-1">
+          <p class="font-medium text-amber-800">
+            Validade: {{ piniaData.date }}
           </p>
         </div>
       </div>
