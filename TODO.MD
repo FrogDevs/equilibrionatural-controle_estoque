@@ -1,8 +1,8 @@
-1. Rotas de histórico, mostrando ultimos itens editados.
-2. Pesquisar produtos
-3. route transitions
-4. vue image library
-5. salvar em cache
+1. Rotas de histórico, mostrando ultimos itens editados. [X]
+2. Salvar imagem do produto [X]
+3. Pesquisar produtos
+4. salvar em cache
+5. route guard
 6. API Firebase.
 
 
