@@ -116,7 +116,7 @@ function deleteProduct() {
         @primary-action="deleteProduct"
       />
       <h1 class="text-2xl text-green-800">
-        {{ piniaData.name }}, Lote#{{ piniaData.batch }}
+        {{ piniaData.name }}, #{{ piniaData.batch }}
       </h1>
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-1">
@@ -139,13 +139,16 @@ function deleteProduct() {
         </div>
         <div class="flex flex-col gap-1">
           <p class="font-medium text-amber-800">
-            Validade: {{ piniaData.date }}
+            Validade: {{ piniaData.date }} dias
           </p>
         </div>
       </div>
     </section>
   </main>
-  <footer class="absolute bottom-0 mb-4 flex w-full justify-center gap-4">
+  <footer
+    v-if="!editModal"
+    class="absolute bottom-0 mb-4 flex w-full justify-center gap-4"
+  >
     <TheButton
       v-if="props.user === 'admin'"
       title="Editar"

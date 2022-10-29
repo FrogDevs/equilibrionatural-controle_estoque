@@ -75,7 +75,7 @@ function addWeight(value) {
   piniaProduct.weight.value = value
 }
 function addDate(value) {
-  piniaProduct.date.value = value
+  piniaProduct.date.value = Number(value)
 }
 function addimage(value) {
   piniaProduct.image.value = value
@@ -112,7 +112,11 @@ function addItem() {
       />
       <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
-      <TextField title="Validade" input-type="date" @input-value="addDate" />
+      <TextField
+        title="Validade (dias)"
+        input-type="number"
+        @input-value="addDate"
+      />
       <TextField title="Imagem" input-type="file" @input-img="addimage" />
       <TheButton title="Salvar" />
     </form>

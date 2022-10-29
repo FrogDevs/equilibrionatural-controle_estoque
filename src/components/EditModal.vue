@@ -99,9 +99,7 @@ function editSave() {
 }
 </script>
 <template>
-  <div
-    class="absolute inset-0 z-20 my-auto flex h-fit w-full flex-col bg-white pt-6"
-  >
+  <div class="absolute inset-0 z-20 flex h-fit w-full flex-col bg-white pt-6">
     <TheDivider subtitle="Editar produto" />
     <form class="flex flex-col gap-4 px-4">
       <TextField title="Nome" input-type="text" @input-value="addName" />
@@ -113,7 +111,11 @@ function editSave() {
       />
       <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
-      <TextField title="Validade" input-type="date" @input-value="addDate" />
+      <TextField
+        title="Validade (dias)"
+        input-type="number"
+        @input-value="addDate"
+      />
       <TextField title="Imagem" input-type="file" @input-value="addimage" />
     </form>
     <div class="flex items-end justify-end gap-8 py-6 px-4">
