@@ -1,10 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { defineAsyncComponent } from 'vue'
 import NavigationBar from '../components/NavigationBar.vue'
 import ToolBar from '../components/ToolBar.vue'
-import TheList from '../components/TheList.vue'
 import TheDivider from '../components/TheDivider.vue'
-import TheModal from '../components/TheModal.vue'
+// import SearchModal from '../components/SearchModal.vue'
+
+const asyncList = defineAsyncComponent(() =>
+  import('../components/TheList.vue')
+)
 
 const props = defineProps({
   user: {
@@ -24,35 +28,35 @@ const props = defineProps({
   <main class="mt-16 pb-24">
     <TheDivider subtitle="Categorias" />
     <section class="flex flex-col gap-2 px-2">
-      <TheList
+      <asyncList
         title="Alimentícios"
         :user="props.user"
         :market="props.market"
         category="alimenticios"
         bg-picture="bg-category1"
       />
-      <TheList
+      <asyncList
         title="Beleza"
         :user="props.user"
         :market="props.market"
         category="beleza"
         bg-picture="bg-category2"
       />
-      <TheList
+      <asyncList
         title="Óleos essenciais"
         :user="props.user"
         :market="props.market"
         category="oleos"
         bg-picture="bg-category3"
       />
-      <TheList
+      <asyncList
         title="Suplementos"
         :user="props.user"
         :market="props.market"
         category="suplementos"
         bg-picture="bg-category4"
       />
-      <TheList
+      <asyncList
         title="Vida & Saúde"
         :user="props.user"
         :market="props.market"
@@ -64,5 +68,5 @@ const props = defineProps({
   <footer class="fixed bottom-0 w-full">
     <NavigationBar :home="true" :user="props.user" :market="props.market" />
   </footer>
-  <!-- <TheModal /> -->
+  <!-- <SearchModal /> -->
 </template>

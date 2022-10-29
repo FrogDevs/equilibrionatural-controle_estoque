@@ -1,11 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useProductStore } from '../../stores/ProductStore'
 import ToolBar from '../../components/ToolBar.vue'
-import TheCard from '../../components/TheCard.vue'
 import TheFab from '../../components/TheFab.vue'
 import TheDivider from '../../components/TheDivider.vue'
+
+const AsyncCard = defineAsyncComponent(() =>
+  import('../../components/TheCard.vue')
+)
 
 const props = defineProps({
   user: {
@@ -20,6 +23,12 @@ const props = defineProps({
     type: String,
     default: null
   }
+})
+
+const productStore = useProductStore()
+
+const piniaData = computed(() => {
+  return productStore.getUnity(props.market, props.category).slice(0).reverse()
 })
 
 const dividerTitle = computed(() => {
@@ -37,34 +46,33 @@ const dividerTitle = computed(() => {
     return null
   }
 })
-
-const productStore = useProductStore()
-
-const piniaData = computed(() => {
-  return productStore.getUnity(props.market, props.category).slice(0).reverse()
-})
 </script>
 
 <template>
   <header class="fixed top-0 w-full shadow-sm">
     <ToolBar :user="props.user" :market="props.market" />
   </header>
-  <main class="mt-16 flex h-full w-full overflow-y-scroll pb-24">
-    <section class="flex w-full flex-col">
-      <TheDivider :subtitle="dividerTitle" />
-      <div
-        class="auto-grid flex flex-col items-center gap-4 px-4 md:grid md:gap-0"
-      >
-        <TheCard
-          v-for="items in piniaData"
-          :key="items.id"
-          :link="`/${props.user}/${props.market}/details/${props.category}/${items.id}`"
-          :bg="items.image"
-          :title="`${items.name}, Lote#${items.batch}`"
-          :subtitle="`Vence em: ${items.date}`"
-        />
-      </div>
-    </section>
+  <main class="mt-16 flex h-full w-full flex-col overflow-y-scroll pb-24">
+    <TheDivider :subtitle="dividerTitle" />
+    <div
+      class="auto-grid flex flex-col items-center gap-4 px-4 md:grid md:gap-0"
+    >
+      <Suspense>
+        <template #default>
+          <AsyncCard
+            v-for="items in piniaData"
+            :key="items.id"
+            :link="`/${props.user}/${props.market}/details/${props.category}/${items.id}`"
+            :bg="items.image"
+            :title="`${items.name}, #${items.batch}`"
+            :subtitle="`Vence em: ${items.date}`"
+          />
+        </template>
+        <template #fallback>
+          <p>Carregando...</p>
+        </template>
+      </Suspense>
+    </div>
   </main>
   <footer class="fixed bottom-0 flex w-full justify-end p-4">
     <TheFab
