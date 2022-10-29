@@ -1,9 +1,8 @@
-1. Splash Screen
-2. Pesquisar produtos
-3. salvar em cache
-4. route guard
-5. notifications
-6. API Firebase.
+1. Pesquisar produtos
+2. Route guard
+3. Notificações
+4. Salvar em cache
+5. API Firebase
 
 
 <!-- category 1: https://unsplash.com/photos/CY-OkOICA9o -->
