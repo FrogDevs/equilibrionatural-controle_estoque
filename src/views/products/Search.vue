@@ -22,6 +22,22 @@ const props = defineProps({
   }
 })
 
+const dividerTitle = computed(() => {
+  if (props.category === 'alimenticios') {
+    return 'Alimentícios'
+  } else if (props.category === 'beleza') {
+    return 'Beleza'
+  } else if (props.category === 'oleos') {
+    return 'Óleos essenciais'
+  } else if (props.category === 'suplementos') {
+    return 'Suplementos'
+  } else if (props.category === 'vida') {
+    return 'Vida & Saúde'
+  } else {
+    return null
+  }
+})
+
 const productStore = useProductStore()
 
 const piniaData = computed(() => {
@@ -33,9 +49,9 @@ const piniaData = computed(() => {
   <header class="fixed top-0 w-full shadow-sm">
     <ToolBar :user="props.user" :market="props.market" />
   </header>
-  <main class="mt-14 mb-24 flex h-full w-full overflow-y-scroll">
+  <main class="mt-16 flex h-full w-full overflow-y-scroll pb-24">
     <section class="flex w-full flex-col">
-      <TheDivider :subtitle="props.category" />
+      <TheDivider :subtitle="dividerTitle" />
       <div
         class="auto-grid flex flex-col items-center gap-4 px-4 md:grid md:gap-0"
       >

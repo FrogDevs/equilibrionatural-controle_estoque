@@ -55,6 +55,7 @@ const piniaHistory = {
   batch: ref(piniaEditProduct.batch),
   category: ref(piniaEditProduct.category),
   name: ref(piniaEditProduct.name),
+  totalPrice: ref(piniaEditProduct.totalPrice),
   totalInStock: ref(productStore.getTotalPrice)
 }
 
@@ -74,7 +75,7 @@ function addWeight(value) {
   piniaEditProduct.weight.value = value
 }
 function addDate(value) {
-  piniaEditProduct.date.value = value
+  piniaEditProduct.date.value = Number(value)
 }
 function addimage(value) {
   piniaEditProduct.image.value = value

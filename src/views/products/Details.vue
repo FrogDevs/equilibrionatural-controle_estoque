@@ -106,26 +106,20 @@ function deleteProduct() {
       <TheDialogue
         v-if="showDialogue"
         :key="props.id"
-        title="Deseja excluir este item?"
-        message="Saiba que não será possível recuperar quaisquer dados."
-        button-one-title="Cancelar"
-        button-two-title="Excluir"
-        :product-id="Number(props.id)"
-        :category="props.category"
         @close-dialogue="showDialogue = false"
-        @primary-action="deleteProduct"
+        @delete-product="deleteProduct"
       />
       <h1 class="text-2xl text-green-800">
         {{ piniaData.name }}, #{{ piniaData.batch }}
       </h1>
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-1">
+          <p class="font-medium text-amber-800">Peso: {{ piniaData.weight }}</p>
+        </div>
+        <div class="flex flex-col gap-1">
           <p class="font-medium text-amber-800">
             Quantidade: {{ piniaData.amount }}
           </p>
-        </div>
-        <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">Peso: {{ piniaData.weight }}</p>
         </div>
         <div class="flex flex-col gap-1">
           <p class="font-medium text-amber-800">

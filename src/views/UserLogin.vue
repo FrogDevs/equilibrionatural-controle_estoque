@@ -10,7 +10,7 @@ function singIn() {
 <template>
   <!-- img -->
   <div
-    class="absolute top-0 hidden h-screen w-2/4 bg-store1 bg-cover lg:block"
+    class="absolute top-0 hidden h-screen w-2/4 bg-store1hd bg-cover lg:block"
   ></div>
 
   <div class="absolute top-0 right-0 flex h-screen w-full flex-col lg:w-2/4">
@@ -39,7 +39,7 @@ function singIn() {
           class="mt-12 flex w-full flex-col items-center gap-6 lg:w-2/4"
           @submit.prevent="singIn"
         >
-          <TextField title="Chave de acesso" input-type="text" />
+          <TextField title="Chave de acesso" input-type="password" />
           <TheButton title="Entrar" />
         </form>
         <router-link

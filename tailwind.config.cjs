@@ -8,8 +8,7 @@ module.exports = {
       category3: "url('/category3.avif')",
       category4: "url('/category4.avif')",
       category5: "url('/category5.avif')",
-      store1: "url('/store1.avif')",
-      store2: "url('/store2.avif')"
+      store1hd: "url('/store1hd.avif')"
     }
   },
   plugins: []
