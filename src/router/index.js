@@ -6,6 +6,7 @@ import Search from '../views/products/Search.vue'
 import Registration from '../views/Registration.vue'
 import Details from '../views/products/Details.vue'
 import ProductHistory from '../views/products/ProductHistory.vue'
+import Notifications from '../views/TheNotifications.vue'
 import NotFound from '../views/404.vue'
 
 const routes = [
@@ -48,6 +49,12 @@ const routes = [
     path: '/:user/:market/history',
     name: 'ProductHistory',
     component: ProductHistory,
+    props: true
+  },
+  {
+    path: '/:user/:market/notifications',
+    name: 'Notifications',
+    component: Notifications,
     props: true
   },
   // 404
