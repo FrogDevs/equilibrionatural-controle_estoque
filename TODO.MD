@@ -1,8 +1,8 @@
-1. Rotas de histórico, mostrando ultimos itens editados. [X]
-2. Salvar imagem do produto [X]
-3. Pesquisar produtos
-4. salvar em cache
-5. route guard
+1. Splash Screen
+2. Pesquisar produtos
+3. salvar em cache
+4. route guard
+5. notifications
 6. API Firebase.
 
 
