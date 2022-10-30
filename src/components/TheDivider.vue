@@ -7,7 +7,7 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="flex flex-col">
+  <div class="flex w-full flex-col">
     <hr class="my-2 h-px border-none bg-neutral-100" />
     <p
       :class="props.subtitle ? 'block' : 'hidden'"
