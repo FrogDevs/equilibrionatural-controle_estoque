@@ -65,6 +65,7 @@ window.addEventListener(
         title="Histórico"
       />
       <navigation-bar-segments
+        :link="`/${props.user}/${props.market}/notifications`"
         :actived="props.notifications"
         icon="notifications"
         title="Notificações"

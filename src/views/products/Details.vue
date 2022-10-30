@@ -61,11 +61,12 @@ const piniaHistory = {
 }
 
 const editModal = ref(false)
-const showDialogue = ref(false)
 
 function activeEdit() {
   editModal.value = true
 }
+
+const showDialogue = ref(false)
 
 function activeDialogue() {
   showDialogue.value = !showDialogue.value
@@ -77,6 +78,18 @@ function deleteProduct() {
   historyStore.addToHistory(piniaHistory)
   router.go(-1)
 }
+
+const validity = computed(() => {
+  if (piniaData.value.date > 0) {
+    return `Validade: ${piniaData.value.date} dias`
+  } else if (piniaData.value.date === 0) {
+    return 'Produto vencido'
+  } else {
+    return null
+  }
+})
+
+const validityProduct = ref(validity)
 </script>
 <template>
   <header>
@@ -133,7 +146,7 @@ function deleteProduct() {
         </div>
         <div class="flex flex-col gap-1">
           <p class="font-medium text-amber-800">
-            Validade: {{ piniaData.date }} dias
+            {{ validityProduct }}
           </p>
         </div>
       </div>

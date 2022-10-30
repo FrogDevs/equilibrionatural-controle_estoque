@@ -27,9 +27,19 @@ const props = defineProps({
 
 const productStore = useProductStore()
 
-const piniaData = computed(() => {
-  return productStore.getUnity(props.market, props.category).slice(0).reverse()
-})
+const piniaData = computed(() =>
+  productStore.getUnity(props.market, props.category).slice(0).reverse()
+)
+
+const itemSubtitle = (item) => {
+  if (item > 0) {
+    return `Vence em ${item} dias.`
+  } else if (item === 0) {
+    return 'Produto vencido.'
+  } else {
+    return null
+  }
+}
 
 const dividerTitle = computed(() => {
   if (props.category === 'alimenticios') {
@@ -55,23 +65,26 @@ const dividerTitle = computed(() => {
   <main class="mt-16 flex h-full w-full flex-col overflow-y-scroll pb-24">
     <TheDivider :subtitle="dividerTitle" />
     <div
-      class="auto-grid flex flex-col items-center gap-4 px-4 md:grid md:gap-0"
+      class="auto-grid flex flex-col items-center justify-center gap-4 px-4 md:grid"
     >
       <Suspense>
         <template #default>
           <AsyncCard
-            v-for="items in piniaData"
-            :key="items.id"
-            :link="`/${props.user}/${props.market}/details/${props.category}/${items.id}`"
-            :bg="items.image"
-            :title="`${items.name}, #${items.batch}`"
-            :subtitle="`Vence em: ${items.date}`"
+            v-for="item in piniaData"
+            :key="item.id"
+            :link="`/${props.user}/${props.market}/details/${props.category}/${item.id}`"
+            :bg="item.image"
+            :title="`${item.name}, #${item.batch}`"
+            :subtitle="itemSubtitle(item.date)"
           />
         </template>
         <template #fallback>
           <p>Carregando...</p>
         </template>
       </Suspense>
+      <p v-if="!piniaData.length" class="text-amber-800">
+        Sem itens registrados :(
+      </p>
     </div>
   </main>
   <footer class="fixed bottom-0 flex w-full justify-end p-4">
@@ -85,7 +98,7 @@ const dividerTitle = computed(() => {
 
 <style scoped>
 .auto-grid {
-  grid-template-columns: repeat(auto-fill, minmax(16.875rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-auto-rows: max-content;
 }
 </style>

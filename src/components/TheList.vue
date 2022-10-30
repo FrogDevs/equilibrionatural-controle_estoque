@@ -2,6 +2,10 @@
 import router from '../router'
 
 const props = defineProps({
+  listId: {
+    type: Number,
+    default: null
+  },
   user: {
     type: String,
     default: ''

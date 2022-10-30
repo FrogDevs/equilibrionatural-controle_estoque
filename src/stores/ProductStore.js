@@ -17,6 +17,15 @@ export const useProductStore = defineStore('productStore', {
         (accumulator, curValue) => accumulator + curValue.totalPrice,
         0
       )
+    },
+    getDate: (state) => {
+      return (n1, n2) =>
+        state.products.filter(
+          (product) => product.date <= n1 && product.date > n2
+        )
+    },
+    getSpoiled() {
+      return this.products.filter((product) => product.date === 0)
     }
   },
   actions: {
