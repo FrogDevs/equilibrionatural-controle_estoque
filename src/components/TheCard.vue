@@ -25,14 +25,14 @@ const props = defineProps({
 
 <template>
   <router-link
-    class="mt-6 flex h-80 w-80 flex-col justify-end rounded-2xl border border-solid border-neutral-300 transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 focus:rounded-3xl active:rounded-3xl active:bg-neutral-200"
+    class="mt-6 flex h-80 w-80 cursor-pointer flex-col justify-end rounded-2xl border border-solid border-neutral-300 transition-all duration-200 ease-in-out hover:bg-neutral-100 focus:rounded-3xl active:rounded-3xl active:bg-neutral-200"
     :to="props.link"
     @focusin="roundedValue = 'rounded-t-3xl'"
     @focusout="roundedValue = 'rounded-xl'"
   >
     <img
       :class="`${roundedValue}`"
-      class="h-48 w-full rounded-2xl bg-cover bg-center transition-all duration-200 ease-in-out lg:h-96"
+      class="max-h-48 min-h-[12rem] w-full rounded-2xl object-cover transition-all duration-200 ease-in-out lg:h-96"
       :src="props.bg"
       :alt="props.title"
       loading="lazy"

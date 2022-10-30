@@ -18,10 +18,10 @@ function deleteProduct() {
     >
       <div class="flex w-full flex-col items-start gap-4 p-6">
         <h2 class="text-start text-2xl text-neutral-800">
-          Deseja excluir este item?
+          Deseja excluir este produto?
         </h2>
         <p class="text-sm">
-          Saiba que não será possível recuperar quaisquer dados.
+          Saiba que não será possível recuperar quaisquer dados perdidos.
         </p>
       </div>
       <div class="flex w-full justify-end gap-8 py-[2.125rem] px-9">
