@@ -22,8 +22,8 @@ const spoilInMonth = productStore.getDate(30, 7)
 const spoilInWeek = productStore.getDate(7, 0)
 const spoiled = productStore.getSpoiled
 
-function goToDetails(user, market, category, id) {
-  router.push(`/${user}/${market}/details/${category}/${id}`)
+function goToDetails(category, id) {
+  router.push(`/${props.user}/${props.market}/details/${category}/${id}`)
 }
 </script>
 <template>
@@ -31,43 +31,40 @@ function goToDetails(user, market, category, id) {
     <ToolBar />
   </header>
   <main class="mt-16 flex flex-col pb-24">
+    <TheDivider subtitle="Vencem neste mês" />
     <section class="flex flex-col gap-2 px-2">
-      <TheDivider subtitle="Vencem nesse mês" />
       <TheList
         v-for="item in spoilInMonth"
         :key="item.id"
         :list-id="item.id"
         :user="item.user"
-        :market="item.market"
         :category="item.category"
-        :title="item.title"
-        @click="goToDetails(item.user, item.market, item.category, item.id)"
+        :title="item.name"
+        @click="goToDetails(item.category, item.id)"
       />
     </section>
+    <TheDivider subtitle="Vencem nesta semana" />
     <section class="mt-2 flex flex-col gap-2 px-2">
-      <TheDivider subtitle="Vencem nessa semana" />
       <TheList
         v-for="item in spoilInWeek"
         :key="item.id"
         :list-id="item.id"
         :user="item.user"
-        :market="item.market"
         :category="item.category"
-        :title="item.title"
-        @click="goToDetails(item.user, item.market, item.category, item.id)"
+        :title="item.name"
+        @click="goToDetails(item.category, item.id)"
       />
     </section>
+    <TheDivider subtitle="Produtos vencidos" />
     <section class="mt-2 flex flex-col gap-2 px-2">
-      <TheDivider subtitle="Produtos vencidos" />
       <TheList
         v-for="item in spoiled"
         :key="item.id"
         :list-id="item.id"
         :user="item.user"
-        :market="item.market"
         :category="item.category"
-        :title="item.title"
-        @click="goToDetails(item.user, item.market, item.category, item.id)"
+        :title="item.name"
+        @click="goToDetails(item.category, item.id)"
       />
     </section>
   </main>
