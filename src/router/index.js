@@ -9,6 +9,8 @@ import ProductHistory from '../views/products/ProductHistory.vue'
 import Notifications from '../views/TheNotifications.vue'
 import NotFound from '../views/404.vue'
 
+import { useUserStore } from '../stores/UserStore'
+
 const routes = [
   {
     path: '/',
@@ -19,49 +21,113 @@ const routes = [
     path: '/:user/stores',
     name: 'Stores',
     component: Stores,
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   },
   {
     path: '/:user/:market/home',
     name: 'Home',
     component: Home,
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   },
   {
     path: '/:user/:market/search/:category',
     name: 'Search',
     component: Search,
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   },
   {
     path: '/:market/:category/registration',
     name: 'Registration',
     component: Registration,
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   },
   {
     path: '/:user/:market/details/:category/:id',
     name: 'Details',
     component: Details,
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   },
   {
     path: '/:user/:market/history',
     name: 'ProductHistory',
     component: ProductHistory,
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   },
   {
     path: '/:user/:market/notifications',
     name: 'Notifications',
     component: Notifications,
-    props: true
+    props: true,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   },
   // 404
   {
     path: '/:catchAll(.*)',
     name: 'NotFound',
-    component: NotFound
+    component: NotFound,
+    beforeEnter: (to, from, next) => {
+      const userAuth = useUserStore()
+
+      if (!userAuth.getisAuth) {
+        next({ name: 'UserLogin' })
+      }
+      next()
+    }
   }
 ]
 

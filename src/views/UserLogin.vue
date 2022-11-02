@@ -1,10 +1,21 @@
 <script setup>
 import TextField from '../components/TextField.vue'
 import TheButton from '../components/TheButton.vue'
+import { useUserStore } from '../stores/UserStore'
 import router from '../router'
 
-function singIn() {
+const userAuth = useUserStore()
+
+function singInAdmin() {
+  userAuth.setAuth(true)
+  userAuth.setUser('admin')
   router.push('/admin/stores')
+}
+
+function singInTourist() {
+  userAuth.setAuth(true)
+  userAuth.setUser('visitante')
+  router.push('/visitante/stores')
 }
 </script>
 <template>
@@ -37,17 +48,17 @@ function singIn() {
         </div>
         <form
           class="mt-12 flex w-full flex-col items-center gap-6 lg:w-2/4"
-          @submit.prevent="singIn"
+          @submit.prevent="singInAdmin"
         >
           <TextField title="Chave de acesso" input-type="password" />
           <TheButton title="Entrar" />
         </form>
-        <router-link
-          :to="`/visitante/stores`"
+        <p
           class="mt-12 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-60"
+          @click="singInTourist"
         >
           Entrar como visitante
-        </router-link>
+        </p>
       </div>
     </main>
   </div>

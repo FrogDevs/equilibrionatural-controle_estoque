@@ -1,12 +1,17 @@
 <script setup>
 import { computed, ref } from 'vue'
 import router from '../router'
+import { useUserStore } from '../stores/UserStore'
+
+const userAuth = useUserStore()
 
 function back() {
   router.go(-1)
 }
 
 function logout() {
+  userAuth.setAuth(false)
+  userAuth.setUser(null)
   router.push('/')
 }
 
