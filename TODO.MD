@@ -1,9 +1,7 @@
-1. Pesquisar produtos
-2. Route guard
-3. Notificações
-4. Salvar em cache
-5. API Firebase
-
+1. Notificações
+2. API Firebase
+4. Pesquisar produtos
+5. Salvar em cache
 
 <!-- category 1: https://unsplash.com/photos/CY-OkOICA9o -->
 <!-- category 2: https://unsplash.com/photos/3bdSGpKVAmk -->
