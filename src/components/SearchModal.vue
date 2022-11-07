@@ -1,12 +1,23 @@
 <script setup>
 import { ref } from 'vue'
+import router from '../router'
 import { useProductStore } from '../stores/ProductStore'
 import TextField from './TextField.vue'
 import TheList from './TheList.vue'
 
-const productStore = useProductStore()
-const searchItens = ref('')
+const props = defineProps({
+  user: {
+    type: String,
+    default: ''
+  },
+  market: {
+    type: String,
+    default: ''
+  }
+})
 
+const productStore = useProductStore()
+const searchItems = ref([])
 const emit = defineEmits(['close-modal'])
 
 function closeModal() {
@@ -14,7 +25,27 @@ function closeModal() {
 }
 
 function search(value) {
-  searchItens.value = productStore.search(value)
+  if (value) {
+    productStore.products.forEach((e) => {
+      let name = e.name
+      const regex = new RegExp(value, 'ig')
+      let testName = regex.test(name)
+
+      if (testName) {
+        searchItems.value.push({
+          id: e.id,
+          name: e.name,
+          category: e.category
+        })
+      }
+    })
+  } else {
+    searchItems.value = []
+  }
+}
+
+function goToProduct(category, id) {
+  router.push(`/${props.user}/${props.market}/details/${category}/${id}`)
 }
 </script>
 <template>
@@ -43,9 +74,10 @@ function search(value) {
         class="flex h-full w-full flex-col gap-2 overflow-y-auto rounded-b-[1.75rem] bg-neutral-50 px-6 py-4"
       >
         <TheList
-          v-for="itens in searchItens"
-          :key="itens.id"
-          :title="itens.name"
+          v-for="item in searchItems"
+          :key="item.id"
+          :title="item.name"
+          @click="goToProduct(item.category, item.id)"
         />
       </div>
     </div>

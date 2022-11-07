@@ -1,7 +1,5 @@
-1. Notificações
-2. API Firebase
-4. Pesquisar produtos
-5. Salvar em cache
+1. API Firebase
+2. Salvar em cache
 
 <!-- category 1: https://unsplash.com/photos/CY-OkOICA9o -->
 <!-- category 2: https://unsplash.com/photos/3bdSGpKVAmk -->

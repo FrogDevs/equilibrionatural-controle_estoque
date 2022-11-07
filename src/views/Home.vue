@@ -77,5 +77,10 @@ const modal = ref(false)
   <footer class="fixed bottom-0 w-full">
     <NavigationBar :home="true" :user="props.user" :market="props.market" />
   </footer>
-  <SearchModal v-if="modal" @close-modal="modal = false" />
+  <SearchModal
+    v-if="modal"
+    :user="props.user"
+    :market="props.market"
+    @close-modal="modal = false"
+  />
 </template>

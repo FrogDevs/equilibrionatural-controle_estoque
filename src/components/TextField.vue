@@ -48,6 +48,7 @@ function emitOnTrue() {
   if (!input.value.value) {
     inputError.value = true
     titleClass.value = 'text-red-800'
+    emit('input-value', false)
   } else {
     inputError.value = false
     titleClass.value = 'text-amber-700'
