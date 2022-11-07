@@ -37,6 +37,13 @@ export const useProductStore = defineStore('productStore', {
     },
     deleteProduct(id) {
       this.products.splice(id, 1)
+    },
+    setDaysToSpoil() {
+      const d = new Date()
+
+      this.products.forEach((element) => {
+        element.date = element.SpoiledDay - d.getDate()
+      })
     }
   }
 })

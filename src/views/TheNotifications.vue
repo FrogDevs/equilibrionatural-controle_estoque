@@ -18,6 +18,8 @@ const props = defineProps({
 })
 
 const productStore = useProductStore()
+productStore.setDaysToSpoil()
+
 const spoilInMonth = productStore.getDate(30, 7)
 const spoilInWeek = productStore.getDate(7, 0)
 const spoiled = productStore.getSpoiled

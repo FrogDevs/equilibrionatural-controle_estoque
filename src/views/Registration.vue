@@ -34,7 +34,8 @@ const piniaProduct = {
   weight: ref(null),
   date: ref(null),
   image: ref(null),
-  totalPrice: ref(null)
+  totalPrice: ref(null),
+  SpoiledDay: ref(null)
 }
 
 function historyDate() {
@@ -85,8 +86,14 @@ const totalPrice = computed(() => {
   return piniaProduct.amount.value * piniaProduct.price.value
 })
 
+const getDate = computed(() => {
+  const d = new Date()
+  return d.getDate()
+})
+
 function addItem() {
   piniaProduct.totalPrice.value = totalPrice.value
+  piniaProduct.SpoiledDay.value = getDate.value + piniaProduct.date.value
   productStore.addProduct(piniaProduct)
   piniaHistory.totalInStock.value = productStore.getTotalPrice
   historyStore.addToHistory(piniaHistory)
