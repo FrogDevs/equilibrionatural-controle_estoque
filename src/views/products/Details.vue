@@ -4,6 +4,7 @@ import router from '../../router'
 import { computed, ref } from 'vue'
 import { useProductStore } from '../../stores/ProductStore'
 import { useHistoryStore } from '../../stores/HistoryStore'
+import { useUserStore } from '../../stores/UserStore'
 import EditModal from '../../components/EditModal.vue'
 import TheButton from '../../components/TheButton.vue'
 import TheDialogue from '../../components/TheDialogue.vue'
@@ -33,6 +34,7 @@ function close() {
 
 const productStore = useProductStore()
 const historyStore = useHistoryStore()
+const userAuth = useUserStore()
 
 const piniaData = computed(() => {
   return productStore.products[props.id]
@@ -157,12 +159,12 @@ const validityProduct = ref(validity)
     class="absolute bottom-0 mb-4 flex w-full justify-center gap-4"
   >
     <TheButton
-      v-if="props.user === 'admin'"
+      v-if="userAuth.getUser === 'admin'"
       title="Editar"
       @click="activeEdit"
     />
     <TheButton
-      v-if="props.user === 'admin'"
+      v-if="userAuth.getUser === 'admin'"
       title="Excluir"
       @click="activeDialogue"
     />

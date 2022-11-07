@@ -25,7 +25,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()
@@ -39,7 +39,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()
@@ -53,7 +53,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()
@@ -67,7 +67,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()
@@ -81,7 +81,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()
@@ -95,7 +95,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()
@@ -109,7 +109,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()
@@ -123,7 +123,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       const userAuth = useUserStore()
 
-      if (!userAuth.getisAuth) {
+      if (!userAuth.getIsAuth) {
         next({ name: 'UserLogin' })
       }
       next()

@@ -6,9 +6,8 @@ export const useUserStore = defineStore({
     isAuth: false,
     user: null
   }),
-
   getters: {
-    getisAuth(state) {
+    getIsAuth(state) {
       return state.isAuth
     },
     getUser(state) {

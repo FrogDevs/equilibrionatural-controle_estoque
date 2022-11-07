@@ -2,6 +2,7 @@
 <script setup>
 import { computed, defineAsyncComponent } from 'vue'
 import { useProductStore } from '../../stores/ProductStore'
+import { useUserStore } from '../../stores/UserStore'
 import ToolBar from '../../components/ToolBar.vue'
 import TheFab from '../../components/TheFab.vue'
 import TheDivider from '../../components/TheDivider.vue'
@@ -26,6 +27,7 @@ const props = defineProps({
 })
 
 const productStore = useProductStore()
+const userAuth = useUserStore()
 
 const piniaData = computed(() =>
   productStore.getUnity(props.market, props.category).slice(0).reverse()
@@ -89,7 +91,7 @@ const dividerTitle = computed(() => {
   </main>
   <footer class="fixed bottom-0 flex w-full justify-end p-4">
     <TheFab
-      v-if="props.user === 'admin'"
+      v-if="userAuth.getUser === 'admin'"
       :market="props.market"
       :category="props.category"
     />
