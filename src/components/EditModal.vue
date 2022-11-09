@@ -9,8 +9,8 @@ const productStore = useProductStore()
 const historyStore = useHistoryStore()
 
 const props = defineProps({
-  productId: {
-    type: Number,
+  product: {
+    type: Object,
     default: null
   },
   market: {
@@ -24,17 +24,17 @@ const props = defineProps({
 })
 
 const piniaEditProduct = {
-  id: ref(productStore.products[props.productId].id),
-  market: ref(productStore.products[props.productId].market),
-  category: ref(productStore.products[props.productId].category),
-  name: ref(productStore.products[props.productId].name),
-  batch: ref(productStore.products[props.productId].batch),
-  amount: ref(productStore.products[props.productId].amount),
-  price: ref(productStore.products[props.productId].price),
-  weight: ref(productStore.products[props.productId].weight),
-  date: ref(productStore.products[props.productId].date),
-  image: ref(productStore.products[props.productId].image),
-  totalPrice: ref(productStore.products[props.productId].totalPrice)
+  id: ref(props.product.id),
+  market: ref(props.product.market),
+  category: ref(props.product.category),
+  name: ref(props.product.name),
+  batch: ref(props.product.batch),
+  amount: ref(props.product.amount),
+  price: ref(props.product.price),
+  weight: ref(props.product.weight),
+  date: ref(props.product.date),
+  image: ref(props.product.image),
+  totalPrice: ref(props.product.totalPrice)
 }
 
 function historyDate() {
@@ -93,7 +93,7 @@ function closeEdit() {
 
 function editSave() {
   piniaEditProduct.totalPrice.value = totalPrice.value
-  productStore.editProduct(props.productId, piniaEditProduct)
+  productStore.setEditProduct(props.product.id, piniaEditProduct)
   piniaHistory.totalInStock.value = productStore.getTotalPrice
   historyStore.addToHistory(piniaHistory)
   emit('closeEdit')
@@ -117,7 +117,7 @@ function editSave() {
         input-type="number"
         @input-value="addDate"
       />
-      <TextField title="Imagem" input-type="file" @input-value="addimage" />
+      <TextField title="Imagem" input-type="file" @input-img="addimage" />
     </form>
     <div class="flex items-end justify-end gap-8 py-6 px-4">
       <p

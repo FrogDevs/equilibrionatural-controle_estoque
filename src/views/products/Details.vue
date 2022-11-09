@@ -37,7 +37,8 @@ const historyStore = useHistoryStore()
 const userAuth = useUserStore()
 
 const piniaData = computed(() => {
-  return productStore.products[props.id]
+  const product = productStore.getId(props.id)
+  return product[0]
 })
 
 function historyDate() {
@@ -75,7 +76,7 @@ function activeDialogue() {
 }
 
 function deleteProduct() {
-  productStore.deleteProduct(props.productId)
+  productStore.setDeleteProduct(props.id)
   piniaHistory.totalInStock.value = productStore.getTotalPrice
   historyStore.addToHistory(piniaHistory)
   router.go(-1)
@@ -113,7 +114,7 @@ const validityProduct = ref(validity)
       <EditModal
         v-if="editModal"
         :key="props.id"
-        :product-id="Number(props.id)"
+        :product="piniaData"
         :market="props.market"
         :category="props.category"
         @close-edit="editModal = false"

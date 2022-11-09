@@ -24,7 +24,7 @@ const productStore = useProductStore()
 const historyStore = useHistoryStore()
 
 const piniaProduct = {
-  id: productStore.products.length,
+  id: Date.now().toString(36) + Math.random().toString(36).substr(2),
   market: props.market,
   category: props.category,
   name: ref(null),
@@ -94,7 +94,7 @@ const getDate = computed(() => {
 function addItem() {
   piniaProduct.totalPrice.value = totalPrice.value
   piniaProduct.SpoiledDay.value = getDate.value + piniaProduct.date.value
-  productStore.addProduct(piniaProduct)
+  productStore.setAddProduct(piniaProduct)
   piniaHistory.totalInStock.value = productStore.getTotalPrice
   historyStore.addToHistory(piniaHistory)
   router.go(-1)
