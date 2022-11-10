@@ -54,24 +54,27 @@ window.addEventListener(
 )
 </script>
 <template>
-  <nav v-if="hideBar" class="relative flex h-16 items-center bg-green-100">
+  <nav
+    v-if="hideBar"
+    class="relative flex h-16 items-center bg-inverseOnSurface"
+  >
     <div class="absolute z-10 flex w-full justify-between px-4">
       <i
-        class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
+        class="material-symbols-rounded cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-opacity-70"
         @click="back"
       >
         arrow_back
       </i>
       <div class="flex sm:gap-7">
         <i
-          class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
+          class="material-symbols-rounded cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-opacity-70"
           @click="logout"
         >
           logout
         </i>
       </div>
     </div>
-    <p class="absolute flex w-full justify-center text-amber-800">
+    <p class="absolute flex w-full justify-center text-onBackground">
       {{ title }}
     </p>
   </nav>

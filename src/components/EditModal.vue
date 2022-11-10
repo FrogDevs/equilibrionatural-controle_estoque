@@ -2,7 +2,6 @@
 import { ref, computed } from 'vue'
 import { useProductStore } from '../stores/ProductStore'
 import { useHistoryStore } from '../stores/HistoryStore'
-import TheDivider from './TheDivider.vue'
 import TextField from './TextField.vue'
 
 const productStore = useProductStore()
@@ -100,8 +99,7 @@ function editSave() {
 }
 </script>
 <template>
-  <div class="absolute inset-0 z-20 flex h-fit w-full flex-col bg-white pt-6">
-    <TheDivider subtitle="Editar produto" />
+  <div class="absolute inset-0 z-20 flex h-fit w-full flex-col bg-surface pt-6">
     <form class="flex flex-col gap-4 px-4">
       <TextField title="Nome" input-type="text" @input-value="addName" />
       <TextField title="Lote" input-type="text" @input-value="addBatch" />
@@ -121,13 +119,13 @@ function editSave() {
     </form>
     <div class="flex items-end justify-end gap-8 py-6 px-4">
       <p
-        class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+        class="cursor-pointer font-medium text-tertiary transition-colors duration-200 ease-in-out hover:text-opacity-80 active:text-opacity-70"
         @click="closeEdit"
       >
         Cancelar
       </p>
       <p
-        class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+        class="cursor-pointer font-medium text-tertiary transition-colors duration-200 ease-in-out hover:text-opacity-80 active:text-opacity-70"
         @click="editSave"
       >
         Salvar

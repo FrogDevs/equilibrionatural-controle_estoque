@@ -21,22 +21,22 @@ const title = ref(null)
 const placeholder = ref(props.title)
 const inputFocus = ref(false)
 const inputError = ref(false)
-const titleClass = ref('text-neutral-400')
+const titleClass = ref('text-onSurfaceVariant')
 
 // Setters
 function setFocus() {
   inputFocus.value = !inputFocus.value
   if (inputFocus.value && !inputError.value) {
-    titleClass.value = 'text-amber-700'
+    titleClass.value = 'text-primary'
     placeholder.value = ''
     title.value = true
   } else if (input.value.value) {
-    titleClass.value = 'text-neutral-400'
+    titleClass.value = 'text-outline'
     title.value = true
   } else if (inputError.value) {
-    titleClass.value = 'text-red-700'
+    titleClass.value = 'text-error'
   } else {
-    titleClass.value = 'text-neutral-400'
+    titleClass.value = 'text-outline'
     placeholder.value = props.title
     title.value = false
   }
@@ -47,11 +47,11 @@ const emit = defineEmits(['input-value', 'input-img'])
 function emitOnTrue() {
   if (!input.value.value) {
     inputError.value = true
-    titleClass.value = 'text-red-800'
+    titleClass.value = 'text-error'
     emit('input-value', false)
   } else {
     inputError.value = false
-    titleClass.value = 'text-amber-700'
+    titleClass.value = 'text-primary'
     emit('input-value', input.value.value)
   }
 }
@@ -76,11 +76,11 @@ function fileSelected(e) {
 // Watcher
 const watchInput = computed(() => {
   if (inputFocus.value && !inputError.value) {
-    return 'border-2 border-amber-700'
+    return 'border-2 border-primary'
   } else if (inputError.value) {
-    return 'border-2 border-red-800'
+    return 'border-2 border-error'
   } else {
-    return 'border border-neutral-400'
+    return 'border border-onSurfaceVariant'
   }
 })
 </script>
@@ -92,7 +92,7 @@ const watchInput = computed(() => {
     >
       <div class="flex w-full flex-col">
         <div
-          class="absolute top-[-0.5rem] flex items-center justify-center bg-white px-1"
+          class="absolute top-[-0.5rem] flex items-center justify-center bg-background px-1"
         >
           <p v-if="title" ref="title" :class="titleClass" class="text-xs">
             {{ props.title }}
@@ -100,7 +100,7 @@ const watchInput = computed(() => {
         </div>
         <input
           ref="input"
-          class="w-full bg-transparent text-amber-700 file:hidden placeholder:text-neutral-400 focus:outline-none"
+          class="w-full bg-transparent text-onBackground transition-opacity duration-200 ease-in-out file:hidden placeholder:text-outline focus:outline-none"
           :placeholder="placeholder"
           :type="props.inputType"
           required
@@ -110,13 +110,7 @@ const watchInput = computed(() => {
           @change="fileSelected"
         />
       </div>
-      <i
-        v-if="inputFocus && !inputError"
-        class="material-symbols-rounded text-amber-700 hover:cursor-pointer"
-      >
-        cancel
-      </i>
-      <i v-else-if="inputError" class="material-symbols-rounded text-red-800">
+      <i v-if="inputError" class="material-symbols-rounded text-error">
         error
       </i>
     </div>

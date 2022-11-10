@@ -98,7 +98,7 @@ const validityProduct = ref(validity)
   <header>
     <div class="relative flex h-60 w-full flex-col">
       <i
-        class="material-symbols-rounded absolute z-10 m-4 max-w-fit rounded-full p-2 text-neutral-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 hover:bg-opacity-20 active:bg-neutral-100 active:bg-opacity-10"
+        class="material-symbols-rounded absolute z-10 m-4 max-w-fit cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-opacity-70"
         @click="close"
       >
         close
@@ -125,30 +125,32 @@ const validityProduct = ref(validity)
         @close-dialogue="showDialogue = false"
         @delete-product="deleteProduct"
       />
-      <h1 class="text-2xl text-green-800">
+      <h1 class="text-2xl text-primary">
         {{ piniaData.name }}, #{{ piniaData.batch }}
       </h1>
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">Peso: {{ piniaData.weight }}</p>
+          <p class="font-medium text-onBackground">
+            Peso: {{ piniaData.weight }}
+          </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">
+          <p class="font-medium text-onBackground">
             Quantidade: {{ piniaData.amount }}
           </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">
+          <p class="font-medium text-onBackground">
             Preço por produto: R${{ piniaData.price }}
           </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">
+          <p class="font-medium text-onBackground">
             Preço total: R${{ piniaData.totalPrice }}
           </p>
         </div>
         <div class="flex flex-col gap-1">
-          <p class="font-medium text-amber-800">
+          <p class="font-medium text-onBackground">
             {{ validityProduct }}
           </p>
         </div>

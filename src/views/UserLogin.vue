@@ -28,10 +28,10 @@ function singInTourist() {
     <header class="z-20 flex w-full flex-row p-6 lg:p-0">
       <div class="flex w-full flex-col gap-1 lg:w-2/4 lg:p-6">
         <div class="flex items-center gap-1">
-          <h1 class="text-2xl font-semibold text-amber-800">Login</h1>
-          <i class="material-symbols-rounded text-amber-800"> login </i>
+          <h1 class="text-2xl font-semibold text-onBackground">Login</h1>
+          <i class="material-symbols-rounded text-onBackground"> login </i>
         </div>
-        <p class="text-sm text-amber-800">Bem-vindo de volta!</p>
+        <p class="text-sm text-onBackground">Bem-vindo de volta!</p>
       </div>
     </header>
     <main
@@ -39,10 +39,10 @@ function singInTourist() {
     >
       <div class="flex w-full flex-col items-center">
         <div class="flex flex-col gap-4">
-          <h1 class="text-center text-5xl font-medium text-amber-700">
+          <h1 class="text-center text-5xl font-medium text-tertiary">
             🪴 Equilíbrio
           </h1>
-          <h1 class="text-center text-5xl font-bold text-amber-700">
+          <h1 class="text-center text-5xl font-bold text-tertiary">
             Natural 🍃
           </h1>
         </div>
@@ -54,7 +54,7 @@ function singInTourist() {
           <TheButton title="Entrar" />
         </form>
         <p
-          class="mt-12 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-60"
+          class="mt-12 text-secondary transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-60"
           @click="singInTourist"
         >
           Entrar como visitante
@@ -65,11 +65,11 @@ function singInTourist() {
 
   <!-- decorations -->
   <div class="absolute top-0 z-10 w-full sm:hidden">
-    <div class="flex h-16 bg-green-300 bg-opacity-20"></div>
-    <div class="bg-clip-1 flex h-80 bg-green-300 bg-opacity-20"></div>
+    <div class="flex h-16 bg-tertiaryContainer bg-opacity-25"></div>
+    <div class="bg-clip-1 flex h-80 bg-tertiaryContainer bg-opacity-25"></div>
   </div>
   <div
-    class="bg-clip-2 absolute top-[-1.5rem] flex h-96 w-full bg-green-300 bg-opacity-20 sm:hidden"
+    class="bg-clip-2 absolute top-[-1.5rem] flex h-96 w-full bg-tertiaryContainer bg-opacity-25 sm:hidden"
   ></div>
 </template>
 

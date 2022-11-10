@@ -45,7 +45,10 @@ window.addEventListener(
 )
 </script>
 <template>
-  <nav v-if="hideBar" class="relative flex flex-col bg-green-100 pt-3 pb-4">
+  <nav
+    v-if="hideBar"
+    class="relative flex flex-col bg-inverseOnSurface pt-3 pb-4"
+  >
     <div class="flex w-full justify-center">
       <navigation-bar-segments
         :link="`/${props.user}/stores`"

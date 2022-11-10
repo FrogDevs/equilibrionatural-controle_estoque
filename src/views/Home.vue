@@ -3,7 +3,6 @@
 import { ref, defineAsyncComponent } from 'vue'
 import NavigationBar from '../components/NavigationBar.vue'
 import ToolBar from '../components/ToolBar.vue'
-import TheDivider from '../components/TheDivider.vue'
 import SearchModal from '../components/SearchModal.vue'
 
 const asyncList = defineAsyncComponent(() =>
@@ -27,16 +26,15 @@ const modal = ref(false)
   <header class="fixed top-0 z-10 w-full">
     <ToolBar :user="props.user" :market="props.market" />
   </header>
-  <main class="flex flex-col items-center pb-24">
+  <main class="flex flex-col items-center px-4 pb-24 lg:items-start">
     <div
-      class="mx-2 mt-20 flex w-fit cursor-pointer gap-4 rounded-2xl bg-green-100 py-3 px-4 transition-colors duration-200 ease-in-out hover:bg-opacity-80 active:bg-opacity-70"
+      class="mt-20 flex w-full cursor-pointer gap-4 rounded-2xl bg-tertiaryContainer py-3 px-4 transition-colors duration-200 ease-in-out hover:bg-opacity-80 active:bg-opacity-70 lg:w-fit"
       @click="modal = true"
     >
-      <i class="material-symbols-rounded text-amber-700">search</i>
-      <p class="w-[15.75rem] text-amber-700">Pesquisar um produto</p>
+      <i class="material-symbols-rounded text-onTertiaryContainer">search</i>
+      <p class="w-[15.75rem] text-onTertiaryContainer">Pesquisar um produto</p>
     </div>
-    <TheDivider subtitle="Categorias" />
-    <section class="flex w-full flex-col gap-2 px-2">
+    <section class="flex w-full flex-col gap-2 pt-4">
       <asyncList
         title="Alimentícios"
         :user="props.user"

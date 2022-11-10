@@ -22,6 +22,10 @@
             user-select: none;
 }
 
+html {
+  background-color: #fffbff;
+}
+
 input {
   -webkit-touch-callout: text;
     -webkit-user-select: text;

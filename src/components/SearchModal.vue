@@ -50,13 +50,13 @@ function goToProduct(category, id) {
 </script>
 <template>
   <div
-    class="fixed inset-0 z-10 flex h-full w-full items-center justify-center bg-neutral-900 bg-opacity-20 p-6"
+    class="fixed inset-0 z-10 flex h-full w-full items-center justify-center bg-scrim bg-opacity-25 p-6"
   >
     <div
-      class="flex h-full w-full flex-col items-end rounded-[1.75rem] border-neutral-100 bg-white shadow-lg md:max-h-96 md:max-w-2xl"
+      class="flex h-full w-full flex-col items-end rounded-[1.75rem] border-outline bg-surface shadow-lg md:max-h-96 md:max-w-2xl"
     >
       <div
-        class="flex w-full items-center gap-2 rounded-t-[1.75rem] border-b px-6 py-3"
+        class="flex w-full items-center gap-2 rounded-t-[1.75rem] border-b px-6 py-4"
       >
         <TextField
           title="Pesquise um produto"
@@ -64,14 +64,14 @@ function goToProduct(category, id) {
           @input-value="search"
         />
         <i
-          class="material-symbols-rounded rounded-full bg-opacity-80 p-2 text-amber-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 active:bg-green-300 active:bg-opacity-70"
+          class="material-symbols-rounded cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-opacity-70"
           @click="closeModal"
         >
           close
         </i>
       </div>
       <div
-        class="flex h-full w-full flex-col gap-2 overflow-y-auto rounded-b-[1.75rem] bg-neutral-50 px-6 py-4"
+        class="flex h-full w-full flex-col gap-2 overflow-y-auto rounded-b-[1.75rem] bg-surface px-4 py-4"
       >
         <TheList
           v-for="item in searchItems"

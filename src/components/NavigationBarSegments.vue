@@ -24,11 +24,13 @@ const props = defineProps({
     :to="props.link"
   >
     <div
-      class="absolute top-0 h-full w-[9rem] rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-green-200 hover:bg-opacity-80 active:bg-green-300 active:bg-opacity-50"
+      class="active:bg-green-300 absolute top-0 h-full w-[9rem] rounded-full transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-secondaryContainer hover:bg-opacity-50 active:bg-opacity-40"
     ></div>
     <i
       :class="
-        props.actived ? 'bg-green-300 text-amber-800' : 'text-neutral-700'
+        props.actived
+          ? 'bg-secondaryContainer font-semibold text-onBackground'
+          : 'font-extralight text-onBackground'
       "
       class="material-symbols-rounded z-10 rounded-full py-1 px-5 hover:cursor-pointer"
     >
@@ -36,7 +38,7 @@ const props = defineProps({
     </i>
     <p
       :class="props.actived ? 'font-bold' : 'font-medium'"
-      class="z-10 text-sm text-neutral-700 transition-all duration-200 ease-in-out"
+      class="z-10 text-sm text-onBackground transition-all duration-200 ease-in-out"
     >
       {{ props.title }}
     </p>

@@ -11,28 +11,28 @@ function deleteProduct() {
 </script>
 <template>
   <div
-    class="fixed inset-0 z-10 flex h-full w-full items-center justify-center bg-neutral-900 bg-opacity-20 p-6"
+    class="fixed inset-0 z-10 flex h-full w-full items-center justify-center bg-scrim bg-opacity-25 p-6"
   >
     <div
-      class="flex h-fit w-[19.5rem] max-w-[19.5rem] flex-col rounded-[1.75rem] bg-green-50 shadow-lg"
+      class="flex h-fit w-[19.5rem] max-w-[19.5rem] flex-col rounded-[1.75rem] bg-surface shadow-lg"
     >
       <div class="flex w-full flex-col items-start gap-4 p-6">
-        <h2 class="text-start text-2xl text-neutral-800">
+        <h2 class="text-start text-2xl text-onSurface">
           Deseja excluir este produto?
         </h2>
-        <p class="text-sm">
+        <p class="text-sm text-onSurfaceVariant">
           Saiba que não será possível recuperar quaisquer dados perdidos.
         </p>
       </div>
       <div class="flex w-full justify-end gap-8 py-[2.125rem] px-9">
         <p
-          class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+          class="font-medium text-primary transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
           @click="closeDialogue"
         >
           Cancelar
         </p>
         <p
-          class="font-medium text-green-800 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+          class="font-medium text-primary transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
           @click="deleteProduct"
         >
           Excluir

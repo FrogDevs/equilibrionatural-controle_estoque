@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { useHistoryStore } from '../../stores/HistoryStore'
 import ToolBar from '../../components/ToolBar.vue'
 import NavigationBar from '../../components/NavigationBar.vue'
-import TheDivider from '../../components/TheDivider.vue'
 
 const props = defineProps({
   user: {
@@ -27,37 +26,57 @@ const piniaData = computed(() => {
     <ToolBar />
   </header>
   <main class="mt-16 pb-24">
-    <TheDivider subtitle="Últimas mudanças" />
-    <section class="relative mx-2 overflow-x-auto">
-      <table class="w-full table-auto text-left text-sm text-green-900">
-        <thead class="bg-green-50 text-xs uppercase text-amber-800">
+    <section class="relative mx-4 overflow-x-auto pt-4">
+      <table class="w-full table-auto text-left text-sm">
+        <thead class="bg-tertiaryContainer text-xs uppercase">
           <tr>
-            <th scope="col" class="py-3 px-6">Modificado em</th>
-            <th scope="col" class="py-3 px-6">Ação</th>
-            <th scope="col" class="py-3 px-6">Unidade</th>
-            <th scope="col" class="py-3 px-6">Lote</th>
-            <th scope="col" class="py-3 px-6">Categoria</th>
-            <th scope="col" class="py-3 px-6">Nome</th>
-            <th scope="col" class="py-3 px-6">Preço total</th>
-            <th scope="col" class="py-3 px-6">Total em estoque</th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">
+              Modificado em
+            </th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">Ação</th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">
+              Unidade
+            </th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">Lote</th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">
+              Categoria
+            </th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">Nome</th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">
+              Preço total
+            </th>
+            <th scope="col" class="py-3 px-6 text-onTertiaryContainer">
+              Total em estoque
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr
             v-for="item in piniaData"
             :key="item.id"
-            class="border-b bg-white transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-neutral-100 active:bg-neutral-200"
+            class="border-b border-outline bg-surface transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-surfaceVariant active:bg-opacity-70"
           >
-            <td scope="row" class="whitespace-nowrap py-4 px-6 font-medium">
+            <td
+              scope="row"
+              class="whitespace-nowrap py-4 px-6 font-medium text-onBackground"
+            >
               {{ item.date }}
             </td>
-            <td class="py-4 px-6">{{ item.state }}</td>
-            <td class="py-4 px-6">{{ item.market }}</td>
-            <td class="py-4 px-6">#{{ item.batch }}</td>
-            <td class="py-4 px-6">{{ item.category }}</td>
-            <td class="py-4 px-6">{{ item.name }}</td>
-            <td class="py-4 px-6">R$ {{ item.totalPrice }}</td>
-            <td class="py-4 px-6">R$ {{ item.totalInStock }}</td>
+            <td class="py-4 px-6 text-onBackground">{{ item.state }}</td>
+            <td class="py-4 px-6 text-onBackground">
+              {{ item.market }}
+            </td>
+            <td class="py-4 px-6 text-onBackground">#{{ item.batch }}</td>
+            <td class="py-4 px-6 text-onBackground">
+              {{ item.category }}
+            </td>
+            <td class="py-4 px-6 text-onBackground">{{ item.name }}</td>
+            <td class="py-4 px-6 text-onBackground">
+              R$ {{ item.totalPrice }}
+            </td>
+            <td class="py-4 px-6 text-onBackground">
+              R$ {{ item.totalInStock }}
+            </td>
           </tr>
         </tbody>
       </table>

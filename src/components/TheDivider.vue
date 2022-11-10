@@ -7,12 +7,9 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="flex w-full flex-col">
-    <hr class="my-2 h-px border-none bg-neutral-100" />
-    <p
-      :class="props.subtitle ? 'block' : 'hidden'"
-      class="mx-4 mt-2 mb-3 text-sm font-medium text-amber-800"
-    >
+  <div class="flex w-full flex-col px-6">
+    <hr class="mt-6 mb-4 h-px border-none bg-outline" />
+    <p v-if="props.subtitle" class="mb-4 text-sm font-medium text-onBackground">
       {{ props.subtitle }}
     </p>
   </div>

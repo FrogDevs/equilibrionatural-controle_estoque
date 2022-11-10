@@ -5,7 +5,6 @@ import { useProductStore } from '../../stores/ProductStore'
 import { useUserStore } from '../../stores/UserStore'
 import ToolBar from '../../components/ToolBar.vue'
 import TheFab from '../../components/TheFab.vue'
-import TheDivider from '../../components/TheDivider.vue'
 
 const AsyncCard = defineAsyncComponent(() =>
   import('../../components/TheCard.vue')
@@ -42,30 +41,13 @@ const itemSubtitle = (item) => {
     return null
   }
 }
-
-const dividerTitle = computed(() => {
-  if (props.category === 'alimenticios') {
-    return 'Alimentícios'
-  } else if (props.category === 'beleza') {
-    return 'Beleza'
-  } else if (props.category === 'oleos') {
-    return 'Óleos essenciais'
-  } else if (props.category === 'suplementos') {
-    return 'Suplementos'
-  } else if (props.category === 'vida') {
-    return 'Vida & Saúde'
-  } else {
-    return null
-  }
-})
 </script>
 
 <template>
   <header class="fixed top-0 w-full shadow-sm">
     <ToolBar :user="props.user" :market="props.market" />
   </header>
-  <main class="mt-16 flex h-full w-full flex-col overflow-y-scroll pb-24">
-    <TheDivider :subtitle="dividerTitle" />
+  <main class="mt-20 flex h-full w-full flex-col overflow-y-scroll pb-24">
     <div
       class="auto-grid flex flex-col items-center justify-center gap-4 px-4 md:grid"
     >
@@ -85,7 +67,7 @@ const dividerTitle = computed(() => {
         </template>
       </Suspense>
       <p v-if="!piniaData.length" class="text-amber-800">
-        Sem itens registrados :(
+        Sem itens registrados.
       </p>
     </div>
   </main>

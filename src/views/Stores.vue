@@ -15,9 +15,9 @@ const props = defineProps({
     <div
       class="flex h-fit w-fit flex-col items-center justify-center py-6 sm:h-full md:gap-6"
     >
-      <h1 class="text-xl text-amber-800">Selecione uma unidade</h1>
+      <h1 class="text-xl text-onBackground">Selecione uma unidade</h1>
       <div
-        class="flex w-full flex-col items-center justify-center md:flex-row md:gap-6"
+        class="flex w-full flex-col items-center justify-center gap-6 pt-6 md:flex-row"
       >
         <TheCard
           :link="`/${props.user}/unidade1/home`"

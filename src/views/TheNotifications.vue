@@ -34,7 +34,7 @@ function goToDetails(category, id) {
   </header>
   <main class="mt-16 flex flex-col pb-24">
     <TheDivider subtitle="Vencem neste mês" />
-    <section class="flex flex-col gap-2 px-2">
+    <section class="flex flex-col gap-2 px-4">
       <TheList
         v-for="item in spoilInMonth"
         :key="item.id"
@@ -46,7 +46,7 @@ function goToDetails(category, id) {
       />
     </section>
     <TheDivider subtitle="Vencem nesta semana" />
-    <section class="mt-2 flex flex-col gap-2 px-2">
+    <section class="mt-2 flex flex-col gap-2 px-4">
       <TheList
         v-for="item in spoilInWeek"
         :key="item.id"
@@ -58,7 +58,7 @@ function goToDetails(category, id) {
       />
     </section>
     <TheDivider subtitle="Produtos vencidos" />
-    <section class="mt-2 flex flex-col gap-2 px-2">
+    <section class="mt-2 flex flex-col gap-2 px-4">
       <TheList
         v-for="item in spoiled"
         :key="item.id"

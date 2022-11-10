@@ -7,7 +7,6 @@ import { useHistoryStore } from '../stores/HistoryStore'
 import ToolBar from '../components/ToolBar.vue'
 import TheButton from '../components/TheButton.vue'
 import TextField from '../components/TextField.vue'
-import TheDivider from '../components/TheDivider.vue'
 
 const props = defineProps({
   market: {
@@ -104,8 +103,7 @@ function addItem() {
   <header class="fixed top-0 z-10 w-full">
     <ToolBar />
   </header>
-  <main class="flex w-full flex-col pb-8 pt-16">
-    <TheDivider subtitle="Cadastrar produtos" />
+  <main class="flex w-full flex-col pb-8 pt-20">
     <form
       class="flex flex-col items-center gap-4 px-4"
       @submit.prevent="addItem"
