@@ -34,47 +34,41 @@ const title = computed(() => {
   }
 })
 
-const hideBar = ref(true)
-let lastScrollTop = 0
+const elevation = ref(false)
 
-window.addEventListener(
-  'scroll',
-  () => {
-    var st = window.pageYOffset || document.documentElement.scrollTop
-
-    if (st > lastScrollTop) {
-      hideBar.value = false
-    } else {
-      hideBar.value = true
-    }
-
-    lastScrollTop = st <= 0 ? 0 : st
-  },
-  false
-)
+window.onscroll = function () {
+  const scrollNum = window.scrollY
+  if (scrollNum) {
+    elevation.value = true
+  } else {
+    elevation.value = false
+  }
+}
 </script>
 <template>
   <nav
-    v-if="hideBar"
-    class="relative flex h-16 items-center bg-inverseOnSurface"
+    :class="elevation ? 'elevation-2' : 'elevation-0'"
+    class="relative flex h-16 items-center bg-surface"
   >
-    <div class="absolute z-10 flex w-full justify-between px-4">
+    <div
+      class="absolute z-10 flex w-full justify-between px-4 transition-all duration-200 ease-in-out"
+    >
       <i
-        class="material-symbols-rounded cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-opacity-70"
+        class="material-symbols-rounded cursor-pointer rounded-full p-2 text-onSurface transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-[#ffd0b6]"
         @click="back"
       >
         arrow_back
       </i>
       <div class="flex sm:gap-7">
         <i
-          class="material-symbols-rounded cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-opacity-70"
+          class="material-symbols-rounded cursor-pointer rounded-full p-2 text-onSurface transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-[#ffd0b6]"
           @click="logout"
         >
           logout
         </i>
       </div>
     </div>
-    <p class="absolute flex w-full justify-center text-onBackground">
+    <p class="absolute flex w-full justify-center text-onSurface">
       {{ title }}
     </p>
   </nav>

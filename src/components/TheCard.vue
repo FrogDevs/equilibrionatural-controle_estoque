@@ -25,10 +25,10 @@ const props = defineProps({
 
 <template>
   <router-link
-    class="flex h-80 w-80 cursor-pointer flex-col justify-end rounded-2xl border border-solid border-outline bg-secondaryContainer transition-all duration-200 ease-in-out hover:bg-opacity-80 focus:rounded-3xl active:rounded-3xl active:bg-opacity-70"
+    class="elevation-1 hover:elevation-2 flex h-80 w-80 cursor-pointer flex-col justify-end rounded-2xl border border-solid border-outline bg-secondaryContainer transition-all duration-200 ease-in-out hover:bg-[#ffd0b6] focus:rounded-3xl active:rounded-3xl active:bg-[#ffc5a5]"
     :to="props.link"
     @focusin="roundedValue = 'rounded-t-3xl'"
-    @focusout="roundedValue = 'rounded-xl'"
+    @focusout="roundedValue = 'rounded-2xl'"
   >
     <img
       :class="`${roundedValue}`"
@@ -41,7 +41,7 @@ const props = defineProps({
       <h1 class="text-2xl text-onSecondaryContainer">
         {{ props.title }}
       </h1>
-      <p class="text-sm text-onSecondaryContainer">
+      <p class="text-sm text-onSurfaceVariant">
         {{ props.subtitle }}
       </p>
     </div>

@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import NavigationBarSegments from './NavigationBarSegments.vue'
 
 const props = defineProps({
@@ -24,31 +23,9 @@ const props = defineProps({
     default: false
   }
 })
-
-const hideBar = ref(true)
-let lastScrollTop = 0
-
-window.addEventListener(
-  'scroll',
-  () => {
-    var st = window.pageYOffset || document.documentElement.scrollTop
-
-    if (st > lastScrollTop) {
-      hideBar.value = false
-    } else {
-      hideBar.value = true
-    }
-
-    lastScrollTop = st <= 0 ? 0 : st
-  },
-  false
-)
 </script>
 <template>
-  <nav
-    v-if="hideBar"
-    class="relative flex flex-col bg-inverseOnSurface pt-3 pb-4"
-  >
+  <nav class="elevation-2 relative flex flex-col bg-inverseOnSurface pt-3 pb-4">
     <div class="flex w-full justify-center">
       <navigation-bar-segments
         :link="`/${props.user}/stores`"

@@ -7,6 +7,24 @@
     font-family: 'Roboto', sans-serif;
   }
 }
+@layer utilities {
+  .elevation-1 {
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.039), 0px 0.5px 1.5px rgba(0, 0, 0, 0.19);
+  }
+  .elevation-2 {
+    box-shadow: 0px 0.333333px 1.5px rgba(0, 0, 0, 0.039), 0px 1.25px 5px rgba(0, 0, 0, 0.19);
+  }
+  .elevation-3 {
+    box-shadow: 0px 0.25px 3px rgba(0, 0, 0, 0.039), 0px 2.75px 9px rgba(0, 0, 0, 0.19);
+  }
+  .elevation-4 {
+    box-shadow: 0px 0.5px 5px rgba(0, 0, 0, 0.039), 0px 3.75px 11px rgba(0, 0, 0, 0.19);
+  }
+  .elevation-5 {
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.039), 0px 5.5px 16px rgba(0, 0, 0, 0.19);
+  }
+}
+
 @-moz-document url-prefix() { 
   select {
     text-indent: -2px

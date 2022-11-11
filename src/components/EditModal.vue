@@ -99,7 +99,9 @@ function editSave() {
 }
 </script>
 <template>
-  <div class="absolute inset-0 z-20 flex h-fit w-full flex-col bg-surface pt-6">
+  <div
+    class="absolute inset-0 z-20 flex h-fit w-full flex-col rounded-t-3xl bg-surface pt-6"
+  >
     <form class="flex flex-col gap-4 px-4">
       <TextField title="Nome" input-type="text" @input-value="addName" />
       <TextField title="Lote" input-type="text" @input-value="addBatch" />
@@ -119,13 +121,13 @@ function editSave() {
     </form>
     <div class="flex items-end justify-end gap-8 py-6 px-4">
       <p
-        class="cursor-pointer font-medium text-tertiary transition-colors duration-200 ease-in-out hover:text-opacity-80 active:text-opacity-70"
+        class="cursor-pointer font-medium text-tertiary transition-colors duration-200 ease-in-out hover:text-[#425503] active:text-[#354502]"
         @click="closeEdit"
       >
         Cancelar
       </p>
       <p
-        class="cursor-pointer font-medium text-tertiary transition-colors duration-200 ease-in-out hover:text-opacity-80 active:text-opacity-70"
+        class="cursor-pointer font-medium text-tertiary transition-colors duration-200 ease-in-out hover:text-[#425503] active:text-[#354502]"
         @click="editSave"
       >
         Salvar

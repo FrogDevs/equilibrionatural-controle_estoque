@@ -95,10 +95,10 @@ const validity = computed(() => {
 const validityProduct = ref(validity)
 </script>
 <template>
-  <header>
-    <div class="relative flex h-60 w-full flex-col">
+  <main class="flex h-screen flex-col items-center">
+    <div class="flex h-3/5 w-full flex-col">
       <i
-        class="material-symbols-rounded absolute z-10 m-4 max-w-fit cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-opacity-70"
+        class="material-symbols-rounded absolute top-0 z-10 m-2 max-w-fit cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-[#ffd0b6]"
         @click="close"
       >
         close
@@ -108,9 +108,9 @@ const validityProduct = ref(validity)
         :style="{ backgroundImage: 'url(' + piniaData.image + ')' }"
       ></div>
     </div>
-  </header>
-  <main class="flex flex-col items-center pb-5">
-    <section class="relative flex w-full flex-col gap-4 p-4">
+    <section
+      class="absolute bottom-0 z-10 flex h-2/4 w-full flex-col gap-4 rounded-t-3xl bg-surface p-4"
+    >
       <EditModal
         v-if="editModal"
         :key="props.id"
@@ -125,7 +125,7 @@ const validityProduct = ref(validity)
         @close-dialogue="showDialogue = false"
         @delete-product="deleteProduct"
       />
-      <h1 class="text-2xl text-primary">
+      <h1 class="text-2xl text-onSurface">
         {{ piniaData.name }}, #{{ piniaData.batch }}
       </h1>
       <div class="flex flex-col gap-4">
@@ -155,21 +155,18 @@ const validityProduct = ref(validity)
           </p>
         </div>
       </div>
+      <div class="flex h-full w-full items-end justify-center gap-4 pt-2 pb-4">
+        <TheButton
+          v-if="userAuth.getUser === 'admin'"
+          title="Editar"
+          @click="activeEdit"
+        />
+        <TheButton
+          v-if="userAuth.getUser === 'admin'"
+          title="Excluir"
+          @click="activeDialogue"
+        />
+      </div>
     </section>
   </main>
-  <footer
-    v-if="!editModal"
-    class="absolute bottom-0 mb-4 flex w-full justify-center gap-4"
-  >
-    <TheButton
-      v-if="userAuth.getUser === 'admin'"
-      title="Editar"
-      @click="activeEdit"
-    />
-    <TheButton
-      v-if="userAuth.getUser === 'admin'"
-      title="Excluir"
-      @click="activeDialogue"
-    />
-  </footer>
 </template>

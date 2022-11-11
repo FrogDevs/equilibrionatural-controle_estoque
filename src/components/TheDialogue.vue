@@ -14,7 +14,7 @@ function deleteProduct() {
     class="fixed inset-0 z-10 flex h-full w-full items-center justify-center bg-scrim bg-opacity-25 p-6"
   >
     <div
-      class="flex h-fit w-[19.5rem] max-w-[19.5rem] flex-col rounded-[1.75rem] bg-surface shadow-lg"
+      class="elevation-3 flex h-fit w-[19.5rem] max-w-[19.5rem] flex-col rounded-[1.75rem] bg-surface"
     >
       <div class="flex w-full flex-col items-start gap-4 p-6">
         <h2 class="text-start text-2xl text-onSurface">

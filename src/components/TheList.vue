@@ -34,7 +34,7 @@ function goToRoute() {
 </script>
 <template>
   <div
-    class="flex h-fit w-full items-center gap-3 bg-surface p-3 transition-colors duration-200 ease-in-out hover:cursor-pointer hover:bg-inverseOnSurface active:bg-opacity-70"
+    class="flex h-fit w-full cursor-pointer items-center gap-3 bg-surface p-3 transition-colors duration-200 ease-in-out lg:hover:bg-inverseOnSurface lg:active:bg-[#ece0da]"
     @click="goToRoute"
   >
     <div

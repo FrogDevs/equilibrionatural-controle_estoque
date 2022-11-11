@@ -54,7 +54,7 @@ const piniaData = computed(() => {
           <tr
             v-for="item in piniaData"
             :key="item.id"
-            class="border-b border-outline bg-surface transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-surfaceVariant active:bg-opacity-70"
+            class="cursor-pointer border-b border-outlineVariant bg-surface transition-all duration-200 ease-in-out lg:hover:bg-inverseOnSurface lg:active:bg-[#ece0da]"
           >
             <td
               scope="row"

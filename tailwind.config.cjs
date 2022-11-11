@@ -26,6 +26,7 @@ module.exports = {
         onSurface: '#201a17',
         inverseOnSurface: '#FBEEE8',
         outline: '#84746a',
+        outlineVariant: '#d7c3b8',
         surfaceVariant: '#f4ded3',
         onSurfaceVariant: '#52443c',
         scrim: '#000000'

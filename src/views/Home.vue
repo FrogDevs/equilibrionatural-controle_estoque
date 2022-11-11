@@ -26,9 +26,9 @@ const modal = ref(false)
   <header class="fixed top-0 z-10 w-full">
     <ToolBar :user="props.user" :market="props.market" />
   </header>
-  <main class="flex flex-col items-center px-4 pb-24 lg:items-start">
+  <main class="flex flex-col items-center px-4 pb-24">
     <div
-      class="mt-20 flex w-full cursor-pointer gap-4 rounded-2xl bg-tertiaryContainer py-3 px-4 transition-colors duration-200 ease-in-out hover:bg-opacity-80 active:bg-opacity-70 lg:w-fit"
+      class="mt-20 flex w-full cursor-pointer gap-4 rounded-full bg-tertiaryContainer py-3 px-3 transition-colors duration-200 ease-in-out hover:bg-[#caec73] active:bg-[#c5ea64] sm:w-fit"
       @click="modal = true"
     >
       <i class="material-symbols-rounded text-onTertiaryContainer">search</i>

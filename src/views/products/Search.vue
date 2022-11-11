@@ -44,7 +44,7 @@ const itemSubtitle = (item) => {
 </script>
 
 <template>
-  <header class="fixed top-0 w-full shadow-sm">
+  <header class="fixed top-0 w-full">
     <ToolBar :user="props.user" :market="props.market" />
   </header>
   <main class="mt-20 flex h-full w-full flex-col overflow-y-scroll pb-24">
@@ -66,7 +66,7 @@ const itemSubtitle = (item) => {
           <p>Carregando...</p>
         </template>
       </Suspense>
-      <p v-if="!piniaData.length" class="text-amber-800">
+      <p v-if="!piniaData.length" class="text-tertiary">
         Sem itens registrados.
       </p>
     </div>
