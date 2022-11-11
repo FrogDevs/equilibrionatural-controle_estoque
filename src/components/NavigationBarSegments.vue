@@ -32,7 +32,7 @@ const props = defineProps({
           ? 'bg-secondaryContainer text-onSecondaryContainer'
           : 'font-extralight text-onSurface'
       "
-      class="material-symbols-rounded z-10 rounded-full py-1 px-5 hover:cursor-pointer"
+      class="material-symbols-rounded z-10 cursor-pointer rounded-full py-1 px-5"
     >
       {{ props.icon }}
     </i>

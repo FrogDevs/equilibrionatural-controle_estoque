@@ -26,13 +26,13 @@ function deleteProduct() {
       </div>
       <div class="flex w-full justify-end gap-8 py-[2.125rem] px-9">
         <p
-          class="font-medium text-primary transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+          class="cursor-pointer font-medium text-primary transition-colors duration-200 ease-in-out hover:text-opacity-80 active:text-opacity-70"
           @click="closeDialogue"
         >
           Cancelar
         </p>
         <p
-          class="font-medium text-primary transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-70"
+          class="cursor-pointer font-medium text-primary transition-colors duration-200 ease-in-out hover:text-opacity-80 active:text-opacity-70"
           @click="deleteProduct"
         >
           Excluir

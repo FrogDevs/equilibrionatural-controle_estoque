@@ -54,7 +54,7 @@ function singInTourist() {
           <TheButton title="Entrar" />
         </form>
         <p
-          class="mt-12 text-secondary transition-colors duration-200 ease-in-out hover:cursor-pointer hover:text-opacity-80 active:text-opacity-60"
+          class="mt-12 cursor-pointer text-secondary transition-colors duration-200 ease-in-out hover:text-opacity-80 active:text-opacity-60"
           @click="singInTourist"
         >
           Entrar como visitante
