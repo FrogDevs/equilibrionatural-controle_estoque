@@ -1,4 +1,5 @@
 <script setup>
+import 'material-symbols'
 import { ref } from 'vue'
 import TheSnackBar from './components/TheSnackBar.vue'
 import { Network } from '@capacitor/network'
