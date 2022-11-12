@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import Compress from 'compress.js'
 
 const props = defineProps({
   title: {
@@ -58,16 +59,18 @@ function emitOnTrue() {
 
 function fileSelected(e) {
   if (props.inputType === 'file') {
-    const imgSelected = e.target.files[0]
-    const fileReader = new FileReader()
-
-    fileReader.onloadend = function () {
-      emit('input-img', fileReader.result)
-    }
-    fileReader.readAsDataURL(imgSelected)
-    fileReader.onerror = () => {
-      alert(fileReader.error)
-    }
+    // Compress IMG ≃ 72.44%
+    const compress = new Compress()
+    compress
+      .compress([...e.target.files], {
+        size: 4,
+        quality: 0.1,
+        resize: false,
+        rotate: false
+      })
+      .then((data) => {
+        emit('input-img', `${data[0].prefix}${data[0].data}`)
+      })
   } else {
     return
   }
