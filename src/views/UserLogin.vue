@@ -1,21 +1,31 @@
 <script setup>
+import { ref } from 'vue'
 import TextField from '../components/TextField.vue'
 import TheButton from '../components/TheButton.vue'
+// import TheDialogue from '../components/TheDialogue.vue'
 import { useUserStore } from '../stores/UserStore'
 import router from '../router'
 
-const userAuth = useUserStore()
+const userStore = useUserStore()
+const inputPass = ref(null)
+
+function addInputPass(value) {
+  inputPass.value = value
+}
 
 function singInAdmin() {
-  userAuth.setAuth(true)
-  userAuth.setUser('admin')
-  router.push('/admin/stores')
+  // Warn: Usar theDialogue
+  if (inputPass.value == userStore.pass) {
+    userStore.setUser('admin')
+    router.push(`/${userStore.type}/stores`)
+  } else {
+    alert('Senha incorreta.')
+  }
 }
 
 function singInTourist() {
-  userAuth.setAuth(true)
-  userAuth.setUser('visitante')
-  router.push('/visitante/stores')
+  userStore.setUser('visitante')
+  router.push(`/${userStore.type}/stores`)
 }
 </script>
 <template>
@@ -50,7 +60,11 @@ function singInTourist() {
           class="mt-12 flex w-full flex-col items-center gap-6 lg:w-2/4"
           @submit.prevent="singInAdmin"
         >
-          <TextField title="Chave de acesso" input-type="password" />
+          <TextField
+            title="Chave de acesso"
+            input-type="password"
+            @input-value="addInputPass"
+          />
           <TheButton title="Entrar" />
         </form>
         <p

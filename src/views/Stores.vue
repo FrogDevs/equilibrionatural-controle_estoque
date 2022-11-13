@@ -1,5 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import { useProductStore } from '../stores/ProductStore'
+import { useHistoryStore } from '../stores/HistoryStore'
 import TheCard from '../components/TheCard.vue'
 
 const props = defineProps({
@@ -8,6 +10,11 @@ const props = defineProps({
     default: ''
   }
 })
+
+const productStore = useProductStore()
+const historyStore = useHistoryStore()
+productStore.getProducts()
+historyStore.getHistory()
 </script>
 
 <template>
@@ -16,7 +23,14 @@ const props = defineProps({
       class="flex h-fit w-fit flex-col items-center justify-center py-6 sm:h-full md:gap-6"
     >
       <h1 class="text-xl text-onBackground">Selecione uma unidade</h1>
+      <p
+        v-if="productStore.loading || historyStore.loading"
+        class="text-tertiary"
+      >
+        Carregando produtos...
+      </p>
       <div
+        v-else
         class="flex w-full flex-col items-center justify-center gap-6 pt-6 md:flex-row"
       >
         <TheCard
