@@ -16,10 +16,7 @@ const props = defineProps({
 })
 
 const historyStore = useHistoryStore()
-
-const piniaData = computed(() => {
-  return historyStore.history.slice(0).reverse()
-})
+const piniaData = computed(() => historyStore.history.slice(0).reverse())
 </script>
 <template>
   <header class="fixed top-0 z-10 w-full">
@@ -54,7 +51,7 @@ const piniaData = computed(() => {
           <tr
             v-for="item in piniaData"
             :key="item.id"
-            class="cursor-pointer border-b border-outlineVariant bg-surface transition-all duration-200 ease-in-out lg:hover:bg-inverseOnSurface lg:active:bg-[#ece0da]"
+            class="border-b border-outlineVariant bg-surface transition-all duration-200 ease-in-out lg:cursor-pointer lg:hover:bg-inverseOnSurface lg:active:bg-[#ece0da]"
           >
             <td
               scope="row"

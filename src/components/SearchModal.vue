@@ -76,6 +76,7 @@ function goToProduct(category, id) {
         <TheList
           v-for="item in searchItems"
           :key="item.id"
+          :list-id="item.id"
           :title="item.name"
           @click="goToProduct(item.category, item.id)"
         />
