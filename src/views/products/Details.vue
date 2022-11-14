@@ -122,8 +122,12 @@ const validityProduct = ref(validity)
       <TheDialogue
         v-if="showDialogue"
         :key="props.id"
-        @close-dialogue="showDialogue = false"
-        @delete-product="deleteProduct"
+        title="Deseja excluir este produto?"
+        subtitle="Saiba que não será possível recuperar quaisquer dados perdidos."
+        first-action="Excluir"
+        second-action="Cancelar"
+        @second-action="showDialogue = false"
+        @first-action="deleteProduct"
       />
       <h1 class="text-2xl text-onSurface">
         {{ piniaData.name }}, #{{ piniaData.batch }}

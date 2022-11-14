@@ -5,10 +5,10 @@ const visable = ref(true)
 <template>
   <div
     :class="visable ? 'flex' : 'hidden'"
-    class="fixed top-20 z-50 w-full justify-center px-2 lg:justify-end"
+    class="fixed top-20 z-50 h-full w-full items-center justify-center px-2 lg:items-start lg:justify-end"
   >
     <div
-      class="elevation-3 flex flex-col items-end rounded-md bg-onSurface px-2"
+      class="elevation-3 flex h-fit flex-col items-end rounded-md bg-onSurface px-2"
     >
       <p class="w-full px-[0.875rem] pt-3 pb-[0.125rem] text-sm text-surface">
         Sem conexão Wifi, salvamento remoto ativado.

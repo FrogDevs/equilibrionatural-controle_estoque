@@ -2,12 +2,13 @@
 import { ref } from 'vue'
 import TextField from '../components/TextField.vue'
 import TheButton from '../components/TheButton.vue'
-// import TheDialogue from '../components/TheDialogue.vue'
+import TheDialogue from '../components/TheDialogue.vue'
 import { useUserStore } from '../stores/UserStore'
 import router from '../router'
 
 const userStore = useUserStore()
 const inputPass = ref(null)
+const showDialogue = ref(false)
 
 function addInputPass(value) {
   inputPass.value = value
@@ -19,7 +20,7 @@ function singInAdmin() {
     userStore.setUser(true, 'admin')
     router.push(`/${userStore.type}/stores`)
   } else {
-    alert('Senha incorreta.')
+    showDialogue.value = true
   }
 }
 
@@ -29,6 +30,14 @@ function singInTourist() {
 }
 </script>
 <template>
+  <TheDialogue
+    v-if="showDialogue"
+    title="Aviso"
+    subtitle="Chave de acesso incorreta."
+    first-action="Entendi"
+    @first-action="showDialogue = false"
+  />
+
   <!-- img -->
   <div
     class="absolute top-0 hidden h-screen w-2/4 bg-store1hd bg-cover lg:block"
