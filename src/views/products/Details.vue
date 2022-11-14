@@ -77,7 +77,7 @@ function activeDialogue() {
 
 function deleteProduct() {
   productStore.setDeleteProduct(props.id)
-  piniaHistory.totalInStock.value = productStore.getTotalPrice
+  piniaHistory.totalInStock.value = productStore.getTotalInStock
   historyStore.addToHistory(piniaHistory)
   router.go(-1)
 }

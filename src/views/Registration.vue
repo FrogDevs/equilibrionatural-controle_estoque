@@ -37,6 +37,10 @@ const piniaProduct = {
   SpoiledDay: ref(null)
 }
 
+const totalPrice = computed(() => {
+  return piniaProduct.amount.value * piniaProduct.price.value
+})
+
 function historyDate() {
   const d = new Date()
   const day = d.getDate()
@@ -81,20 +85,28 @@ function addimage(value) {
   piniaProduct.image.value = value
 }
 
-const totalPrice = computed(() => {
-  return piniaProduct.amount.value * piniaProduct.price.value
-})
-
-const getDate = computed(() => {
-  const d = new Date()
-  return d.getDate()
-})
-
 function addItem() {
+  const d = new Date()
+
   piniaProduct.totalPrice.value = totalPrice.value
-  piniaProduct.SpoiledDay.value = getDate.value + piniaProduct.date.value
-  productStore.setAddProduct(piniaProduct)
-  piniaHistory.totalInStock.value = productStore.getTotalPrice
+  piniaProduct.SpoiledDay.value = d.getDate() + piniaProduct.date.value
+
+  productStore.setAddProduct({
+    id: piniaProduct.id,
+    market: piniaProduct.market,
+    category: piniaProduct.category,
+    name: piniaProduct.name.value,
+    batch: piniaProduct.batch.value,
+    amount: piniaProduct.amount.value,
+    price: piniaProduct.price.value,
+    weight: piniaProduct.weight.value,
+    date: piniaProduct.date.value,
+    image: piniaProduct.image.value,
+    totalPrice: piniaProduct.totalPrice.value,
+    SpoiledDay: piniaProduct.SpoiledDay.value
+  })
+
+  piniaHistory.totalInStock.value = productStore.getTotalInStock
   historyStore.addToHistory(piniaHistory)
   router.go(-1)
 }

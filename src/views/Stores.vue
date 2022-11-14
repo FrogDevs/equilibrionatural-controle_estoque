@@ -24,7 +24,7 @@ historyStore.getHistory()
     >
       <h1 class="text-xl text-onBackground">Selecione uma unidade</h1>
       <p
-        v-if="productStore.loading || historyStore.loading"
+        v-if="productStore.loading || productStore.loading"
         class="text-tertiary"
       >
         Carregando produtos...

@@ -93,7 +93,7 @@ function closeEdit() {
 function editSave() {
   piniaEditProduct.totalPrice.value = totalPrice.value
   productStore.setEditProduct(props.product.id, piniaEditProduct)
-  piniaHistory.totalInStock.value = productStore.getTotalPrice
+  piniaHistory.totalInStock.value = productStore.getTotalInStock
   historyStore.addToHistory(piniaHistory)
   emit('closeEdit')
 }

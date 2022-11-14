@@ -1,4 +1,17 @@
 import { defineStore } from 'pinia'
+import {
+  collection,
+  onSnapshot,
+  doc,
+  setDoc,
+  updateDoc,
+  deleteDoc
+} from 'firebase/firestore'
+
+import { db } from '../firebase/index'
+
+// firebase refs
+const productsCollectionRef = collection(db, 'products')
 
 export const useProductStore = defineStore('productStore', {
   state: () => ({
@@ -16,9 +29,9 @@ export const useProductStore = defineStore('productStore', {
     getId: (state) => {
       return (id) => state.products.filter((product) => product.id === id)
     },
-    getTotalPrice() {
+    getTotalInStock() {
       return this.products.reduce(
-        (accumulator, curValue) => accumulator + curValue.totalPrice,
+        (accumulator, curValue) => (accumulator += curValue.totalPrice),
         0
       )
     },
@@ -33,39 +46,36 @@ export const useProductStore = defineStore('productStore', {
     }
   },
   actions: {
-    async getProducts() {
+    getProducts() {
       this.loading = true
-      const res = await fetch('http://localhost:3000/products')
-      const data = await res.json()
-      this.products = data
+      onSnapshot(productsCollectionRef, (querySnapshot) => {
+        const fbProducts = []
+        querySnapshot.forEach((doc) => {
+          fbProducts.push(doc.data())
+        })
+        this.products = fbProducts
+      })
       this.loading = false
     },
-    async setAddProduct(product) {
+    setAddProduct(product) {
       this.products.push(product)
 
-      const res = await fetch('http://localhost:3000/products', {
-        method: 'POST',
-        body: JSON.stringify({
-          id: product.id,
-          market: product.market,
-          category: product.category,
-          name: product.name.value,
-          batch: product.batch.value,
-          amount: product.amount.value,
-          price: product.price.value,
-          weight: product.weight.value,
-          date: product.date.value,
-          image: product.image.value,
-          totalPrice: product.totalPrice.value,
-          SpoiledDay: product.SpoiledDay.value
-        }),
-        headers: { 'Content-Type': 'application/json' }
+      setDoc(doc(productsCollectionRef, product.id), {
+        id: product.id,
+        market: product.market,
+        category: product.category,
+        name: product.name,
+        batch: product.batch,
+        amount: product.amount,
+        price: product.price,
+        weight: product.weight,
+        date: product.date,
+        image: product.image,
+        totalPrice: product.totalPrice,
+        SpoiledDay: product.SpoiledDay
       })
-      if (res.error) {
-        console.log(res.error)
-      }
     },
-    async setEditProduct(id, newValue) {
+    setEditProduct(id, newValue) {
       const product = this.getId(id)
       product[0].name = newValue.name
       product[0].batch = newValue.batch
@@ -75,63 +85,28 @@ export const useProductStore = defineStore('productStore', {
       product[0].date = newValue.date
       product[0].image = newValue.image
 
-      const res = await fetch('http://localhost:3000/products/' + id, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          name: newValue.name.value,
-          batch: newValue.batch.value,
-          amount: newValue.amount.value,
-          price: newValue.price.value,
-          weight: newValue.weight.value,
-          date: newValue.date.value,
-          image: newValue.image.value
-        }),
-        headers: { 'Content-Type': 'application/json' }
+      updateDoc(doc(productsCollectionRef, id), {
+        name: newValue.name.value,
+        batch: newValue.batch.value,
+        amount: newValue.amount.value,
+        price: newValue.price.value,
+        weight: newValue.weight.value,
+        date: newValue.date.value,
+        image: newValue.image.value
       })
-      if (res.error) {
-        console.log(res.error)
-      }
     },
-    async setDeleteProduct(id) {
+    setDeleteProduct(id) {
       this.products = this.products.filter((product) => product.id !== id)
-
-      const res = await fetch('http://localhost:3000/products/' + id, {
-        method: 'DELETE'
-      })
-      if (res.error) {
-        console.log(res.error)
-      }
+      deleteDoc(doc(productsCollectionRef, id))
     },
     setDaysToSpoil() {
       const d = new Date()
 
-      this.products.forEach(async (element) => {
-        element.date = element.SpoiledDay - d.getDate()
-
-        const res = await fetch(
-          'http://localhost:3000/products/' + element.id,
-          {
-            method: 'PATCH',
-            body: JSON.stringify({
-              id: element.id,
-              market: element.market,
-              category: element.category,
-              name: element.name.value,
-              batch: element.batch.value,
-              amount: element.amount.value,
-              price: element.price.value,
-              weight: element.weight.value,
-              date: element.SpoiledDay - d.getDate(),
-              image: element.image.value,
-              totalPrice: element.totalPrice.value,
-              SpoiledDay: element.SpoiledDay.value
-            }),
-            headers: { 'Content-Type': 'application/json' }
-          }
-        )
-        if (res.error) {
-          console.log(res.error)
-        }
+      this.products.forEach((element) => {
+        // element.date = element.SpoiledDay - d.getDate()
+        updateDoc(doc(productsCollectionRef, element.id), {
+          date: element.SpoiledDay - d.getDate()
+        })
       })
     }
   }
