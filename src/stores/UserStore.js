@@ -15,8 +15,8 @@ export const useUserStore = defineStore('useUserStore', {
     }
   },
   actions: {
-    async setUser(type) {
-      ;(this.isAuth = true), (this.type = type)
+    async setUser(boolean, type) {
+      ;(this.isAuth = boolean), (this.type = type)
     }
   }
 })

@@ -16,7 +16,7 @@ function addInputPass(value) {
 function singInAdmin() {
   // Warn: Usar theDialogue
   if (inputPass.value == userStore.pass) {
-    userStore.setUser('admin')
+    userStore.setUser(true, 'admin')
     router.push(`/${userStore.type}/stores`)
   } else {
     alert('Senha incorreta.')
@@ -24,7 +24,7 @@ function singInAdmin() {
 }
 
 function singInTourist() {
-  userStore.setUser('visitante')
+  userStore.setUser(true, 'visitante')
   router.push(`/${userStore.type}/stores`)
 }
 </script>

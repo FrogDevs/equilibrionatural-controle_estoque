@@ -1,19 +1,7 @@
 <script setup>
+import { useUserStore } from '../stores/UserStore'
 import { computed, ref } from 'vue'
 import router from '../router'
-import { useUserStore } from '../stores/UserStore'
-
-const userAuth = useUserStore()
-
-function back() {
-  router.go(-1)
-}
-
-function logout() {
-  userAuth.setAuth(false)
-  userAuth.setUser(null)
-  router.push('/')
-}
 
 const props = defineProps({
   user: {
@@ -25,6 +13,17 @@ const props = defineProps({
     default: ''
   }
 })
+
+const userStore = useUserStore()
+
+function back() {
+  router.go(-1)
+}
+
+function logout() {
+  userStore.setUser(false, props.user)
+  router.push('/')
+}
 
 const title = computed(() => {
   if (props.user || props.market) {
