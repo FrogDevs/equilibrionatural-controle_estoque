@@ -4,9 +4,12 @@ import TextField from '../components/TextField.vue'
 import TheButton from '../components/TheButton.vue'
 import TheDialogue from '../components/TheDialogue.vue'
 import { useUserStore } from '../stores/UserStore'
+import SimpleCrypto from 'simple-crypto-js'
 import router from '../router'
 
 const userStore = useUserStore()
+userStore.setUserPass()
+
 const inputPass = ref(null)
 const showDialogue = ref(false)
 
@@ -15,8 +18,11 @@ function addInputPass(value) {
 }
 
 function singInAdmin() {
-  // Warn: Usar theDialogue
-  if (inputPass.value == userStore.pass) {
+  const userId = userStore.getUserId
+  const userPass = userStore.getUserPass
+  const simpleCrypto = new SimpleCrypto(userId)
+
+  if (inputPass.value == simpleCrypto.decrypt(userPass)) {
     userStore.setUser(true, 'admin')
     router.push(`/${userStore.type}/stores`)
   } else {

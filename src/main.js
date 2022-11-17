@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import '@fontsource/roboto'
 import './style.css'
 import App from './App.vue'
 
