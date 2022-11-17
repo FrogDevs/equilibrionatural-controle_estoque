@@ -13,9 +13,9 @@ router.isReady().then(() => {
   app.mount('#app')
 })
 
-// import { StatusBar } from '@capacitor/status-bar'
-// StatusBar.setOverlaysWebView({ overlay: true })
-// const hideStatusBar = async () => {
-//   await StatusBar.hide()
-// }
-// hideStatusBar()
+import { StatusBar } from '@capacitor/status-bar'
+StatusBar.setOverlaysWebView({ overlay: true })
+const hideStatusBar = async () => {
+  await StatusBar.hide()
+}
+hideStatusBar()

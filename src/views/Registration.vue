@@ -7,6 +7,8 @@ import { useHistoryStore } from '../stores/HistoryStore'
 import ToolBar from '../components/ToolBar.vue'
 import TheButton from '../components/TheButton.vue'
 import TextField from '../components/TextField.vue'
+import TheDialogue from '../components/TheDialogue.vue'
+import { Network } from '@capacitor/network'
 
 const props = defineProps({
   market: {
@@ -21,6 +23,7 @@ const props = defineProps({
 
 const productStore = useProductStore()
 const historyStore = useHistoryStore()
+const showDialogue = ref(false)
 
 const piniaProduct = {
   id: Date.now().toString(36) + Math.random().toString(36).substr(2),
@@ -85,30 +88,33 @@ function addimage(value) {
   piniaProduct.image.value = value
 }
 
-function addItem() {
+async function addItem() {
+  const status = await Network.getStatus()
   const d = new Date()
 
-  piniaProduct.totalPrice.value = totalPrice.value
-  piniaProduct.SpoiledDay.value = d.getDate() + piniaProduct.date.value
-
-  productStore.setAddProduct({
-    id: piniaProduct.id,
-    market: piniaProduct.market,
-    category: piniaProduct.category,
-    name: piniaProduct.name.value,
-    batch: piniaProduct.batch.value,
-    amount: piniaProduct.amount.value,
-    price: piniaProduct.price.value,
-    weight: piniaProduct.weight.value,
-    date: piniaProduct.date.value,
-    image: piniaProduct.image.value,
-    totalPrice: piniaProduct.totalPrice.value,
-    SpoiledDay: piniaProduct.SpoiledDay.value
-  })
-
-  piniaHistory.totalInStock.value = productStore.getTotalInStock
-  historyStore.addToHistory(piniaHistory)
-  router.go(-1)
+  if (status.connected) {
+    piniaProduct.totalPrice.value = totalPrice.value
+    piniaProduct.SpoiledDay.value = d.getDate() + piniaProduct.date.value
+    productStore.setAddProduct({
+      id: piniaProduct.id,
+      market: piniaProduct.market,
+      category: piniaProduct.category,
+      name: piniaProduct.name.value,
+      batch: piniaProduct.batch.value,
+      amount: piniaProduct.amount.value,
+      price: piniaProduct.price.value,
+      weight: piniaProduct.weight.value,
+      date: piniaProduct.date.value,
+      image: piniaProduct.image.value,
+      totalPrice: piniaProduct.totalPrice.value,
+      SpoiledDay: piniaProduct.SpoiledDay.value
+    })
+    piniaHistory.totalInStock.value = productStore.getTotalInStock
+    historyStore.addToHistory(piniaHistory)
+    router.go(-1)
+  } else {
+    showDialogue.value = true
+  }
 }
 </script>
 <template>
@@ -116,6 +122,13 @@ function addItem() {
     <ToolBar />
   </header>
   <main class="flex w-full flex-col pb-8 pt-20">
+    <TheDialogue
+      v-if="showDialogue"
+      title="Sem conexão Wifi"
+      subtitle="Não foi possível salvar esse produto, certifique-se de estabelecer uma conexão Wifi valida."
+      first-action="Entendi"
+      @first-action="showDialogue = false"
+    />
     <form
       class="flex flex-col items-center gap-4 px-4"
       @submit.prevent="addItem"

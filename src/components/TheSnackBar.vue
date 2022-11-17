@@ -11,7 +11,7 @@ const visable = ref(true)
       class="elevation-3 flex h-fit flex-col items-end rounded-md bg-onSurface px-2"
     >
       <p class="w-full px-[0.875rem] pt-3 pb-[0.125rem] text-sm text-surface">
-        Sem conexão Wifi, salvamento remoto ativado.
+        Sem acesso ao banco de dados, certifique-se de ativar o Wifi.
       </p>
       <div class="py-[0.625rem] px-3">
         <p
