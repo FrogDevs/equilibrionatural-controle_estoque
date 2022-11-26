@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 key
-firebase
+src/firebase/client_db.js
 
 # Editor directories and files
 .vscode/*
