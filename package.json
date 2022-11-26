@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "resources": "capacitor-resources -p android"
+    "resources": "capacitor-assets generate --iconBackgroundColor '#fffbff' --iconBackgroundColorDark '#fffbff' --splashBackgroundColor '#fffbff' --splashBackgroundColorDark '#fffbff' --androidProject 'android' --assetPath 'assets' --android"
   },
   "dependencies": {
     "@capacitor-community/electron": "^4.1.2",
