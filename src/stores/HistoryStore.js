@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { collection, onSnapshot, addDoc } from 'firebase/firestore'
-import { db } from '../firebase/index'
+import { db } from '../firebase/tcc_db'
 
 // firebase refs
 const historyCollectionRef = collection(db, 'history')

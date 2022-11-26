@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">Equilibrio Natural</string>
-    <string name="title_activity_main">Equilibrio Natural</string>
-    <string name="package_name">com.equilibrionatural.app</string>
-    <string name="custom_url_scheme">com.equilibrionatural.app</string>
-</resources>

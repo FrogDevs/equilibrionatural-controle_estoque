@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { collection, onSnapshot } from 'firebase/firestore'
-import { db } from '../firebase/index'
+import { db } from '../firebase/tcc_db'
 import SimpleCrypto from 'simple-crypto-js'
 
 const userCollectionRef = collection(db, 'user')
