@@ -1,9 +1,19 @@
 import { defineStore } from 'pinia'
-import { collection, onSnapshot, addDoc } from 'firebase/firestore'
-import { db } from '../firebase/tcc_db'
+import {
+  collection,
+  onSnapshot,
+  addDoc,
+  query,
+  orderBy
+} from 'firebase/firestore'
+import { db } from '../firebase/index'
 
 // firebase refs
 const historyCollectionRef = collection(db, 'history')
+const historyCollectionQuery = query(
+  historyCollectionRef,
+  orderBy('now', 'desc')
+)
 
 export const useHistoryStore = defineStore('historyStore', {
   state: () => ({
@@ -13,7 +23,7 @@ export const useHistoryStore = defineStore('historyStore', {
   actions: {
     getHistory() {
       this.loading = true
-      onSnapshot(historyCollectionRef, (querySnapshot) => {
+      onSnapshot(historyCollectionQuery, (querySnapshot) => {
         const fbHistory = []
         querySnapshot.forEach((doc) => {
           fbHistory.push(doc.data())
@@ -23,6 +33,7 @@ export const useHistoryStore = defineStore('historyStore', {
       this.loading = false
     },
     addToHistory(item) {
+      this.history.push(item)
       addDoc(historyCollectionRef, {
         id: item.id.value,
         date: item.date,
@@ -32,7 +43,8 @@ export const useHistoryStore = defineStore('historyStore', {
         category: item.category.value,
         name: item.name.value,
         totalPrice: item.totalPrice.value,
-        totalInStock: item.totalInStock.value
+        totalInStock: item.totalInStock.value,
+        now: Date.now()
       })
     }
   }

@@ -16,7 +16,7 @@ const props = defineProps({
 })
 
 const historyStore = useHistoryStore()
-const piniaData = computed(() => historyStore.history.slice(0).reverse())
+const piniaData = computed(() => historyStore.history)
 </script>
 <template>
   <header class="fixed top-0 z-10 w-full">

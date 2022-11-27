@@ -7,7 +7,7 @@ import {
   updateDoc,
   deleteDoc
 } from 'firebase/firestore'
-import { db } from '../firebase/tcc_db'
+import { db } from '../firebase/index'
 
 // firebase refs
 const productsCollectionRef = collection(db, 'products')
