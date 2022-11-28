@@ -26,6 +26,7 @@ const props = defineProps({
 
 const emit = defineEmits(['input-value', 'input-img', 'input-date'])
 
+const date = ref()
 const input = ref(null)
 const title = ref(null)
 const placeholder = ref(props.title)
@@ -158,6 +159,7 @@ const watchInput = computed(() => {
         <Datepicker
           v-else
           ref="input"
+          v-model="date"
           class="w-full"
           locale="pt-br"
           cancel-text="Cancelar"
