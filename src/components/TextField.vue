@@ -1,6 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue'
 import Compress from 'compress.js'
+import Datepicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
+import { ptBR } from 'date-fns/locale'
 
 const props = defineProps({
   title: {
@@ -14,8 +17,14 @@ const props = defineProps({
   inputType: {
     type: String,
     default: 'text'
+  },
+  isDatepicker: {
+    type: Boolean,
+    default: false
   }
 })
+
+const emit = defineEmits(['input-value', 'input-img', 'input-date'])
 
 const input = ref(null)
 const title = ref(null)
@@ -42,8 +51,6 @@ function setFocus() {
     title.value = false
   }
 }
-
-const emit = defineEmits(['input-value', 'input-img'])
 
 function emitOnTrue() {
   if (!input.value.value) {
@@ -76,6 +83,24 @@ function fileSelected(e) {
   }
 }
 
+const handleDate = (modelDate) => {
+  const date = new Date()
+  let year = modelDate.getFullYear() - date.getFullYear()
+  let month
+
+  if (year === 0) {
+    month = modelDate.getMonth() + 1 - (date.getMonth() + 1)
+  } else {
+    let mes = modelDate.getMonth() + 1 - (date.getMonth() + 1)
+    month = 12 * year + mes
+  }
+
+  const daysByMonth = month * 30
+  const daysToSpoil = daysByMonth + modelDate.getDate() - date.getDate()
+
+  emit('input-date', daysToSpoil)
+}
+
 // Watcher
 const watchInput = computed(() => {
   if (inputFocus.value && !inputError.value) {
@@ -101,16 +126,50 @@ const watchInput = computed(() => {
             {{ props.title }}
           </p>
         </div>
-        <input
+        <div v-if="!props.isDatepicker" class="w-full">
+          <input
+            v-if="props.inputType !== 'number'"
+            ref="input"
+            class="w-full bg-transparent text-onBackground transition-opacity duration-200 ease-in-out file:hidden placeholder:text-outline focus:outline-none"
+            :placeholder="placeholder"
+            :type="props.inputType"
+            required
+            @focusin="setFocus"
+            @focusout="setFocus"
+            @input="emitOnTrue"
+            @change="fileSelected"
+          />
+          <input
+            v-else
+            ref="input"
+            class="w-full bg-transparent text-onBackground transition-opacity duration-200 ease-in-out file:hidden placeholder:text-outline focus:outline-none"
+            :placeholder="placeholder"
+            step="0.01"
+            min="0"
+            max="10"
+            :type="props.inputType"
+            required
+            @focusin="setFocus"
+            @focusout="setFocus"
+            @input="emitOnTrue"
+            @change="fileSelected"
+          />
+        </div>
+        <Datepicker
+          v-else
           ref="input"
-          class="w-full bg-transparent text-onBackground transition-opacity duration-200 ease-in-out file:hidden placeholder:text-outline focus:outline-none"
+          class="w-full"
+          locale="pt-br"
+          cancel-text="Cancelar"
+          select-text="Salvar"
+          :format-locale="ptBR"
+          format="dd/MM/yyyy"
           :placeholder="placeholder"
-          :type="props.inputType"
           required
+          no-today
           @focusin="setFocus"
           @focusout="setFocus"
-          @input="emitOnTrue"
-          @change="fileSelected"
+          @update:model-value="handleDate"
         />
       </div>
       <i v-if="inputError" class="material-symbols-rounded text-error">
