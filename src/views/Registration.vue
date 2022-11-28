@@ -142,11 +142,7 @@ async function addItem() {
       />
       <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
-      <TextField
-        title="Validade (dias)"
-        input-type="number"
-        @input-value="addDate"
-      />
+      <TextField title="Validade" :is-datepicker="true" @input-date="addDate" />
       <TextField title="Imagem" input-type="file" @input-img="addimage" />
       <TheButton title="Salvar" />
     </form>

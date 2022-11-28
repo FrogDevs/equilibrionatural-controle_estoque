@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useProductStore } from '../stores/ProductStore'
 import { useHistoryStore } from '../stores/HistoryStore'
 import TextField from './TextField.vue'
+import TheDivider from './TheDivider.vue'
 
 const productStore = useProductStore()
 const historyStore = useHistoryStore()
@@ -102,6 +103,7 @@ function editSave() {
   <div
     class="absolute inset-0 z-20 flex h-fit w-full flex-col rounded-t-3xl bg-surface pt-6"
   >
+    <TheDivider subtitle="Atualize o campo escolhido" />
     <form class="flex flex-col gap-4 px-4">
       <TextField title="Nome" input-type="text" @input-value="addName" />
       <TextField title="Lote" input-type="text" @input-value="addBatch" />
@@ -112,11 +114,7 @@ function editSave() {
       />
       <TextField title="Preço R$" input-type="number" @input-value="addPrice" />
       <TextField title="Peso" input-type="text" @input-value="addWeight" />
-      <TextField
-        title="Validade (dias)"
-        input-type="number"
-        @input-value="addDate"
-      />
+      <TextField title="Validade" :is-datepicker="true" @input-date="addDate" />
       <TextField title="Imagem" input-type="file" @input-img="addimage" />
     </form>
     <div class="flex items-end justify-end gap-8 py-6 px-4">
