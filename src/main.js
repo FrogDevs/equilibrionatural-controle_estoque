@@ -10,6 +10,11 @@ app.use(pinia)
 
 import router from './router'
 app.use(router)
+
+import Datepicker from '@vuepic/vue-datepicker'
+import '@vuepic/vue-datepicker/dist/main.css'
+app.component('Datepicker', Datepicker)
+
 router.isReady().then(() => {
   app.mount('#app')
 })
