@@ -98,7 +98,7 @@ const validityProduct = ref(validity)
   <main class="flex h-screen flex-col items-center">
     <div class="flex h-3/5 w-full flex-col">
       <i
-        class="material-symbols-rounded absolute top-0 z-10 m-2 max-w-fit cursor-pointer rounded-full p-2 text-onBackground transition-colors duration-200 ease-in-out hover:bg-secondaryContainer hover:text-onSecondaryContainer active:bg-[#ffd0b6]"
+        class="material-symbols-rounded absolute top-0 z-10 m-2 max-w-fit cursor-pointer rounded-full bg-secondaryContainer p-2 text-onSecondaryContainer transition-colors duration-200 ease-in-out hover:bg-[#ffd0b6] active:bg-[#E6BAA3]"
         @click="close"
       >
         close
@@ -109,7 +109,7 @@ const validityProduct = ref(validity)
       ></div>
     </div>
     <section
-      class="absolute bottom-0 z-10 flex h-2/4 w-full flex-col gap-4 rounded-t-3xl bg-surface p-4"
+      class="absolute bottom-0 z-10 flex h-2/4 w-full flex-col gap-4 overflow-x-auto rounded-t-3xl bg-surface p-4"
     >
       <EditModal
         v-if="editModal"
