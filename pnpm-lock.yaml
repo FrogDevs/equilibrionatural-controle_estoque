@@ -13,8 +13,10 @@ specifiers:
   '@pnpm/eslint-config': ^1.0.1
   '@types/node': '*'
   '@vitejs/plugin-vue': ^3.2.0
+  '@vuepic/vue-datepicker': ^3.5.3
   autoprefixer: ^10.4.13
   compress.js: ^1.2.2
+  date-fns: ^2.29.3
   eslint: ^8.27.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.2.1
@@ -45,7 +47,9 @@ dependencies:
   '@capacitor/status-bar': 4.0.1_@capacitor+core@4.4.0
   '@fontsource/roboto': 4.5.8
   '@types/node': 18.11.9
+  '@vuepic/vue-datepicker': 3.5.3_vue@3.2.45
   compress.js: 1.2.2
+  date-fns: 2.29.3
   firebase: 9.13.0
   material-symbols: 0.2.15
   pinia: 2.0.23_mgnvym7yiazkylwwogi5r767ue
@@ -1394,6 +1398,16 @@ packages:
   /@vue/shared/3.2.45:
     resolution: {integrity: sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg==}
 
+  /@vuepic/vue-datepicker/3.5.3_vue@3.2.45:
+    resolution: {integrity: sha512-tyqnRDuqj02decCwzwGP7ht0erc33Ktcm8zyEx90C7Vt5Y4roq2CV21ovzmdRluUW8p/1abLcL7ZSqedWtAzKw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      vue: '>=3.2.0'
+    dependencies:
+      date-fns: 2.29.3
+      vue: 3.2.45
+    dev: false
+
   /@xml-tools/parser/1.0.11:
     resolution: {integrity: sha512-aKqQ077XnR+oQtHJlrAflaZaL7qZsulWc/i/ZEooar5JiWj1eLt0+Wg28cpa+XLney107wXqneC+oG1IZvxkTA==}
     dependencies:
@@ -2086,6 +2100,11 @@ packages:
   /dargs/7.0.0:
     resolution: {integrity: sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==}
     engines: {node: '>=8'}
+    dev: false
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
     dev: false
 
   /dateformat/3.0.3:
