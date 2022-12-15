@@ -171,7 +171,7 @@ Veja outro projeto relacionado
 
 ## Licença
 
-[MIT](LICENSE)
+[MIT](LICENSE)<br><br>
 
 <p align="right">“Você deve ter paixão por uma ideia ou problema que quer resolver. Se você não tem paixão suficiente desde o começo, não vai aguentar a pressão.”</p>
 <p align="right">Steve Jobs</p>
