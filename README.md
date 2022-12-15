@@ -24,7 +24,7 @@ Projeto feito pela equipe [FrogDev's](https://github.com/FrogDevs) para o Trabal
 
 Deixamos essa dedicatória a empresa Equilíbrio Natural a qual confiou em nossas habilidades para divulgação, gestão e automação de seu empreendimento. E a ETEC Jardim Ângela por nos proporcionar a busca pelo conhecimento necessário na realização desse trabalho.
 
-Reconhecimentos:
+Atribuições:
 
 - [Material Desing 3](https://m3.material.io/)
 - [Material Desing 3 - Figma](https://www.figma.com/community/file/1035203688168086460)
@@ -39,12 +39,6 @@ Reconhecimentos:
 - [Unsplash: 4° Categoria](https://unsplash.com/photos/wbw5RjQXxyg)
 - [Unsplash: 5° Categoria](https://unsplash.com/photos/wbw5RjQXxyg)
 
-## Tech Stack
-
-**Client:** [Vite](https://vitejs.dev), [VueJs](https://vuejs.org), [TailwindCSS](https://tailwindcss.com), [Vue Router](https://router.vuejs.org), [Pinia](https://pinia.vuejs.org), [Capacitor](https://capacitorjs.com) e [Electron](https://capacitor-community.github.io/electron)
-
-**Server:** NodeJs e [Firebase](https://firebase.google.com)
-
 ## Recursos
 
 - ✨ Cards interativos
@@ -56,6 +50,12 @@ Reconhecimentos:
 - 📖 Registro no histórico de mudanças
 - 🕔 Prazo de validade automático
 - 😎 Multiplataforma: Windows, Linux e Android
+
+## Tech Stack
+
+**Client:** [Vite](https://vitejs.dev), [VueJs](https://vuejs.org), [TailwindCSS](https://tailwindcss.com), [Vue Router](https://router.vuejs.org), [Pinia](https://pinia.vuejs.org), [Capacitor](https://capacitorjs.com) e [Electron](https://capacitor-community.github.io/electron)
+
+**Server:** NodeJs e [Firebase](https://firebase.google.com)
 
 ## Lições aprendidas
 
