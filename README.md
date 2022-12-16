@@ -9,6 +9,8 @@
 [![MIT License](https://img.shields.io/github/license/FrogDevs/Equilibrio-Natural)](https://choosealicense.com/licenses/mit/)
 ![Logos](https://i.imgur.com/E5pg9Hj.png)
 
+[**>>> Read also in English**](en_readme.md)
+
 Sistema de gerenciamento de estoque para a empresa Equilíbrio Natural. Aplicação multiplataforma para o controle de 2 unidades físicas com opções importantes, como, cadastro de produtos, registro de histórico e prazo de validade automático.
 
 ## Capturas de tela
@@ -22,7 +24,7 @@ Projeto feito pela equipe [FrogDev's](https://github.com/FrogDevs) para o Trabal
 
 ## Agradecimentos
 
-Deixamos essa dedicatória a empresa Equilíbrio Natural a qual confiou em nossas habilidades para divulgação, gestão e automação de seu empreendimento. E a ETEC Jardim Ângela por nos proporcionar a busca pelo conhecimento necessário na realização desse trabalho.
+Deixamos essa dedicatória à empresa Equilíbrio Natural a qual confiou em nossas habilidades para divulgação, gestão e automação de seu empreendimento. E a ETEC Jardim  ngela por nos proporcionar a busca pelo conhecimento necessário na realização deste trabalho.
 
 Atribuições:
 
@@ -59,17 +61,17 @@ Atribuições:
 
 ## Lições aprendidas
 
-**Quais desafios foram enfrentados e como foram sobresaídos?**
+**Quais desafios foram enfrentados e como foram sobressaídos?**
 
-Com foco em garantir uma melhor experiência ao usuário optamos por usar **sistema de design unificado** e coeso. Com base em pesquisas, escolhemos o Material Desing da Google em sua terceira e nova versão denominada *Material You*. Com esse sistema de desing é possível criar produtos elegantes e utilizáveis. O Material Desing oferece uma rica biblíoteca de estilos e componentes, possuindo versões de desenvolvimento para Android, Flutter e Web. Porém até esse momento o suporte ao Material Web 3 é apenas planejado e como não existem biblíotecas que também ofereçam suporte, decidimos criar a nossa. Com o auxílio da [documentação oficial](https://m3.material.io/get-started), do [kit de desing no Figma](https://www.figma.com/community/file/1035203688168086460) e do framework [TailwindCSS](tailwindcss.com/) construímos toda a interface do sistema que possui 13 componentes e 9 páginas com base nesse sistema de desing.
+Com foco em garantir uma melhor experiência ao usuário optamos por usar **sistema de design unificado** e coeso. Com base em pesquisas, escolhemos o Material Design da Google em sua terceira e nova versão denominada *Material You*. Com esse sistema de design é possível criar produtos elegantes e utilizáveis. O Material Design oferece uma rica biblioteca de estilos e componentes, possuindo versões de desenvolvimento para Android, Flutter e Web. Porém até esse momento o suporte ao Material Web 3 é apenas planejado e como não existem bibliotecas que também ofereçam suporte, decidimos criar a nossa. Com o auxílio da [documentação oficial](https://m3.material.io/get-started), do [kit de desing no Figma](https://www.figma.com/community/file/1035203688168086460) e do framework [TailwindCSS](tailwindcss.com/) construímos toda a interface do sistema que possui 13 componentes e 9 páginas com base nesse sistema de desing.
 
 De forma geral, sistemas precisam ser consistentes e ao mesmo tempo dinâmicos. Isso significa exibir as informações em lugares certos e permitir que essas informações se modifiquem continuamente. Em um controle de estoque onde novas informações são gravadas constantemente, não é diferente. Porém, não é viável criar páginas diferentes para cada loja, categoria e produto toda vez que um produto novo é cadastrado. A melhor escolha é usar páginas já definidas e permitir que as informações nessas páginas sejam dinâmicas para cada loja, categoria e produto. Para isso utilizamos **rotas**, cada rota navega para uma página, mas por estarmos usando páginas fixas, usamos rotas dinâmicas. Em uma rota dinâmica você especifica as informações usando parâmetros. Usamos o [Vue Router](https://router.vuejs.org) nesse processo.
 
-Salvar as imagens dos produtos era um desafio. A solução foi usar a Web API ```FileReader()```. Com essa API nativa de navegadores é possível extrair a URL da imagem. Usando essa URL conseguimos renderizar a imagem para o cliente. O empecilho é que imagens pesadas significam URL's maiores e URL' maiores significam maiores tempos de espera para renderizar as imagens, levando a um travamento no sistema até que a imagem seja finalizada. Há ainda outro problema, imagens maiores consomem mais espaço no banco de dados. Como resolvemos esses problemas? Simples, **comprimindo** as imagens! Comprimir imagens é o processo de diminuir a qualidade da foto sem que a mesma seja indistinguível. [CompressorJs](https://github.com/fengyuanchen/compressorjs) é uma biblíoteca que fornece uma solução fácil e leve para esse problema.
+Salvar as imagens dos produtos era um desafio. A solução foi usar a Web API ```FileReader()```. Com essa API nativa de navegadores é possível extrair a URL da imagem. Usando essa URL conseguimos renderizar a imagem para o cliente. O empecilho é que imagens pesadas significam URL's maiores e URL' maiores significam maiores tempos de espera para renderizar as imagens, levando a um travamento no sistema até que a imagem seja finalizada. Há ainda outro problema, imagens maiores consomem mais espaço no banco de dados. Como resolvemos esses problemas? Simples, **comprimido** as imagens! Comprimir imagens é o processo de diminuir a qualidade da foto sem que a mesma seja indistinguível. [CompressorJs](https://github.com/fengyuanchen/compressorjs) é uma biblíoteca que fornece uma solução fácil e leve para esse problema.
 
 O **prazo de validade** dos produtos é calculado de forma **automática**. Para isso usamos uma lógica que consulta o dia atual e subtrai do dia de vencimento, resultando em quantos dias faltam para o produto vencer. O dia de vencimento é obtido através da data selecionada no calendário [Vue datepicker](https://vue3datepicker.com/). Com esses valores, o sistema **notifica** o usuário com os produtos que estão próximos de seus vencimentos.
 
-Para uma maior **segurança** sobre o que ocorre, o sistema possui um **histórico de mudanças**. Cada mudança é registrada o que também permite ao usuário ter conhecimento sobre os valores dos produtos no estoque. O histórico exibe a última ação feita no produto, tais como: Registrado, editado ou excluído, a data e o horário que essa ação foi realizada e outras informações. O preço total do produto é calculado com base na quantidade x preço. E o preço total em estoque é a soma do preço total de todos os produtos.
+Para uma maior **segurança** sobre o que ocorre, o sistema possui um **histórico de mudanças**. Cada mudança é registrada, o que também permite ao usuário ter conhecimento sobre os valores dos produtos no estoque. O histórico exibe a última ação feita no produto, tais como: Registrado, editado ou excluído, a data e o horário que essa ação foi realizada e outras informações. O preço total do produto é calculado com base na quantidade x preço. E o preço total em estoque é a soma do preço total de todos os produtos.
 
 Para que o usuário acesse o estoque com privilégios de administrador ele precisa inserir uma chave de acesso. A chave de acesso está no banco dados online e é carregada no sistema para a confirmação de entrada quando o usuário está conectado a internet. Contudo há um impasse, carregar a chave de maneira explicita possibilita que qualquer um tenha acesso ao sistema. Por isso essa chave é carregada de maneira criptografada, ou seja, de maneira cifrada e só é decifrada para a confirmação da senha. Dessa forma garantimos que o acesso ao **sistema seja seguro**. Usamos a [SimpleCrypto](https://simplecrypto.js.org/) que simplifica esse processo.
 
@@ -77,11 +79,11 @@ Para que o usuário acesse o estoque com privilégios de administrador ele preci
 
 **Que otimizações foram feitas no código?**
 
-O gerenciador de pacótes **Pnpm** foi escolhido para o projeto por oferecer *cold e hot cache*. Pnpm é 3x mais rápido e eficiente do que o Npm e mais rápido do que o Yarn. Lidar com inúmeras biblíotecas e módulos foi uma tarefa mais fácil e segura com essa ferramenta.
+O gerenciador de pacotes **Pnpm** foi escolhido para o projeto por oferecer *cold e hot cache*. Pnpm é 3x mais rápido e eficiente do que o Npm e mais rápido do que o Yarn. Lidar com inúmeras bibliotecas e módulos foi uma tarefa mais fácil e segura com essa ferramenta.
 
-**Vite** é uma ferramenta com a utilidade de cuidar do bundle da aplicação. Fornece melhores técnicas de otmizações, resultando em uma maior performance na aplicação tanto em forma de desenvolvimento quanto de produção para o usuário final.
+**Vite** é uma ferramenta com a utilidade de cuidar do bundle da aplicação. Fornece melhores técnicas de otimização, resultando em uma maior performance na aplicação tanto em forma de desenvolvimento quanto de produção para o usuário final.
 
-O sistema foi construido usando o conceito de *Mobile First*. Esse conceito se refere a criação qualquer projeto que prioriza a experiência em dispositivos móveis, enquanto são feitas adaptações para resoluções maiores. Isso permite que o sitema seja completamente responsivo e adaptável a outras resoluções de telas, permitindo que o cliente tenha opção de usar a versão mobile e/ou a versão desktop.
+O sistema foi construído usando o conceito de *Mobile First*. Esse conceito se refere a criação de qualquer projeto que prioriza a experiência em dispositivos móveis, enquanto são feitas adaptações para resoluções maiores. Isso permite que o sistema seja completamente responsivo e adaptável a outras resoluções de telas, permitindo que o cliente tenha opção de usar a versão mobile e/ou a versão desktop.
 
 Além de mudanças na resolução, cada categoria no App mobile possui uma imagem que a identifica. Para acelerar o tempo que essas imagens são renderizadas na tela sem que o App fique congestionado o formato moderno de imagem *.AVIF* foi usado. AVIF permite que o tamanho da imagem seja reduzido sem que a mesma perca qualidade, o que por sua vez acelera o tempo de carregamento para milésimos de segundos.
 
