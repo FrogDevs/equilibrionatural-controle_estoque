@@ -1,5 +1,5 @@
 
-# Equilíbrio Natural - Controle de Estoque
+# Equilíbrio Natural - Stock Control
 
 [![Languages](https://img.shields.io/github/languages/count/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
 [![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
