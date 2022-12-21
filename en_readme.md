@@ -1,12 +1,12 @@
 
 # Equilíbrio Natural - Stock Control
 
-[![Languages](https://img.shields.io/github/languages/count/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![MIT License](https://img.shields.io/github/license/FrogDevs/Equilibrio-Natural)](https://choosealicense.com/licenses/mit/)
+[![Languages](https://img.shields.io/github/languages/count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![MIT License](https://img.shields.io/github/license/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://choosealicense.com/licenses/mit/)
 ![Logos](https://i.imgur.com/E5pg9Hj.png)
 
 Stock management system for the company Equilíbrio Natural. Multi-platform application for the control of 2 physical units with important options such as product registration, history record and automatic expiration date.
@@ -22,7 +22,7 @@ Project made by the [FrogDev's] team (https://github.com/FrogDevs) for the Cours
 
 ## Thanks to
 
-We leave this dedication to the company Equilíbrio Natural (Natural Balance), which trusted in our skills for dissemination, management, and automation of their enterprise. And to ETEC Jardim ngela for providing us the search for the knowledge necessary for the realization of this work.
+We leave this dedication to the company Equilíbrio Natural (Natural Balance), which trusted in our skills for dissemination, management, and automation of their enterprise. And to ETEC Jardim Ângela for providing us the search for the knowledge necessary for the realization of this work.
 Atribuições:
 
 - [Material Desing 3](https://m3.material.io/)
