@@ -23,7 +23,8 @@ Project made by the [FrogDev's] team (https://github.com/FrogDevs) for the Cours
 ## Thanks to
 
 We leave this dedication to the company Equilíbrio Natural (Natural Balance), which trusted in our skills for dissemination, management, and automation of their enterprise. And to ETEC Jardim Ângela for providing us the search for the knowledge necessary for the realization of this work.
-Atribuições:
+
+Assignments:
 
 - [Material Desing 3](https://m3.material.io/)
 - [Material Desing 3 - Figma](https://www.figma.com/community/file/1035203688168086460)
