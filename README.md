@@ -1,12 +1,12 @@
 
 # Equilíbrio Natural - Controle de Estoque
 
-[![Languages](https://img.shields.io/github/languages/count/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/Equilibrio-Natural)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![MIT License](https://img.shields.io/github/license/FrogDevs/Equilibrio-Natural)](https://choosealicense.com/licenses/mit/)
+[![Languages](https://img.shields.io/github/languages/count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![MIT License](https://img.shields.io/github/license/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://choosealicense.com/licenses/mit/)
 ![Logos](https://i.imgur.com/E5pg9Hj.png)
 
 [**>>> Read also in English**](en_readme.md)
@@ -24,7 +24,7 @@ Projeto feito pela equipe [FrogDev's](https://github.com/FrogDevs) para o Trabal
 
 ## Agradecimentos
 
-Deixamos essa dedicatória à empresa Equilíbrio Natural a qual confiou em nossas habilidades para divulgação, gestão e automação de seu empreendimento. E a ETEC Jardim  ngela por nos proporcionar a busca pelo conhecimento necessário na realização deste trabalho.
+Deixamos essa dedicatória à empresa Equilíbrio Natural a qual confiou em nossas habilidades para divulgação, gestão e automação de seu empreendimento. E a ETEC Jardim Ângela por nos proporcionar a busca pelo conhecimento necessário na realização deste trabalho.
 
 Atribuições:
 
