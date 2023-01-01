@@ -170,7 +170,7 @@ Veja outro projeto relacionado
 ## Membros responsáveis
 
 - **UX**: [@helenacosta](https://github.com/ahaiiro) e [@joaooliveira](https://github.com/Jokxis)
-- **Full Stack e UI**: [@viniciuscosta](https://vinicius-costa-links.vercel.app)
+- **UI e Full Stack**: [@viniciuscosta](https://vinicius-costa-links.vercel.app)
 
 ## Licença
 
