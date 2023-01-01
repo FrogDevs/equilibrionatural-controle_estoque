@@ -168,7 +168,7 @@ See another related project
 ## Responsible Members
 
 - **UX**: [@helenacosta](https://github.com/ahaiiro) and [@joaooliveira](https://github.com/Jokxis)
-- **Full Stack and UI**: [@viniciuscosta](https://vinicius-costa-links.vercel.app)
+- **UI and Stack**: [@viniciuscosta](https://vinicius-costa-links.vercel.app)
 
 ## License
 
