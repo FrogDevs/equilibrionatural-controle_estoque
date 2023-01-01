@@ -167,9 +167,10 @@ Veja outro projeto relacionado
 
 - [Equilíbrio Natural - Website](https://github.com/FrogDevs/Equilibrio-Natural-Website)
 
-## Membro responsável
+## Membros responsáveis
 
-- [@viniciuscosta](https://vinicius-costa-links.vercel.app)
+- **UX**: [@helenacosta](https://github.com/ahaiiro) e [@joaooliveira](https://github.com/Jokxis)
+- **Full Stack e UI**: [@viniciuscosta](https://vinicius-costa-links.vercel.app)
 
 ## Licença
 
