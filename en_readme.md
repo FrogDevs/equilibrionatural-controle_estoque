@@ -172,7 +172,7 @@ See another related project
 
 ## License
 
-[MIT](LICENSE)<br><br>
+- [MIT](LICENSE)<br><br>
 
-<p align="right">“You must have passion for an idea or problem you want to solve. If you don't have enough passion from the beginning, you won't handle the pressure.”</p>
+<p align="right">“You have to be burning with an idea, or a problem, or a wrong that you want to right. If you’re not passionate enough from the start, you’ll never stick it out.”</p>
 <p align="right">Steve Jobs</p>
