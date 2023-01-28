@@ -1,11 +1,10 @@
-
 # Equilíbrio Natural - Stock Control
 
-[![Languages](https://img.shields.io/github/languages/count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![Languages](https://img.shields.io/github/languages/count/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
 [![MIT License](https://img.shields.io/github/license/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://choosealicense.com/licenses/mit/)
 ![Logos](https://i.imgur.com/E5pg9Hj.png)
 
@@ -18,13 +17,25 @@ Stock management system for the company Equilíbrio Natural. Multi-platform appl
 
 ## Appendix
 
-Project made by the [Frogdevs](https://github.com/FrogDevs) team for the Course Conclusion Work of Etec Jardim Ângela.
+* [Thanks to](#thanks-to)
+* [Assignments](#assignments)
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Lessons Learned](#lessons-learned)
+* [Optimizations](#optimizations)
+* [Demo](#demo)
+  * [System Requirements](#system-requirements)
+* [Run locally](#run-locally)
+* [Used by](#used-by)
+* [Related](#related)
+* [Responsible Members](#responsible-members)
+* [License](#license)
 
 ## Thanks to
 
 We leave this dedication to the company Equilíbrio Natural (Natural Balance), which trusted in our skills for dissemination, management, and automation of their enterprise. And to ETEC Jardim Ângela for providing us the search for the knowledge necessary for the realization of this work.
 
-Assignments:
+## Assignments:
 
 - [Material Desing 3](https://m3.material.io/)
 - [Material Desing 3 - Figma](https://www.figma.com/community/file/1035203688168086460)
@@ -53,9 +64,9 @@ Assignments:
 
 ## Tech Stack
 
-**Client:** [Vite](https://vitejs.dev), [VueJs](https://vuejs.org), [TailwindCSS](https://tailwindcss.com), [Vue Router](https://router.vuejs.org), [Pinia](https://pinia.vuejs.org), [Capacitor](https://capacitorjs.com) and [Electron](https://capacitor-community.github.io/electron)
+**Front-end:** [Vite](https://vitejs.dev), [VueJs](https://vuejs.org), [TailwindCSS](https://tailwindcss.com), [Capacitor](https://capacitorjs.com) e [Electron](https://capacitor-community.github.io/electron)
 
-**Server:** NodeJs and [Firebase](https://firebase.google.com)
+**Back-end:** [Vue Router](https://router.vuejs.org), [Pinia](https://pinia.vuejs.org) e [Firebase](https://firebase.google.com)
 
 ## Lessons Learned
 
