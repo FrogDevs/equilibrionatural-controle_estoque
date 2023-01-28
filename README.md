@@ -1,11 +1,10 @@
-
 # Equilíbrio Natural - Controle de Estoque
 
-[![Languages](https://img.shields.io/github/languages/count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
-[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://github.com/FrogDevs/Equilibrio-Natural-ControleEstoque)
+[![Languages](https://img.shields.io/github/languages/count/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![TopLanguage](https://img.shields.io/github/languages/top/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![Files](https://img.shields.io/github/directory-file-count/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![RepoSize](https://img.shields.io/github/repo-size/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
+[![LinesCode](https://img.shields.io/tokei/lines/github/FrogDevs/equilibrionatural-controle_estoque)](https://github.com/FrogDevs/equilibrionatural-controle_estoque)
 [![MIT License](https://img.shields.io/github/license/FrogDevs/Equilibrio-Natural-ControleEstoque)](https://choosealicense.com/licenses/mit/)
 ![Logos](https://i.imgur.com/E5pg9Hj.png)
 
@@ -22,11 +21,21 @@ Sistema de gerenciamento de estoque para a empresa Equilíbrio Natural. Aplicaç
 
 Projeto feito pela equipe [Frogdevs](https://github.com/FrogDevs) para o Trabalho de Conclusão de Curso da Etec Jardim Ângela.
 
+* [Agradecimentos](#agradecimentos)
+* [Atribuições](#atribuições)
+* [Recursos](#recursos)
+* [Tech Stack](#tech-stack)
+* [Lições Aprendidas](#lições-aprendidas)
+* [Otimizações](#otimizações)
+* [Demo](#demo)
+* [Relacionados](#relacionados)
+* [Licença](#licença)
+
 ## Agradecimentos
 
 Deixamos essa dedicatória à empresa Equilíbrio Natural a qual confiou em nossas habilidades para divulgação, gestão e automação de seu empreendimento. E a ETEC Jardim Ângela por nos proporcionar a busca pelo conhecimento necessário na realização deste trabalho.
 
-Atribuições:
+## Atribuições
 
 - [Material Desing 3](https://m3.material.io/)
 - [Material Desing 3 - Figma](https://www.figma.com/community/file/1035203688168086460)
@@ -55,9 +64,9 @@ Atribuições:
 
 ## Tech Stack
 
-**Client:** [Vite](https://vitejs.dev), [VueJs](https://vuejs.org), [TailwindCSS](https://tailwindcss.com), [Vue Router](https://router.vuejs.org), [Pinia](https://pinia.vuejs.org), [Capacitor](https://capacitorjs.com) e [Electron](https://capacitor-community.github.io/electron)
+**Front-end:** [Vite](https://vitejs.dev), [VueJs](https://vuejs.org), [TailwindCSS](https://tailwindcss.com), [Capacitor](https://capacitorjs.com) e [Electron](https://capacitor-community.github.io/electron)
 
-**Server:** NodeJs e [Firebase](https://firebase.google.com)
+**Back-end:** [Vue Router](https://router.vuejs.org), [Pinia](https://pinia.vuejs.org) e [Firebase](https://firebase.google.com)
 
 ## Lições aprendidas
 
