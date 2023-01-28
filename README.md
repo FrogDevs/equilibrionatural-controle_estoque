@@ -19,8 +19,6 @@ Sistema de gerenciamento de estoque para a empresa Equilíbrio Natural. Aplicaç
 
 ## Apêndice
 
-Projeto feito pela equipe [Frogdevs](https://github.com/FrogDevs) para o Trabalho de Conclusão de Curso da Etec Jardim Ângela.
-
 * [Agradecimentos](#agradecimentos)
 * [Atribuições](#atribuições)
 * [Recursos](#recursos)
@@ -28,7 +26,11 @@ Projeto feito pela equipe [Frogdevs](https://github.com/FrogDevs) para o Trabalh
 * [Lições Aprendidas](#lições-aprendidas)
 * [Otimizações](#otimizações)
 * [Demo](#demo)
+  * [Requisitos de sistema](#requisitos-de-sistema)
+* [Rodar localmente](#rodar-localmente)
+* [Usado por](#usado-por)
 * [Relacionados](#relacionados)
+* [Membros responsáveis](#membros-responsáveis)
 * [Licença](#licença)
 
 ## Agradecimentos
