@@ -18,7 +18,7 @@ Stock management system for the company Equilíbrio Natural. Multi-platform appl
 
 ## Appendix
 
-Project made by the [FrogDev's](https://github.com/FrogDevs) team for the Course Conclusion Work of Etec Jardim Ângela.
+Project made by the [Frogdevs](https://github.com/FrogDevs) team for the Course Conclusion Work of Etec Jardim Ângela.
 
 ## Thanks to
 
